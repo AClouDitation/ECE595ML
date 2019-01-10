@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+
+% ------
+% LAYOUT
+% ------
+\textwidth 165mm %
+\textheight 230mm %
+\oddsidemargin 0mm %
+\evensidemargin 0mm %
+\topmargin -15mm %
+\parindent= 10mm
+
+\usepackage[dvips]{graphicx}
+\usepackage{multirow,multicol}
+\usepackage[table]{xcolor}
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
+\usepackage{subfigure}
+
+\graphicspath{{./pix/}} % put all your figures here.
+
+\begin{document}
+\begin{center}
+\Large{\textbf{ECE 595: Homework 1}}
+
+Yi Qiao, Class ID
+
+(Spring 2019)
+\end{center}
+
+
+\subsection*{Exercise 2}
+\noindent\textbf{(a)} For a guassian distribution:
+
+\begin{equation} \label{eq1}
+\begin{split}
+E[x] &=\int_{-\infty}^{\infty}x\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx \\
+	&=\int_{-\infty}^{\infty}(x+\mu)\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{x^2}{2\sigma^2}}dx \\
+	&=\int_{-\infty}^{\infty}x\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{x^2}{2\sigma^2}}dx+\int_{-\infty}^{\infty}\mu\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{x^2}{2\sigma^2}}dx \\
+	&=0+\mu\frac{1}{\sqrt{2\pi\sigma^2}}\times\sigma\sqrt{2\pi} \\
+	&=\mu
+\end{split}
+\end{equation}
+\begin{equation} \label{eq2}
+\begin{split}
+Var[x] &=\int_{-\infty}^{\infty}(x-\mu)^2\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx \\
+	&=\frac{1}{\sqrt{2\pi\sigma^2}}\int_{-\infty}^{\infty}x^2e^{-\frac{x^2}{2\sigma^2}}dx \\
+	&let\ y = \frac{x}{\sigma},\ then\ dy=\frac{1}{\sigma}dx \\
+	&=\frac{\sigma^3}{\sqrt{2\pi\sigma^2}}\int_{-\infty}^{\infty}y^2e^{-\frac{y^2}{2}}dy \\
+	&=\sigma^2
+\end{split}
+\end{equation}
+
+\noindent\textbf{(b)} Data generated and plotted as follows.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\linewidth]{exercise2_b}
+\caption{Gussian random data.}
+\label{fig: figure 1}
+\end{figure}
+\pagebreak
+
+\noindent\textbf{(c)} \\
+\textbf{(i)..(iv)} plots shown below
+
+\begin{figure}[h]
+\centering
+\subfigure[4 bins]{
+\includegraphics[width=0.47\linewidth]{exercise2_c1}
+}
+\subfigure[1000 bins]{
+\includegraphics[width=0.47\linewidth]{exercise2_c2}
+}
+\end{figure}
+
+\noindent\textbf{(v)}
+TODO: fill this
+\subsection*{Problem 2}
+Type your second problem here.
+
+
+\subsection*{Problem 3}
+Type your third problem here.
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
