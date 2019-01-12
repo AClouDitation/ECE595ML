@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.22)  12 JAN 2019 12:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.22)  12 JAN 2019 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -393,7 +393,7 @@ pdfTeX warning: pdflatex (file ./pix/exercise2_d1.pdf): PDF inclusion: multiple
 pdfTeX warning: pdflatex (file ./pix/exercise2_d2.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
 >] [3]
-<./pix/exercise3_a.pdf, id=205, 433.62pt x 650.43pt>
+<./pix/exercise3_a.pdf, id=196, 433.62pt x 650.43pt>
 File: ./pix/exercise3_a.pdf Graphic file (type pdf)
 <use ./pix/exercise3_a.pdf>
 Package pdftex.def Info: ./pix/exercise3_a.pdf  used on input line 125.
@@ -426,9 +426,9 @@ pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on hw01.pdf (5 pages, 247417 bytes).
+Output written on hw01.pdf (5 pages, 243731 bytes).
 PDF statistics:
- 280 PDF objects out of 1000 (max. 8388607)
+ 271 PDF objects out of 1000 (max. 8388607)
  93 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
