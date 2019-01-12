@@ -20,6 +20,7 @@ if __name__ == '__main__':
     ax.set_ylim([-3,3])
     ax.set_xlabel('sample index', fontsize = 20)
     ax.set_ylabel('sample value (x)', fontsize = 20)
+    ax.grid(True)
     ax.plot(X,'r.')
     final_adjust('../pix/exercise2_b.pdf')
 
@@ -32,6 +33,7 @@ if __name__ == '__main__':
     mu, sigma = norm.fit(X)
     x_ticks = np.linspace(-5, 5, 100)
     pdf = norm.pdf(x_ticks, mu, sigma)
+    ax.grid(True)
     ax.plot(x_ticks, pdf, 'k', linewidth=2)
     ax.set_title("Fit value: mu = %.2f, sigma = %.2f"%(mu, sigma))
     ax.set_xlabel('sample value', fontsize = 20)
@@ -44,6 +46,7 @@ if __name__ == '__main__':
     mu, sigma = norm.fit(X)
     x_ticks = np.linspace(-5, 5, 100)
     pdf = norm.pdf(x_ticks, mu, sigma)
+    ax.grid(True)
     ax.plot(x_ticks, pdf, 'k', linewidth=2)
     ax.set_title("Fit value: mu = %.2f, sigma = %.2f"%(mu, sigma))
     ax.set_xlabel('sample value', fontsize = 20)
@@ -51,9 +54,30 @@ if __name__ == '__main__':
     final_adjust('../pix/exercise2_c2.pdf')
     
     # (d)
-    
-    for m in range(1,1001):
+    n = 1000
+    J_h = np.zeros(200)
+    for m in range(1,201):
         h = (max(X) - min(X))/m
-        #J = 2/(h*())
+        p = np.array([((X >= min(X) + h*x) & (X < min(X) + h*(x+1))).sum()/n for x in range(m)])
+        J_h[m-1] = 2 / h / (n-1) - (n+1) / h /(n-1) * sum(p**2)
 
+    fig, ax = newfig()
+    ax.grid(True)
+    ax.plot([x for x in range(1,201)], J_h)
+    ax.set_xlabel('# of bins', fontsize = 20)
+    ax.set_ylabel('CVER', fontsize = 20)
+    final_adjust('../pix/exercise2_d1.pdf')
 
+    m_star = J_h.argmin()
+    
+    fig, ax = newfig()
+    ax.hist(X, m_star, density=True)
+    mu, sigma = norm.fit(X)
+    x_ticks = np.linspace(-5, 5, 100)
+    pdf = norm.pdf(x_ticks, mu, sigma)
+    ax.grid(True)
+    ax.plot(x_ticks, pdf, 'k', linewidth=2)
+    ax.set_title("Fit value: mu = %.2f, sigma = %.2f"%(mu, sigma))
+    ax.set_xlabel('sample value', fontsize = 20)
+    ax.set_ylabel('frequency', fontsize = 20)
+    final_adjust('../pix/exercise2_d2.pdf')
