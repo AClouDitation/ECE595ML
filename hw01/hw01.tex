@@ -65,6 +65,7 @@ Var[x] &=\int_{-\infty}^{\infty}(x-\mu)^2\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{
 \pagebreak
 
 \noindent\textbf{(c)} \\
+
 \textbf{(i)..(iv)} plots shown below
 
 \begin{figure}[h]
@@ -77,7 +78,7 @@ Var[x] &=\int_{-\infty}^{\infty}(x-\mu)^2\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{
 }
 \end{figure}
 
-\noindent\textbf{(v)}
+\textbf{(v)}
 TODO: fill this\\
 
 \noindent\textbf{(d)}
@@ -93,13 +94,14 @@ plots shown below
 \includegraphics[width=0.47\linewidth]{exercise2_d2}
 }
 \end{figure}
+\pagebreak
 
 \subsection*{Exercise 3}
 
 \noindent\textbf{(a)}
 $$f_\textbf{X}(\textbf{x})=\frac{1}{\sqrt{2\pi^2|\pmb{\Sigma}|}}exp\{-\frac{1}{2}(\textbf{x}-\pmb{\mu})^T\pmb{\Sigma}^{-1}(\textbf{x}-\pmb{\mu})\}$$
 
-\noindent\textbf{(i)}
+\textbf{(i)}
 plug in\\
 
 \begin{center}
@@ -116,27 +118,117 @@ f_{\begin{bmatrix} X_1 \\ X_2 \end{bmatrix}}\left(\begin{bmatrix} x_1 \\ x_2 \en
 &=\frac{1}{\pi\sqrt{6}}exp\left\{-\frac{1}{3}\left((x_1-2)^2-(x_1-2)(x_2-6)+(x_2-6)^2\right)\right\}\\
 \end{split}
 \end{equation}
-\pagebreak
 
-\noindent\textbf{(ii)}
+\textbf{(ii)}
 plot shown below
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.5\linewidth]{exercise3_a}
-\caption{Gussian random data.}
+\includegraphics[width=0.45\linewidth]{exercise3_a}
+\caption{Gussian random data}
 \label{fig: figure 1}
 \end{figure}
 \pagebreak
+
+\noindent\textbf{(b)}\\
+
+\textbf{(i)}\\
+
+To prove: $\pmb{\mu}_\textbf{Y}=b$
+\begin{equation} \label{eq3}
+\begin{split}
+\pmb{\mu}_\textbf{Y}&=\mathbb{E}[\textbf{Y}]=\mathbb{E}[\textbf{A}\textbf{X}+\textbf{b}]=\mathbb{E}[\textbf{A}\textbf{X}]+\textbf{b} \\
+&=\textbf{A}\mathbb{E}[\textbf{X}]+\textbf{b}\\
+&since\ \textbf{X}\in \mathcal{N}(\textbf{0},\textbf{I}),\ \mathbb{E}[\textbf{X}]=\textbf{0}\\
+&=\textbf{A}\textbf{0}+\textbf{b}\\
+&=\textbf{b}
+\end{split}
+\end{equation}
+
+To prove: $\pmb{\Sigma}_\textbf{Y}=\textbf{A}\textbf{A}^T$
+\begin{equation} \label{eq4}
+\begin{split}
+\pmb{\Sigma}_\textbf{Y}&=\mathbb{E}[(\textbf{Y}-\pmb{\mu}_\textbf{Y})(\textbf{Y}-\pmb{\mu}_\textbf{Y})^T]\\
+&=\mathbb{E}[\textbf{AX}\times\textbf{X}^T\textbf{A}^T]\\
+&=\textbf{A}\mathbb{E}[\textbf{XX}^T]\textbf{A}^T\\
+&=\textbf{A}(\textbf{I}+\textbf{0})\textbf{A}^T\\
+&=\textbf{AA}^T
+\end{split}
+\end{equation}
+
+\textbf{(ii)}
+To prove: $\pmb{\Sigma}_\textbf{Y}$ is symmetric and positive semi-definite\\
+\begin{equation} \label{eq5}
+\begin{split}
+\pmb{\Sigma}_{\textbf{Y}ij}&=\Sigma_{x=1}^n\textbf{A}_{ix}\textbf{A}^T_{xj}\\
+&=\Sigma_{x=1}^n\textbf{A}_{jx}\textbf{A}_{xi}^T\\
+&=\pmb{\Sigma}_{\textbf{Y}ji}\\
+&thus\ symmetric \\
+\textbf{x}^T\pmb{\Sigma}_\textbf{Y}\textbf{x}&=\textbf{x}^T\textbf{AA}^T\textbf{x}\\
+let\ \textbf{y}=\textbf{x}^T\textbf{A}\\
+&=\textbf{yy}^T\\
+&=\|\textbf{y}\|^2 \ge 0\\
+&thus\ positive\ semi-definite
+\end{split}
+\end{equation}
+
+\textbf{(iii)}
+$$Null(\textbf{A}) = \textbf{0}$$
+
+\textbf{(iv)}
+By inspection,
+$$b=\pmb{\mu}_\textbf{Y}=\begin{bmatrix}2\\6\end{bmatrix}$$
+
+By Cholesky decomposition,
+$$\pmb{\Sigma}_\textbf{Y}=\textbf{A}\textbf{A}^T$$
+$$\textbf{A}=\begin{bmatrix}
+\sqrt{2}	&0\\
+\frac{\sqrt{2}}{2}	&\frac{\sqrt{6}}{2}
+\end{bmatrix}$$
+\pagebreak
+\noindent\textbf{(c)}\\
+TODO: write this
+\pagebreak
 \subsection*{Exercise 4}
-Type your third problem here.
+\noindent\textbf{(a)}\\
+\noindent\textbf{(b)}\\
 
+\textbf{(i)}
+For a invertible $n\times n$ matrix \textbf{A}\\
+\begin{equation} \label{eq6}
+\begin{split}
+\textbf{A}&=\textbf{PDP}\\
+\textbf{A}^{-1}&=(\textbf{PDP}^{-1})^{-1}\\
+&=\textbf{P}^{-1}\textbf{D}^{-1}\textbf{P}\\
+\end{split}
+\end{equation}
 
+Since A is positive definite, $\lambda_i > 0\ for\ 1\le i\le n$, $\textbf{D}$ is invertible.\\
 
+Thus \textbf{A} is also invertible.\\
 
+\textbf{(ii)}
+TODO: write this\\
 
+\textbf{(iii)}
+If a matrix is invertible while positive semi-definite, the matrix is positive definite.
 
+By definition of positive semi-definite, $\textbf{xAx}^T\ge 0$, and for a eigenvalue of $\textbf{A}$, $\lambda_i$, $\lambda_i\textbf{u}_i=\textbf{Au}_i$ 
 
+So, 
+\begin{equation} \label{eq7}
+\begin{split}
+\textbf{u}_i^T\textbf{A}\textbf{u}_i&=\lambda_i\\
+\lambda_i&\ge 0\\
+\end{split}
+\end{equation}
 
+If the matrix is invertible, it cannot have $\lambda_i = 0$.
+
+So, $\lambda_i>0$, thus $\textbf{xAx}^T>0$.
+
+The matrix \textbf{A} is positive definite.
+
+\noindent\textbf{(c)}
 
 
 
