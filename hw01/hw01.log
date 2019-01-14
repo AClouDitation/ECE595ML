@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.10)  12 JAN 2019 23:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.10)  13 JAN 2019 22:17
 entering extended mode
 **./hw01.tex
 (hw01.tex
@@ -270,6 +270,9 @@ subfigure.cfg")
 
 LaTeX Warning: Label `fig: figure 1' multiply defined.
 
+
+LaTeX Warning: Label `eq7' multiply defined.
+
 )
 \openout1 = `hw01.aux'.
 
@@ -478,6 +481,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 209--211
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 229--230
+
+ []
+
 [6] (hw01.aux)
 
 LaTeX Warning: There were multiply-defined labels.
@@ -513,7 +521,7 @@ Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Use
 rs/AClouDitation/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmsy8.pfb><C:/Users/AClouDitation/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hw01.pdf (6 pages, 283418 bytes).
+Output written on hw01.pdf (6 pages, 284950 bytes).
 PDF statistics:
  276 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

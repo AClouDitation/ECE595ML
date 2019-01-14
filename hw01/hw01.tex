@@ -226,11 +226,24 @@ If the matrix is invertible, it cannot have $\lambda_i = 0$.
 
 So, $\lambda_i>0$, thus $\textbf{xAx}^T>0$.
 
-The matrix \textbf{A} is positive definite.
+The matrix \textbf{A} is positive definite.\\
 
 \noindent\textbf{(c)}
+To prove: $(\exists \textbf{A}^\dagger)\ \textbf{AA}^\dagger \textbf{A} = \textbf{A}$
 
+\begin{equation} \label{eq7}
+\begin{split}
+\textbf{A}&=\textbf{U}\pmb{\Lambda}\textbf{U}^T\\
+\textbf{AA}^\dagger \textbf{A}&=\textbf{U}\pmb{\Lambda}\textbf{U}^T\textbf{A}^\dagger\textbf{U}\pmb{\Lambda}\textbf{U}^T\\
+&=\textbf{U}\pmb{\Lambda}\textbf{U}^T\\
+&simplify\\
+\textbf{U}^T\textbf{A}^\dagger\textbf{U}\pmb{\Lambda}&=\pmb{\Lambda}\pmb{\Lambda}^-\\
+\textbf{A}^\dagger&=\textbf{U}\pmb{\Lambda}^{-}\textbf{U}^T\\
+\end{split}
+\end{equation}
 
+Since \textbf{A} is symmetric, it is guaranteed that can be decompose,
+thus $\textbf{A}^\dagger$ exist.
 
 \end{document}
 
