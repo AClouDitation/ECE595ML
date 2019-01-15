@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+	\documentclass[11pt]{article}
 
 % ------
 % LAYOUT
@@ -148,7 +148,7 @@ To prove: $\pmb{\Sigma}_\textbf{Y}=\textbf{A}\textbf{A}^T$
 \begin{equation} \label{eq4}
 \begin{split}
 \pmb{\Sigma}_\textbf{Y}&=\mathbb{E}[(\textbf{Y}-\pmb{\mu}_\textbf{Y})(\textbf{Y}-\pmb{\mu}_\textbf{Y})^T]\\
-&=\mathbb{E}[\textbf{AX}\times\textbf{X}^T\textbf{A}^T]\\
+&=\mathbb{E}[\textbf{AX}\textbf{X}^T\textbf{A}^T]\\
 &=\textbf{A}\mathbb{E}[\textbf{XX}^T]\textbf{A}^T\\
 &=\textbf{A}(\textbf{I}+\textbf{0})\textbf{A}^T\\
 &=\textbf{AA}^T
@@ -206,16 +206,18 @@ $$\textbf{A}=\begin{bmatrix}
 
 \textbf{(iii)} From my favoriate python and numpy, for the data above:
 $$\pmb{\mu}_\textbf{Y}=\begin{bmatrix}
-2.019\\
-6.012
+2.003\\
+6.004
 \end{bmatrix}$$
 $$\pmb{\Sigma}_\textbf{Y}=\begin{bmatrix}
-2.515& 0.886\\
-0.886& 1.496
+2.017& 1.050\\
+1.050& 2.074
 \end{bmatrix}$$
 \pagebreak
 \subsection*{Exercise 4}
 \noindent\textbf{(a)}\\
+TODO: find out how to do this\\
+
 \noindent\textbf{(b)}\\
 
 \textbf{(i)}

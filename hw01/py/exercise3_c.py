@@ -15,23 +15,24 @@ if __name__ == '__main__':
 
     mean = (0,0)
     cov = [[1,0],[0,1]]
-    X = np.random.multivariate_normal(mean, cov, 5000)
-    print(X.shape)
+    X = np.random.multivariate_normal(mean, cov, 5000).T
     fig, ax = newfig()
-    ax.scatter(X[:,0],X[:,1])
+    ax.scatter(X[0,:],X[1,:])
     ax.grid(True)
     final_adjust('../pix/exercise3_d1.pdf')
 
 
-    X = X.dot(np.array([[2**(0.5), 0],[2**(0.5)/2, 6**(0.5)/2]]))
-    X[:,0] += 2
-    X[:,1] += 6
+    A = np.array([[2**(0.5), 0],[2**(0.5)/2, 6**(0.5)/2]])
+    
     print(X.shape)
+    X = A.dot(X)
+    X[0,:] += 2
+    X[1,:] += 6
     fig, ax = newfig()
-    ax.scatter(X[:,0],X[:,1])
+    ax.scatter(X[0,:],X[1,:])
     ax.grid(True)
     final_adjust('../pix/exercise3_d2.pdf')
 
-    print(np.mean(X[:,0]))
-    print(np.mean(X[:,1]))
-    print(np.cov(X.T))
+    print(np.mean(X[0,:]))
+    print(np.mean(X[1,:]))
+    print(np.cov(X))
