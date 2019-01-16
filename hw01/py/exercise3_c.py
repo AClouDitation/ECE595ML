@@ -19,7 +19,7 @@ if __name__ == '__main__':
     fig, ax = newfig()
     ax.scatter(X[0,:],X[1,:])
     ax.grid(True)
-    final_adjust('../pix/exercise3_d1.pdf')
+    final_adjust('../pix/exercise3_c1.pdf')
 
 
     A = np.array([[2**(0.5), 0],[2**(0.5)/2, 6**(0.5)/2]])
@@ -31,8 +31,14 @@ if __name__ == '__main__':
     fig, ax = newfig()
     ax.scatter(X[0,:],X[1,:])
     ax.grid(True)
-    final_adjust('../pix/exercise3_d2.pdf')
+    final_adjust('../pix/exercise3_c2.pdf')
 
     print(np.mean(X[0,:]))
     print(np.mean(X[1,:]))
     print(np.cov(X))
+
+    Sigma = np.array([[2,1],[1,2]])
+    w, v = np.linalg.eig(Sigma)
+    X = np.random.multivariate_normal(mean, cov, 5000).T
+    print(w, v)
+    print(w.T*v)

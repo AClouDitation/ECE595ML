@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.22)  15 JAN 2019 17:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.22)  15 JAN 2019 17:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -424,19 +424,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 189--190
 
  []
 
-<./pix/exercise3_d1.pdf, id=219, 650.43pt x 433.62pt>
-File: ./pix/exercise3_d1.pdf Graphic file (type pdf)
-<use ./pix/exercise3_d1.pdf>
-Package pdftex.def Info: ./pix/exercise3_d1.pdf  used on input line 194.
+<./pix/exercise3_c1.pdf, id=219, 650.43pt x 433.62pt>
+File: ./pix/exercise3_c1.pdf Graphic file (type pdf)
+<use ./pix/exercise3_c1.pdf>
+Package pdftex.def Info: ./pix/exercise3_c1.pdf  used on input line 194.
 (pdftex.def)             Requested size: 211.26027pt x 140.8388pt.
-<./pix/exercise3_d2.pdf, id=220, 650.43pt x 433.62pt>
-File: ./pix/exercise3_d2.pdf Graphic file (type pdf)
-<use ./pix/exercise3_d2.pdf>
-Package pdftex.def Info: ./pix/exercise3_d2.pdf  used on input line 202.
+<./pix/exercise3_c2.pdf, id=220, 650.43pt x 433.62pt>
+File: ./pix/exercise3_c2.pdf Graphic file (type pdf)
+<use ./pix/exercise3_c2.pdf>
+Package pdftex.def Info: ./pix/exercise3_c2.pdf  used on input line 202.
 (pdftex.def)             Requested size: 211.26027pt x 140.8388pt.
-[5 <./pix/exercise3_d1.pdf> <./pix/exercise3_d2.pdf
+[5 <./pix/exercise3_c1.pdf> <./pix/exercise3_c2.pdf
 
-pdfTeX warning: pdflatex (file ./pix/exercise3_d2.pdf): PDF inclusion: multiple
+pdfTeX warning: pdflatex (file ./pix/exercise3_c2.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
 >]
 Underfull \hbox (badness 10000) in paragraph at lines 218--220
@@ -502,7 +502,7 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hw01.pdf (6 pages, 426510 bytes).
+Output written on hw01.pdf (6 pages, 426107 bytes).
 PDF statistics:
  307 PDF objects out of 1000 (max. 8388607)
  109 compressed objects within 2 object streams
