@@ -216,7 +216,12 @@ $$\pmb{\Sigma}_\textbf{Y}=\begin{bmatrix}
 \pagebreak
 \subsection*{Exercise 4}
 \noindent\textbf{(a)}\\
-TODO: find out how to do this\\
+\begin{equation} \label{4.a}
+\begin{split}
+\left|\textbf{x}^T\textbf{Ay}\right|&=\left|\sum_{i}\sum_{j}a_{ij}x_iy_j\right|\\
+&=\left|\sum_ix_i\sum_ja_{ij}y_j\right|
+\end{split}
+\end{equation}
 
 \noindent\textbf{(b)}\\
 
@@ -235,7 +240,18 @@ Since A is positive definite, $\lambda_i > 0\ for\ 1\le i\le n$, $\textbf{D}$ is
 Thus \textbf{A} is also invertible.\\
 
 \textbf{(ii)}
-TODO: write this\\
+$$f\left(\begin{bmatrix}
+x1\\x2
+\end{bmatrix}\right) = x_1^2-x_2^2$$
+
+the Hessian of this function is\\
+
+$$\begin{bmatrix}
+2&0\\0&-2
+\end{bmatrix}
+$$
+
+which is invertible but not positive definite\\
 
 \textbf{(iii)}
 If a matrix is invertible while positive semi-definite, the matrix is positive definite.
@@ -259,7 +275,7 @@ The matrix \textbf{A} is positive definite.\\
 \noindent\textbf{(c)}
 To prove: $(\exists \textbf{A}^\dagger)\ \textbf{AA}^\dagger \textbf{A} = \textbf{A}$
 
-\begin{equation} \label{eq7}
+\begin{equation} \label{eq8}
 \begin{split}
 \textbf{A}&=\textbf{U}\pmb{\Lambda}\textbf{U}^T\\
 \textbf{AA}^\dagger \textbf{A}&=\textbf{U}\pmb{\Lambda}\textbf{U}^T\textbf{A}^\dagger\textbf{U}\pmb{\Lambda}\textbf{U}^T\\
