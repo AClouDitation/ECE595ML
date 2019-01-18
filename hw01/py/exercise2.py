@@ -13,7 +13,7 @@ def final_adjust(fn):
 
 if __name__ == '__main__':
 
-    # (b)   TODO: revise this
+    # (b)
     fig, ax = newfig()
     mu, sigma = 0, 1
     X = np.random.normal(mu, sigma, 1000)
