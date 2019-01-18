@@ -204,7 +204,7 @@ $$\textbf{A}=\begin{bmatrix}
 \label{fig: figure 3.3}
 \end{figure}
 
-\textbf{(iii)} From my favoriate python and numpy, for the data above:
+\textbf{(iii)} From my favorite python and numpy, for the data above:
 $$\pmb{\mu}_\textbf{Y}=\begin{bmatrix}
 2.003\\
 6.004
@@ -216,10 +216,17 @@ $$\pmb{\Sigma}_\textbf{Y}=\begin{bmatrix}
 \pagebreak
 \subsection*{Exercise 4}
 \noindent\textbf{(a)}\\
+\textbf{Proof}
 \begin{equation} \label{4.a}
 \begin{split}
 \left|\textbf{x}^T\textbf{Ay}\right|&=\left|\sum_{i}\sum_{j}a_{ij}x_iy_j\right|\\
-&=\left|\sum_ix_i\sum_ja_{ij}y_j\right|
+&\le\sum_i\sum_j\left|a_{ij}\right|\left|x_i\right|\left|y_j\right|\\
+&=\sum_i\sum_j(\left|a_{ij}\right|^\frac{1}{2})^2\left|x_i\right|\left|y_j\right|\\
+&by\ Cauchy\ Schwarz\\
+&\le\sqrt{\sum_i\sum_j\left|a_{ij}\right|\left|x_i\right|^2}\sqrt{\sum_i\sum_j\left|a_{ij}\right|\left|y_j\right|^2}\\
+&=\sqrt{\sum_i\left|x_i\right|^2\sum_j\left|a_{ij}\right|}\sqrt{\sum_j\left|y_j\right|^2\sum_i\left|a_{ij}\right|}\\
+&\le\sqrt{\sum_i\left|x_i\right|^2C}\sqrt{\sum_j\left|y_j\right|^2R}\\
+&=\sqrt{RC}||x||_2||y||_2\\
 \end{split}
 \end{equation}
 
@@ -253,6 +260,7 @@ $$
 
 which is invertible but not positive definite\\
 
+\pagebreak
 \textbf{(iii)}
 If a matrix is invertible while positive semi-definite, the matrix is positive definite.
 

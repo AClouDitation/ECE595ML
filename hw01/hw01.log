@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.10)  16 JAN 2019 22:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.10)  17 JAN 2019 21:56
 entering extended mode
 **./hw01.tex
 (hw01.tex
@@ -473,27 +473,17 @@ Package pdftex.def Info: ./pix/exercise3_c2.pdf  used on input line 202.
 pdfTeX warning: pdflatex (file ./pix/exercise3_c2.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
 >]
-Underfull \hbox (badness 10000) in paragraph at lines 218--219
+Underfull \hbox (badness 10000) in paragraph at lines 233--234
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--227
+Underfull \hbox (badness 10000) in paragraph at lines 235--237
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--230
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 238--239
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
+Underfull \hbox (badness 10000) in paragraph at lines 245--246
 
  []
 
@@ -508,11 +498,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 254--255
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 273--274
+Underfull \hbox (badness 10000) in paragraph at lines 261--262
 
  []
 
-[6] [7] (hw01.aux)
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 281--282
+
+ []
+
+[7] (hw01.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -547,7 +542,7 @@ Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Use
 rs/AClouDitation/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmsy8.pfb><C:/Users/AClouDitation/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hw01.pdf (7 pages, 457351 bytes).
+Output written on hw01.pdf (7 pages, 459990 bytes).
 PDF statistics:
  309 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
