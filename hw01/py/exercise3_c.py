@@ -38,7 +38,14 @@ if __name__ == '__main__':
     print(np.cov(X))
 
     Sigma = np.array([[2,1],[1,2]])
+    
     w, v = np.linalg.eig(Sigma)
     X = np.random.multivariate_normal(mean, cov, 5000).T
-    print(w, v)
-    print(w.T*v)
+    X = (v*w**(1/2)).dot(X)
+
+    X[0,:] += 2
+    X[1,:] += 6
+    fig, ax = newfig()
+    ax.scatter(X[0,:],X[1,:])
+    ax.grid(True)
+    final_adjust('../pix/exercise3_c3.pdf')

@@ -1,91 +1,83 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.10)  17 JAN 2019 21:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.22)  17 JAN 2019 22:50
 entering extended mode
-**./hw01.tex
-(hw01.tex
-LaTeX2e <2018-12-01>
-
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\artic
-le.cls"
-Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
-
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size1
-1.clo"
-File: size11.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+ \write18 enabled.
+ %&-line parsing enabled.
+**hw01.tex
+(./hw01.tex
+LaTeX2e <2017-04-15>
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
-\c@part=\count80
-\c@section=\count81
-\c@subsection=\count82
-\c@subsubsection=\count83
-\c@paragraph=\count84
-\c@subparagraph=\count85
-\c@figure=\count86
-\c@table=\count87
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\g
-raphicx.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\k
-eyval.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\g
-raphics.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\t
-rig.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-c
-fg\graphics.cfg"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: dvips.def on input line 99.
 
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-d
-ef\dvips.def"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/dvips.def
 File: dvips.def 2017/06/20 v3.1d Graphics/color driver for dvips
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/multirow\m
-ultirow.sty"
-Package: multirow 2019/01/01 v2.4 Span multiple rows of a table
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 \multirow@colwidth=\skip43
-\multirow@cntb=\count88
+\multirow@cntb=\count87
 \multirow@dima=\skip44
 \bigstrutjot=\dimen105
 )
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\mult
-icol.sty"
-Package: multicol 2018/11/09 v1.8u multicolumn formatting (FMi)
-\c@tracingmulticols=\count89
-\mult@box=\box27
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
+\c@tracingmulticols=\count88
+\mult@box=\box26
 \multicol@leftmargin=\dimen106
-\c@unbalance=\count90
-\c@collectmore=\count91
-\doublecol@number=\count92
-\multicoltolerance=\count93
-\multicolpretolerance=\count94
+\c@unbalance=\count89
+\c@collectmore=\count90
+\doublecol@number=\count91
+\multicoltolerance=\count92
+\multicolpretolerance=\count93
 \full@width=\dimen107
 \page@free=\dimen108
 \premulticols=\dimen109
 \postmulticols=\dimen110
 \multicolsep=\skip45
 \multicolbaselineskip=\skip46
-\partial@page=\box28
-\last@line=\box29
+\partial@page=\box27
+\last@line=\box28
 \maxbalancingoverflow=\dimen111
-\mult@rightbox=\box30
-\mult@grightbox=\box31
-\mult@gfirstbox=\box32
-\mult@firstbox=\box33
+\mult@rightbox=\box29
+\mult@grightbox=\box30
+\mult@gfirstbox=\box31
+\mult@firstbox=\box32
+\@tempa=\box33
 \@tempa=\box34
 \@tempa=\box35
 \@tempa=\box36
@@ -102,49 +94,41 @@ Package: multicol 2018/11/09 v1.8u multicolumn formatting (FMi)
 \@tempa=\box47
 \@tempa=\box48
 \@tempa=\box49
-\@tempa=\box50
-\c@columnbadness=\count95
-\c@finalcolumnbadness=\count96
+\c@columnbadness=\count94
+\c@finalcolumnbadness=\count95
 \last@try=\dimen112
 \multicolovershoot=\dimen113
 \multicolundershoot=\dimen114
-\mult@nat@firstbox=\box51
-\colbreak@box=\box52
-\mc@col@check@num=\count97
+\mult@nat@firstbox=\box50
+\colbreak@box=\box51
+\mc@col@check@num=\count96
 )
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xcolor\xco
-lor.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-c
-fg\color.cfg"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
 
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-d
-ef\pdftex.def"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 )
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/colortbl\c
-olortbl.sty"
-Package: colortbl 2018/12/12 v1.0d Color table columns (DPC)
+(/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
 
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\arra
-y.sty"
-Package: array 2018/11/13 v2.4j Tabular extension package (FMi)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 \col@sep=\dimen115
-\ar@mcellbox=\box53
 \extrarowheight=\dimen116
 \NC@list=\toks15
 \extratabsurround=\skip47
 \backup@length=\skip48
-\ar@cellbox=\box54
 )
 \everycr=\toks16
 \minrowclearance=\skip49
 )
-\rownum=\count98
+\rownum=\count97
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
 Package xcolor Info: Model `RGB' extended on input line 1364.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
@@ -154,12 +138,10 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\a
-mssymb.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\a
-msfonts.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks17
 \symAMSa=\mathgroup4
@@ -167,8 +149,7 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amscls\ams
-thm.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2017/10/31 v2.20.4
 \thm@style=\toks18
 \thm@bodyfont=\toks19
@@ -180,56 +161,50 @@ Package: amsthm 2017/10/31 v2.20.4
 \thm@headsep=\skip52
 \dth@everypar=\toks23
 )
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\am
-smath.sty"
-Package: amsmath 2018/12/01 v2.17b AMS math features
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
 \@mathmargin=\skip53
 
 For additional information on amsmath, use the `?' option.
-
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\am
-stext.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\am
-sgen.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks24
 \ex@=\dimen117
 ))
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\am
-sbsy.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen118
 )
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\am
-sopn.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count99
-LaTeX Info: Redefining \frac on input line 223.
-\uproot@=\count100
-\leftroot@=\count101
-LaTeX Info: Redefining \overline on input line 385.
-\classnum@=\count102
-\DOTSCASE@=\count103
-LaTeX Info: Redefining \ldots on input line 482.
-LaTeX Info: Redefining \dots on input line 485.
-LaTeX Info: Redefining \cdots on input line 606.
-\Mathstrutbox@=\box55
-\strutbox@=\box56
+\inf@bad=\count98
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count99
+\leftroot@=\count100
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count101
+\DOTSCASE@=\count102
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box52
+\strutbox@=\box53
 \big@size=\dimen119
-LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
-\macc@depth=\count104
-\c@MaxMatrixCols=\count105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count103
+\c@MaxMatrixCols=\count104
 \dotsspace@=\muskip10
-\c@parentequation=\count106
-\dspbrk@lvl=\count107
+\c@parentequation=\count105
+\dspbrk@lvl=\count106
 \tag@help=\toks25
-\row@=\count108
-\column@=\count109
-\maxfields@=\count110
+\row@=\count107
+\column@=\count108
+\maxfields@=\count109
 \andhelp@=\toks26
 \eqnshift@=\dimen120
 \alignsep@=\dimen121
@@ -241,32 +216,29 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
 \multlinegap=\skip54
 \multlinetaggap=\skip55
 \mathdisplay@stack=\toks28
-LaTeX Info: Redefining \[ on input line 2844.
-LaTeX Info: Redefining \] on input line 2845.
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
 )
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/subfigure\
-subfigure.sty"
-Package: subfigure 2002/07/30 v2.1.4 subfigure package
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfigtopskip=\skip56
 \subfigcapskip=\skip57
 \subfigcaptopadj=\dimen126
 \subfigbottomskip=\skip58
 \subfigcapmargin=\dimen127
 \subfiglabelskip=\skip59
-\c@subfigure=\count111
-\c@lofdepth=\count112
-\c@subtable=\count113
-\c@lotdepth=\count114
+\c@subfigure=\count110
+\c@lofdepth=\count111
+\c@subtable=\count112
+\c@lotdepth=\count113
 
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
-
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/subfigure\
-subfigure.cfg")
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
 \subfig@top=\skip60
 \subfig@bottom=\skip61
-) (hw01.aux
+) (./hw01.aux
 
 LaTeX Warning: Label `fig: figure 1' multiply defined.
 
@@ -285,67 +257,58 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
 LaTeX Font Info:    ... okay on input line 26.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
 LaTeX Font Info:    ... okay on input line 26.
-
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/context/base\sup
-p-pdf.mkii"
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count115
+\scratchcounter=\count114
 \scratchdimen=\dimen128
-\scratchbox=\box57
-\nofMPsegments=\count116
-\nofMParguments=\count117
+\scratchbox=\box54
+\nofMPsegments=\count115
+\nofMParguments=\count116
 \everyMPshowfont=\toks29
-\MPscratchCnt=\count118
+\MPscratchCnt=\count117
 \MPscratchDim=\dimen129
-\MPnumerator=\count119
-\makeMPintoPDFobject=\count120
+\MPnumerator=\count118
+\makeMPintoPDFobject=\count119
 \everyMPtoPDFconversion=\toks30
-)
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\e
-pstopdf-base.sty"
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek
-\infwarerr.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\g
-rfext.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek
-\kvdefinekeys.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
 
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek
-\ltxcmds.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )))
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\k
-voptions.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek
-\kvsetkeys.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek
-\etexcmds.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek
-\ifluatex.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
-))))
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek
-\pdftexcmds.sty"
-Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek
-\ifpdf.sty"
-Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -358,17 +321,19 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
-)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 LaTeX Font Info:    Try loading font information for U+msa on input line 39.
 
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\u
-msa.fd"
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 39.
 
-("C:\Users\AClouDitation\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\u
-msb.fd"
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 <./pix/exercise2_b.pdf, id=1, 650.43pt x 433.62pt>
@@ -378,20 +343,18 @@ Package pdftex.def Info: ./pix/exercise2_b.pdf  used on input line 61.
 (pdftex.def)             Requested size: 234.73523pt x 156.48683pt.
  [1
 Non-PDF special ignored!
-<special> papersize=614.295pt,794.96999pt
 
-{C:/Users/AClouDitation/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./p
-ix/exercise2_b.pdf>]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./pix/exercise2_b.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 67--68
 
  []
 
-<./pix/exercise2_c1.pdf, id=48, 650.43pt x 433.62pt>
+<./pix/exercise2_c1.pdf, id=49, 650.43pt x 433.62pt>
 File: ./pix/exercise2_c1.pdf Graphic file (type pdf)
 <use ./pix/exercise2_c1.pdf>
 Package pdftex.def Info: ./pix/exercise2_c1.pdf  used on input line 75.
 (pdftex.def)             Requested size: 220.65169pt x 147.09802pt.
-<./pix/exercise2_c2.pdf, id=49, 650.43pt x 433.62pt>
+<./pix/exercise2_c2.pdf, id=50, 650.43pt x 433.62pt>
 File: ./pix/exercise2_c2.pdf Graphic file (type pdf)
 <use ./pix/exercise2_c2.pdf>
 Package pdftex.def Info: ./pix/exercise2_c2.pdf  used on input line 78.
@@ -401,12 +364,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 81--83
 
  []
 
-<./pix/exercise2_d1.pdf, id=50, 650.43pt x 433.62pt>
+<./pix/exercise2_d1.pdf, id=51, 650.43pt x 433.62pt>
 File: ./pix/exercise2_d1.pdf Graphic file (type pdf)
 <use ./pix/exercise2_d1.pdf>
 Package pdftex.def Info: ./pix/exercise2_d1.pdf  used on input line 92.
 (pdftex.def)             Requested size: 220.65169pt x 147.09802pt.
-<./pix/exercise2_d2.pdf, id=51, 650.43pt x 433.62pt>
+<./pix/exercise2_d2.pdf, id=52, 650.43pt x 433.62pt>
 File: ./pix/exercise2_d2.pdf Graphic file (type pdf)
 <use ./pix/exercise2_d2.pdf>
 Package pdftex.def Info: ./pix/exercise2_d2.pdf  used on input line 95.
@@ -433,7 +396,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--115
 
  []
 
-<./pix/exercise3_a.pdf, id=189, 433.62pt x 650.43pt>
+<./pix/exercise3_a.pdf, id=190, 433.62pt x 650.43pt>
 File: ./pix/exercise3_a.pdf Graphic file (type pdf)
 <use ./pix/exercise3_a.pdf>
 Package pdftex.def Info: ./pix/exercise3_a.pdf  used on input line 126.
@@ -458,93 +421,108 @@ Underfull \hbox (badness 10000) in paragraph at lines 189--190
 
  []
 
-<./pix/exercise3_c1.pdf, id=218, 650.43pt x 433.62pt>
+<./pix/exercise3_c1.pdf, id=219, 650.43pt x 433.62pt>
 File: ./pix/exercise3_c1.pdf Graphic file (type pdf)
 <use ./pix/exercise3_c1.pdf>
 Package pdftex.def Info: ./pix/exercise3_c1.pdf  used on input line 194.
 (pdftex.def)             Requested size: 211.26027pt x 140.8388pt.
-<./pix/exercise3_c2.pdf, id=219, 650.43pt x 433.62pt>
+<./pix/exercise3_c2.pdf, id=220, 650.43pt x 433.62pt>
 File: ./pix/exercise3_c2.pdf Graphic file (type pdf)
 <use ./pix/exercise3_c2.pdf>
-Package pdftex.def Info: ./pix/exercise3_c2.pdf  used on input line 202.
+Package pdftex.def Info: ./pix/exercise3_c2.pdf  used on input line 204.
 (pdftex.def)             Requested size: 211.26027pt x 140.8388pt.
+<./pix/exercise3_c3.pdf, id=221, 650.43pt x 433.62pt>
+File: ./pix/exercise3_c3.pdf Graphic file (type pdf)
+<use ./pix/exercise3_c3.pdf>
+Package pdftex.def Info: ./pix/exercise3_c3.pdf  used on input line 207.
+(pdftex.def)             Requested size: 211.26027pt x 140.8388pt.
+File: ./pix/exercise2_d1.pdf Graphic file (type pdf)
+<use ./pix/exercise2_d1.pdf>
+Package pdftex.def Info: ./pix/exercise2_d1.pdf  used on input line 215.
+(pdftex.def)             Requested size: 220.65169pt x 147.09802pt.
+File: ./pix/exercise2_d2.pdf Graphic file (type pdf)
+<use ./pix/exercise2_d2.pdf>
+Package pdftex.def Info: ./pix/exercise2_d2.pdf  used on input line 218.
+(pdftex.def)             Requested size: 220.65169pt x 147.09802pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [5 <./pix/exercise3_c1.pdf> <./pix/exercise3_c2.pdf
 
 pdfTeX warning: pdflatex (file ./pix/exercise3_c2.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
+> <./pix/exercise3_c3.pdf
+
+pdfTeX warning: pdflatex (file ./pix/exercise3_c3.pdf): PDF inclusion: multiple
+ pdfs with page group included in a single page
 >]
-Underfull \hbox (badness 10000) in paragraph at lines 233--234
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 235--237
+Underfull \hbox (badness 10000) in paragraph at lines 248--250
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 245--246
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--248
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 254--255
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 261--262
+Underfull \hbox (badness 10000) in paragraph at lines 260--261
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 281--282
+Underfull \hbox (badness 10000) in paragraph at lines 267--268
 
  []
 
-[7] (hw01.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--275
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 294--295
+
+ []
+
+[8] [9] (./hw01.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3374 strings out of 492946
- 46805 string characters out of 3122714
- 122223 words of memory out of 3000000
- 7204 multiletter control sequences out of 15000+200000
- 10726 words of font info for 40 fonts, out of 3000000 for 9000
+ 3376 strings out of 492982
+ 44509 string characters out of 6134895
+ 115940 words of memory out of 5000000
+ 6872 multiletter control sequences out of 15000+600000
+ 10726 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,23n,35p,351b,268s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/AClouDitation/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmbx10.pfb><C:/Users/AClouDitation/AppData/Local/Programs/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/AClouDitation/AppData/Loc
-al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/AClou
-Ditation/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex1
-0.pfb><C:/Users/AClouDitation/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cmextra/cmex8.pfb><C:/Users/AClouDitation/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/AClouDitation/App
-Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Use
-rs/AClouDitation/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmmi8.pfb><C:/Users/AClouDitation/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmr10.pfb><C:/Users/AClouDitation/AppData/Local/Programs
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/AClouDitation/Ap
-pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Use
-rs/AClouDitation/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr8.pfb><C:/Users/AClouDitation/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr9.pfb><C:/Users/AClouDitation/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/AClouDitation/App
-Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Use
-rs/AClouDitation/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmsy8.pfb><C:/Users/AClouDitation/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hw01.pdf (7 pages, 459990 bytes).
+ 41i,23n,35p,348b,272s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on hw01.pdf (9 pages, 514663 bytes).
 PDF statistics:
- 309 PDF objects out of 1000 (max. 8388607)
+ 333 PDF objects out of 1000 (max. 8388607)
+ 122 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -199,11 +199,24 @@ $$\textbf{A}=\begin{bmatrix}
 \textbf{(ii)} After applying the affine transformation, the data plot shown below.
 \begin{figure}[h]
 \centering
+\subfigure[After applying affine transformation]{
 \includegraphics[width=0.45\linewidth]{exercise3_c2}
-\caption{After applying affine transformation}
+}
+\subfigure[After applying transform get from eigen]{
+\includegraphics[width=0.45\linewidth]{exercise3_c3}
+}
 \label{fig: figure 3.3}
 \end{figure}
 
+\begin{figure}[h]
+\centering
+\subfigure[Cross validation estimator of risk vs. \# of bins]{
+\includegraphics[width=0.47\linewidth]{exercise2_d1}
+}
+\subfigure[Histogram and PDF overlayed with optimized number of bins]{
+\includegraphics[width=0.47\linewidth]{exercise2_d2}
+}
+\end{figure}
 \textbf{(iii)} From my favorite python and numpy, for the data above:
 $$\pmb{\mu}_\textbf{Y}=\begin{bmatrix}
 2.003\\
@@ -296,6 +309,9 @@ To prove: $(\exists \textbf{A}^\dagger)\ \textbf{AA}^\dagger \textbf{A} = \textb
 
 Since \textbf{A} is symmetric, it is guaranteed that can be decompose,
 thus $\textbf{A}^\dagger$ exist.
+
+\pagebreak
+\section*{Code}
 
 \end{document}
 
