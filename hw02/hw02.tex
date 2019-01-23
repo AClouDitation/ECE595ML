@@ -1,0 +1,83 @@
+\documentclass[11pt]{article}
+
+% ------
+% LAYOUT
+% ------
+\textwidth 165mm %
+\textheight 230mm %
+\oddsidemargin 0mm %
+\evensidemargin 0mm %
+\topmargin -15mm %
+\parindent= 10mm
+
+\usepackage[dvips]{graphicx}
+\usepackage{multirow,multicol}
+\usepackage[table]{xcolor}
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
+\usepackage{subfigure}
+\usepackage{minted}
+
+\graphicspath{{./pix/}} % put all your figures here.
+
+\begin{document}
+\begin{center}
+\Large{\textbf{ECE 595: Homework 1}}
+
+Yi Qiao, Class ID 187
+
+(Spring 2019)
+\end{center}
+
+\subsection*{Exercise 1}
+\subsubsection*{(a)}
+Refer to code in the back. 
+\subsubsection*{(b)}
+TODO: add a screenshot here
+
+\subsection*{Exercise 2}
+\subsubsection*{(a)}
+\begin{equation}	\label{eq2(a)}
+\begin{split}
+\begin{bmatrix}\pmb{\omega}^*\\ \omega^*_0\end{bmatrix}
+&=\underset{\pmb{\omega},\omega_0}{argmin}\sum_{j=1}^N(\pmb{\omega}^T\pmb{x}_j+\omega_0-y_j)^2\\
+set\ \pmb{\theta}&=\begin{bmatrix}\pmb{\omega}^*\\ \omega^*_0\end{bmatrix}\\
+\pmb{\theta}^*&=\underset{\pmb{\theta}}{argmin}\sum_{j=1}^N(\begin{bmatrix}\pmb{x}_j^T & 1\end{bmatrix}\pmb{\theta}-y_j)^2\\
+\end{split}
+\end{equation}
+\begin{center}
+thus,\\
+$$A=\begin{bmatrix}
+-\pmb{x}_1- & 1\\
+-\pmb{x}_2- & 1\\
+...& ...\\
+-\pmb{x}_N- & 1\\
+\end{bmatrix}\ 
+\pmb{b}=\begin{bmatrix}
+y_1\\
+y_2\\
+...\\
+y_N
+\end{bmatrix}$$
+\end{center}
+\subsubsection*{(b)}
+by least square
+\begin{equation}	\label{eq2(b)}
+\begin{split}
+\pmb{A}^T\pmb{A\theta}^*&=\pmb{A}^T\pmb{b}\\
+\pmb{\theta}^*&=(\pmb{A}^T\pmb{A})^{-1}\pmb{A}^T\pmb{b}
+\end{split}
+\end{equation}
+if $A^TA$ is invertible, $A$ needs to be full column rank (or $null(A)=0$).
+TODO: find out how to avoid this issue
+
+\subsubsection*{(c)}
+
+\subsubsection*{(d)}
+
+\end{document}
+
