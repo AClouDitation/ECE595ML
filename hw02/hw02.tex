@@ -37,7 +37,12 @@ Yi Qiao, Class ID 187
 \subsection*{(a)}
 Refer to code in the back. 
 \subsection*{(b)}
-TODO: add a screenshot here
+The data was successfully read, shown by the screen below.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{exercise1.png}
+	\caption{screenshot for reading data}
+\end{figure}
 
 \section*{Exercise 2}
 \subsection*{(a)}
@@ -76,14 +81,32 @@ if $A^TA$ is invertible, $A$ needs to be full column rank (or $null(A)=0$).
 TODO: find out how to avoid this issue
 
 \subsection*{(c)}
+Refer to the code in the back.\\
+The optimal weight $\theta^*$ is:\\
+$$\pmb{\theta}^* = \begin{bmatrix}
+-1.23396767e-2\\
+6.67486843e-3\\
+-1.07017505e+1
+\end{bmatrix}$$
 
 \subsection*{(d)}
-
+Refer to the code in the back again.\\
+The weight vector computed using CVXPY is the same as
+the one computed in the previous step.\\
+$$\pmb{\theta}^* = \begin{bmatrix}
+-1.23396767e-2\\
+6.67486843e-3\\
+-1.07017505e+1
+\end{bmatrix}$$
 \section*{Exercise 3}
 
 \subsection*{(a)}
 \subsubsection*{(i)}
-show a plot here
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{exercise3_1}
+	\caption{Training data}
+\end{figure}
 \subsubsection*{(ii)}
 
 \begin{equation}
@@ -94,7 +117,43 @@ x_2=-\frac{\omega_1^*x_1+\omega_0^*}{\omega_2^*}
 \end{split}
 \end{equation}
 \subsubsection*{(iii)}
-show a plot here
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{exercise3_2}
+	\caption{Training data with decision boundary}
+\end{figure}
 \subsection*{(b)}
+Refer to the code in the back, the success rate is:
+$$success\ rate = 83.93\%$$
+\pagebreak
+\section*{Exercise 4}
+\subsection*{(a)}
+\begin{figure}[h]
+	\centering
+	\subfigure[1]{
+		\includegraphics[width=0.47\linewidth]{exercise4_1}
+	}
+	\subfigure[2]{
+		\includegraphics[width=0.47\linewidth]{exercise4_2}	
+	}
+	\subfigure[3]{
+		\includegraphics[width=0.47\linewidth]{exercise4_3}	
+	}	
+	\subfigure[4]{
+		\includegraphics[width=0.47\linewidth]{exercise4}
+	}
+\end{figure}
+\subsection*{(b)}
+for equation (8) idk\\
+for equation (9), $\pmb{\theta}_\alpha=\underset{\pmb{\theta}}{argmin}||\pmb{A\theta}-\pmb{b}||^2_2 \ subject\ to\ ||\pmb{\theta}||^2_2\le\alpha$ :
+\begin{equation}
+\begin{split}
+\mathcal{L}(\pmb{\theta},\lambda)&=||\pmb{A\theta}-\pmb{b}||^2_2-\lambda(||\pmb{\theta}||^2_2-\alpha)\\
+let\ \nabla\mathcal{L}(\pmb{\theta},\lambda)&= 0\\
+\nabla||\pmb{A\theta}-\pmb{b}||^2_2-\lambda\nabla(||\pmb{\theta}||^2_2-\alpha)&=0
+\end{split}
+\end{equation}\\
+for equation (10),
+$\pmb{\theta}_\epsilon=\underset{\pmb{\theta}}{argmin}||\pmb{\theta}||^2_2\ subject\ to\ ||\pmb{A\theta}-\pmb{b}||^2_2\le\epsilon$
 \end{document}
 

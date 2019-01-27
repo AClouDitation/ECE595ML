@@ -1,4 +1,4 @@
-#! usr/bin/python3
+#! /usr/bin/python3
 
 import numpy as np
 import cvxpy as cp
@@ -33,7 +33,6 @@ if __name__ == "__main__":
     femaleNum = len(data) - maleNum
 
     A = np.hstack((np.array(data, dtype=float),np.ones((len(data),1))))
-    print(A.shape)
     b = np.concatenate((np.ones((maleNum)), np.ones((femaleNum))*(-1)))
 
     # (c) using calculus

@@ -53,9 +53,10 @@ if __name__ == "__main__":
     fig, ax = newfig()
     ax.scatter(maleData[:,0], maleData[:,1])
     ax.scatter(femaleData[:,0], femaleData[:,1])
+    final_adjust("../pix/exercise3_1.pdf")
     ax.plot([0, 100], [-theta[2]/theta[1],-theta[0]*100/theta[1]-theta[2]/theta[1]])
 
-    final_adjust("../pix/exercise3.pdf")
+    final_adjust("../pix/exercise3_2.pdf")
 
     maletestData = list() 
     femaletestData = list() 

@@ -70,7 +70,7 @@ if __name__ == "__main__":
 
     # Plot the decision boundaries with theta_{lambda=0.1, 1.1, ..., 9.1}
     fig, ax = newfig()
-    x_tics = np.linspace(0, 10, 200)
+    x_tics = np.linspace(0, 100, 200)
     legend_str = []
     for i in range(len(lambda_list))[0::10]:
         y = -theta[i][2]/theta[i][1] - theta[i][0]/theta[i][1]*x_tics 
