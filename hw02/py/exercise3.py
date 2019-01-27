@@ -83,8 +83,8 @@ if __name__ == "__main__":
     csv_file.close()
     femaletestData = np.array(femaletestData, dtype=float)
     
-    succMale = sum([(theta[0]*x[0]+theta[1]*x[1]+theta[2]) > 0 for x in maletestData])
-    succFemale = sum([(theta[0]*x[0]+theta[1]*x[1]+theta[2]) > 0 for x in femaletestData])
+    succMale = sum([(theta[0]*x[0]+theta[1]*x[1]+theta[2]) >= 0 for x in maletestData])
+    succFemale = sum([(theta[0]*x[0]+theta[1]*x[1]+theta[2]) < 0 for x in femaletestData])
 
     rate = (succMale+succFemale)/(len(maletestData)+len(femaletestData))
     print(rate)
