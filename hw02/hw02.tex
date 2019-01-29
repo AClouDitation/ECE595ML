@@ -26,7 +26,7 @@
 
 \begin{document}
 \begin{center}
-\Large{\textbf{ECE 595: Homework 1}}
+\Large{\textbf{ECE 595: Homework 2}}
 
 Yi Qiao, Class ID 187
 
@@ -153,6 +153,10 @@ let\ \nabla\mathcal{L}(\pmb{\theta},\lambda)&= 0\\
 \nabla||\pmb{A\theta}-\pmb{b}||^2_2-\lambda\nabla(||\pmb{\theta}||^2_2-\alpha)&=0
 \end{split}
 \end{equation}\\
+KKT conditions:\\
+\begin{equation}
+\nabla_\theta||\pmb{A\theta}-\pmb{b}||^2_2+\pmb{\lambda}\nabla_\theta(||\pmb{\theta}||^2_2-\alpha)&=0
+\end{equation}
 for equation (10),
 $\pmb{\theta}_\epsilon=\underset{\pmb{\theta}}{argmin}||\pmb{\theta}||^2_2\ subject\ to\ ||\pmb{A\theta}-\pmb{b}||^2_2\le\epsilon$
 \end{document}
