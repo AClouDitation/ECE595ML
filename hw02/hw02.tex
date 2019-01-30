@@ -212,11 +212,43 @@ where primal feasibility:
 $$\alpha-||\pmb{\theta}_\alpha||^2_2\ge 0$$
 is satisfied if we choose $\alpha = ||\pmb{\theta}_\lambda||^2_2$ since $\pmb{\theta}_\alpha = \pmb{\theta}_\lambda$,\\
 	$$\alpha-||\pmb{\theta}_\alpha||^2_2=||\pmb{\theta}_\alpha||^2_2-||\pmb{\theta}_\alpha||^2_2=0\ge0$$
-dual feasibility is automatically satisfied since we fix $\gamma_\alpha=\lambda>0$\\
-and complementary slackness is satisfied since 	$\alpha-||\pmb{\theta}_\alpha||^2_2=0$\\
+Dual feasibility is automatically satisfied since we fix $\gamma_\alpha=\lambda>0$\\
+Complementary slackness is satisfied since 	$\alpha-||\pmb{\theta}_\alpha||^2_2=0$\\
 
-Thus, the two problems (8) and (9) is equivalent.
+\noindent Thus, the two problems (8) and (9) are equivalent.
 \subsubsection*{(iii)}
+for equation (9), stationarity suggests that:
+\begin{equation}
+\nabla_\theta||\pmb{\theta}||^2_2+\gamma\nabla_\theta(||\pmb{A\theta}-\pmb{b}||^2_2-\epsilon)=0
+\end{equation}
+by doing the algebra, we get:
+\begin{equation}
+\begin{split}
+2\pmb{\theta}+2\gamma\pmb{A}^T(\pmb{A\theta}-\pmb{b})&=0\\
+\pmb{\theta}_\epsilon&=(\gamma\pmb{A}^T\pmb{A}+\pmb{I})^{-1}\pmb{A}^T\gamma\pmb{b}\\
+\pmb{\theta}_\epsilon&=(\gamma^{-1}\gamma\pmb{A}^T\pmb{A}+\gamma^{-1}\pmb{I})^{-1}\pmb{A}^T\pmb{b}\\
+\pmb{\theta}_\epsilon&=(\pmb{A}^T\pmb{A}+\gamma^{-1}\pmb{I})^{-1}\pmb{A}^T\pmb{b}
+\end{split}
+\end{equation}
+if we set $\gamma_\epsilon=\lambda^{-1}$, referring to equation (5) above:\\
+\begin{equation}
+\begin{split}
+\pmb{\theta}_\epsilon&=(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{b}\\
+&=\pmb{\theta}_\lambda
+\end{split}
+\end{equation}
+where primal feasibility:
+$$\epsilon-||\pmb{A\theta}_\epsilon-\pmb{b}||^2_2\ge 0$$
+is satisfied if we choose $\epsilon = ||\pmb{A\theta}_\lambda-\pmb{b}||^2_2$ since $\pmb{\theta}_\epsilon = \pmb{\theta}_\lambda$,\\
+$$\epsilon-||\pmb{A\theta}_\epsilon-\pmb{b}||^2_2=0\ge0$$
+Dual feasibility is automatically satisfied since we fix $\gamma_\epsilon^{-1}=\lambda>0$, thus, $
+\gamma_\epsilon > 0$\\
+Complementary slackness is satisfied since 	$\epsilon-||\pmb{A\theta}_\epsilon-\pmb{b}||^2_2=0$\\
 
+\noindent Thus, the two problems (8) and (10) are also equivalent.
+\subsection*{(c)}
+\subsubsection*{(i)}
+\subsubsection*{(ii)}
+\subsection*{(d)}
 \end{document}
 
