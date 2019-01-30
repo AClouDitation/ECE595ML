@@ -128,6 +128,7 @@ $$success\ rate = 83.93\%$$
 \pagebreak
 \section*{Exercise 4}
 \subsection*{(a)}
+\subsubsection*{(i)}
 \begin{figure}[h]
 	\centering
 	\subfigure[1]{
@@ -143,21 +144,79 @@ $$success\ rate = 83.93\%$$
 		\includegraphics[width=0.47\linewidth]{exercise4}
 	}
 \end{figure}
+\subsubsection*{(ii)}
+TODO: fix this
 \subsection*{(b)}
-for equation (8) idk\\
-for equation (9), $\pmb{\theta}_\alpha=\underset{\pmb{\theta}}{argmin}||\pmb{A\theta}-\pmb{b}||^2_2 \ subject\ to\ ||\pmb{\theta}||^2_2\le\alpha$ :
+\subsubsection*{(i)}
+for equation (8), $\pmb{\theta}_\lambda=\underset{\pmb{\theta}}{argmin}||\pmb{A\theta}-\pmb{b}||^2_2+\lambda||\pmb{\theta}||^2_2$:\\
+\begin{equation}
+\mathcal{L}(\pmb{\theta})=||\pmb{A\theta}-\pmb{b}||^2_2+\lambda||\pmb{\theta}||^2_2
+\end{equation}
+Since no constraint, the vertex can be found at:
 \begin{equation}
 \begin{split}
-\mathcal{L}(\pmb{\theta},\lambda)&=||\pmb{A\theta}-\pmb{b}||^2_2-\lambda(||\pmb{\theta}||^2_2-\alpha)\\
-let\ \nabla\mathcal{L}(\pmb{\theta},\lambda)&= 0\\
-\nabla||\pmb{A\theta}-\pmb{b}||^2_2-\lambda\nabla(||\pmb{\theta}||^2_2-\alpha)&=0
+\nabla_\theta||\pmb{A\theta}-\pmb{b}||^2_2+\lambda\nabla_\theta||\pmb{\theta}||^2_2&=0\\
+2\pmb{A}^T(\pmb{A\theta}-\pmb{b})+2\lambda\pmb{\theta}&=0\\
+\pmb{A}^T\pmb{A\theta}+\lambda\pmb{\theta}&=\pmb{A}^T\pmb{b}\\
+\pmb{\theta}_\lambda=(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{b}
 \end{split}
-\end{equation}\\
+\end{equation}
+for equation (9), $\pmb{\theta}_\alpha=\underset{\pmb{\theta}}{argmin}||\pmb{A\theta}-\pmb{b}||^2_2 \ subject\ to\ ||\pmb{\theta}||^2_2\le\alpha$, $\alpha-||\pmb{\theta}||^2_2\ge 0$ :
+\begin{equation}
+\mathcal{L}(\pmb{\theta},\gamma)=||\pmb{A\theta}-\pmb{b}||^2_2-\gamma(\alpha-||\pmb{\theta}||^2_2)
+\end{equation}
 KKT conditions:\\
 \begin{equation}
-\nabla_\theta||\pmb{A\theta}-\pmb{b}||^2_2+\pmb{\lambda}\nabla_\theta(||\pmb{\theta}||^2_2-\alpha)&=0
+\begin{aligned}
+\nabla_\theta||\pmb{A\theta}-\pmb{b}||^2_2+\gamma\nabla_\theta(||\pmb{\theta}||^2_2-\alpha)&=0 &\ stationarity\\
+\alpha-||\pmb{\theta}||^2_2&\ge 0 &\ primal\ feasibility\\
+\gamma&\ge 0 &\ dual\ feasibility\\
+\gamma(\alpha-||\pmb{\theta}||^2_2)&=0 &\ complementary\ slackness
+\end{aligned}
 \end{equation}
 for equation (10),
-$\pmb{\theta}_\epsilon=\underset{\pmb{\theta}}{argmin}||\pmb{\theta}||^2_2\ subject\ to\ ||\pmb{A\theta}-\pmb{b}||^2_2\le\epsilon$
+$\pmb{\theta}_\epsilon=\underset{\pmb{\theta}}{argmin}||\pmb{\theta}||^2_2\ subject\ to\ ||\pmb{A\theta}-\pmb{b}||^2_2\le\epsilon$, $\epsilon-||\pmb{A\theta}-\pmb{b}||^2_2\ge 0$:
+\begin{equation}
+\mathcal{L}(\pmb{\theta},\gamma)=||\pmb{\theta}||^2_2-\gamma(\epsilon-||\pmb{A\theta}-\pmb{b}||^2_2)
+\end{equation}
+KKT conditions:\\
+\begin{equation}
+\begin{aligned}
+\nabla_\theta||\pmb{\theta}||^2_2+\gamma\nabla_\theta(||\pmb{A\theta}-\pmb{b}||^2_2-\epsilon)&=0 &\ stationarity\\
+\epsilon-||\pmb{A\theta}-\pmb{b}||^2_2&\ge 0 &\ primal\ feasibility\\
+\gamma&\ge 0 &\ dual\ feasibility\\
+\gamma(\epsilon-||\pmb{A\theta}-\pmb{b}||^2_2)&=0 &\ complementary\ slackness
+\end{aligned}
+\end{equation}
+
+\subsubsection*{(ii)}
+for equation (9), stationarity suggests that:
+\begin{equation}
+\nabla_\theta||\pmb{A\theta}-\pmb{b}||^2_2+\gamma\nabla_\theta(||\pmb{\theta}||^2_2-\alpha)=0
+\end{equation}
+by doing the algebra, we get:
+\begin{equation}
+\begin{split}
+2\pmb{A}^T(\pmb{A\theta}-\pmb{b})+2\gamma\pmb{\theta}=0\\
+\pmb{\theta}_\alpha=(\pmb{A}^T\pmb{A}+\gamma\pmb{I})^{-1}\pmb{A}^T\pmb{b}
+\end{split}
+\end{equation}
+if we set $\gamma_\alpha=\lambda$, referring to equation (5) above:\\
+\begin{equation}
+\begin{split}
+\pmb{\theta}_\alpha&=(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{b}\\
+&=\pmb{\theta}_\lambda
+\end{split}
+\end{equation}
+where primal feasibility:
+$$\alpha-||\pmb{\theta}_\alpha||^2_2\ge 0$$
+is satisfied if we choose $\alpha = ||\pmb{\theta}_\lambda||^2_2$ since $\pmb{\theta}_\alpha = \pmb{\theta}_\lambda$,\\
+	$$\alpha-||\pmb{\theta}_\alpha||^2_2=||\pmb{\theta}_\alpha||^2_2-||\pmb{\theta}_\alpha||^2_2=0\ge0$$
+dual feasibility is automatically satisfied since we fix $\gamma_\alpha=\lambda>0$\\
+and complementary slackness is satisfied since 	$\alpha-||\pmb{\theta}_\alpha||^2_2=0$\\
+
+Thus, the two problems (8) and (9) is equivalent.
+\subsubsection*{(iii)}
+
 \end{document}
 
