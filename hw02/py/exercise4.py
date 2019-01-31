@@ -107,9 +107,11 @@ if __name__ == "__main__":
 
 
     # (c)
+    theta_point_one = theta[0]
+
     # (i)
     
-    alpha_star = sum([x**2 for x in theta[0]])
+    alpha_star = sum([x**2 for x in theta_point_one])
     axmb = list()
     theta = list()
 
@@ -118,7 +120,7 @@ if __name__ == "__main__":
 
         # construct problem
         x = cp.Variable(N)
-        objective = cp.Minimize(cp.sum_squares(A*x-b)) * 0.1
+        objective = cp.Minimize(cp.sum_squares(A*x-b) * 0.1)
         constraints = [cp.sum_squares(x) <= alpha] 
         prob = cp.Problem(objective, constraints)
 
@@ -154,17 +156,18 @@ if __name__ == "__main__":
 
     # (ii)
     
-    epsilon_star = sum([x ** 2 for x in A.dot(theta[0])-b])
+    epsilon_star = sum([x ** 2 for x in A.dot(theta_point_one)-b])
 
     axmb = list()
     theta = list()
 
     epsilon_list = [epsilon_star + 2*i for i in range(0,101)]
+
     for epsilon in epsilon_list:
 
         # construct problem
         x = cp.Variable(N)
-        objective = cp.Minimize(cp.sum_squares(x)) * 0.1
+        objective = cp.Minimize(cp.sum_squares(x))
         constraints = [cp.sum_squares(A*x-b) <= epsilon] 
         prob = cp.Problem(objective, constraints)
 
