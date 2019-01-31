@@ -46,7 +46,7 @@ if __name__ == "__main__":
 
     b = np.concatenate((np.ones((maleNum)), np.ones((femaleNum))*(-1)))
 
-    # (8)
+    # (a)
     
     N = len(A[0])
     lambda_list = np.arange(0.1, 10, 0.1)
@@ -58,8 +58,7 @@ if __name__ == "__main__":
         # construct problem
         x = cp.Variable(N)
         objective = cp.Minimize(cp.sum_squares(A*x-b) + lam*cp.sum_squares(x))
-        constraints = [-20 <= x, x <= 20] # for now
-        prob = cp.Problem(objective, constraints)
+        prob = cp.Problem(objective)
 
         # solve it
         result = prob.solve()
@@ -85,17 +84,17 @@ if __name__ == "__main__":
     # Plot ||Ax-b||^2 with respect to ||theta||^2
     fig, ax = newfig()
     ax.plot([np.sum(t**2) for t in theta], [np.sum(a**2) for a in axmb])
-    ax.set_title(r"$ ||Ax-b||^{2}_{2} vs ||\theta||^{2}_{2} $")
+    ax.set_title(r"$ ||A\theta-b||^{2}_{2} vs ||\theta||^{2}_{2} $")
     ax.set_xlabel(r"$ ||\theta||^{2}_{2} $")
-    ax.set_ylabel(r"$ ||Ax-b||^{2}_{2} $")
+    ax.set_ylabel(r"$ ||A\theta-b||^{2}_{2} $")
     final_adjust("../pix/exercise4_1.pdf")
 
     # Plot ||Ax-b||^2 with respect to lambda
     fig, ax = newfig()
     ax.plot(lambda_list, [np.sum(a**2) for a in axmb])
-    ax.set_title(r"$ ||Ax-b||^{2}_{2} vs \lambda $")
+    ax.set_title(r"$ ||A\theta-b||^{2}_{2} vs \lambda $")
     ax.set_xlabel(r"$ \lambda $")
-    ax.set_ylabel(r"$ ||Ax-b||^{2}_{2} $")
+    ax.set_ylabel(r"$ ||A\theta-b||^{2}_{2} $")
     final_adjust("../pix/exercise4_2.pdf")
 
     # Plot ||theta||^2 with respect to lambda
@@ -105,3 +104,95 @@ if __name__ == "__main__":
     ax.set_xlabel(r"$ \lambda $")
     ax.set_ylabel(r"$ ||\theta_{\lambda}||^{2}_{2} $")
     final_adjust("../pix/exercise4_3.pdf")
+
+
+    # (c)
+    # (i)
+    
+    alpha_star = sum([x**2 for x in theta[0]])
+    axmb = list()
+    theta = list()
+
+    alpha_list = [alpha_star + 2*i for i in range(-50,51)]
+    for alpha in alpha_list:
+
+        # construct problem
+        x = cp.Variable(N)
+        objective = cp.Minimize(cp.sum_squares(A*x-b)) * 0.1
+        constraints = [cp.sum_squares(x) <= alpha] 
+        prob = cp.Problem(objective, constraints)
+
+        # solve it
+        result = prob.solve()
+        theta.append(x.value)
+        axmb.append(A.dot(x.value)-b)
+
+    # Plot ||Ax-b||^2 with respect to ||theta||^2
+    fig, ax = newfig()
+    ax.plot([np.sum(t**2) for t in theta], [np.sum(a**2) for a in axmb])
+    ax.set_title(r"$ ||A\theta-b||^{2}_{2} vs ||\theta||^{2}_{2} $")
+    ax.set_xlabel(r"$ ||\theta||^{2}_{2} $")
+    ax.set_ylabel(r"$ ||A\theta-b||^{2}_{2} $")
+    final_adjust("../pix/exercise4_4.pdf")
+
+    # Plot ||Ax-b||^2 with respect to alpha
+    fig, ax = newfig()
+    ax.plot(alpha_list, [np.sum(a**2) for a in axmb])
+    ax.set_title(r"$ ||A\theta-b||^{2}_{2} vs \alpha $")
+    ax.set_xlabel(r"$ \alpha $")
+    ax.set_ylabel(r"$ ||A\theta-b||^{2}_{2} $")
+    final_adjust("../pix/exercise4_5.pdf")
+
+    # Plot ||theta||^2 with respect to alpha
+    fig, ax = newfig()
+    ax.plot(alpha_list, [np.sum(t**2) for t in theta])
+    ax.set_title(r"$ ||\theta||^{2}_{2} vs \alpha $")
+    ax.set_xlabel(r"$ \alpha $")
+    ax.set_ylabel(r"$ ||\theta_{\alpha}||^{2}_{2} $")
+    final_adjust("../pix/exercise4_6.pdf")
+        
+
+    # (ii)
+    
+    epsilon_star = sum([x ** 2 for x in A.dot(theta[0])-b])
+
+    axmb = list()
+    theta = list()
+
+    epsilon_list = [epsilon_star + 2*i for i in range(0,101)]
+    for epsilon in epsilon_list:
+
+        # construct problem
+        x = cp.Variable(N)
+        objective = cp.Minimize(cp.sum_squares(x)) * 0.1
+        constraints = [cp.sum_squares(A*x-b) <= epsilon] 
+        prob = cp.Problem(objective, constraints)
+
+        # solve it
+        result = prob.solve()
+        theta.append(x.value)
+        axmb.append(A.dot(x.value)-b)
+
+    # Plot ||Ax-b||^2 with respect to ||theta||^2
+    fig, ax = newfig()
+    ax.plot([np.sum(t**2) for t in theta], [np.sum(a**2) for a in axmb])
+    ax.set_title(r"$ ||A\theta-b||^{2}_{2} vs ||\theta||^{2}_{2} $")
+    ax.set_xlabel(r"$ ||\theta||^{2}_{2} $")
+    ax.set_ylabel(r"$ ||A\theta-b||^{2}_{2} $")
+    final_adjust("../pix/exercise4_7.pdf")
+
+    # Plot ||Ax-b||^2 with respect to alpha
+    fig, ax = newfig()
+    ax.plot(epsilon_list, [np.sum(a**2) for a in axmb])
+    ax.set_title(r"$ ||A\theta-b||^{2}_{2} vs \epsilon $")
+    ax.set_xlabel(r"$ \epsilon $")
+    ax.set_ylabel(r"$ ||A\theta-b||^{2}_{2} $")
+    final_adjust("../pix/exercise4_8.pdf")
+
+    # Plot ||theta||^2 with respect to epsilon
+    fig, ax = newfig()
+    ax.plot(epsilon_list, [np.sum(t**2) for t in theta])
+    ax.set_title(r"$ ||\theta||^{2}_{2} vs \epsilon $")
+    ax.set_xlabel(r"$ \epsilon $")
+    ax.set_ylabel(r"$ ||\theta_{\epsilon}||^{2}_{2} $")
+    final_adjust("../pix/exercise4_9.pdf")
