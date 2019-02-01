@@ -35,15 +35,16 @@ Yi Qiao, Class ID 187
 
 \section*{Exercise 1}
 \subsection*{(a)}
-Refer to code in the back. 
+Refer to code exercise1.py in the back. 
 \subsection*{(b)}
-The data was successfully read, shown by the screen below.
+The data was successfully read, shown by the screenshot below.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{exercise1.png}
-	\caption{screenshot for reading data}
+	\caption{screenshot of reading data}
 \end{figure}
 
+\pagebreak
 \section*{Exercise 2}
 \subsection*{(a)}
 \begin{equation}	\label{eq2(a)}
@@ -69,6 +70,7 @@ y_2\\
 y_N
 \end{bmatrix}$$
 \end{center}
+
 \subsection*{(b)}
 by least square
 \begin{equation}	\label{eq2(b)}
@@ -77,11 +79,13 @@ by least square
 \pmb{\theta}^*&=(\pmb{A}^T\pmb{A})^{-1}\pmb{A}^T\pmb{b}
 \end{split}
 \end{equation}
-if $A^TA$ is invertible, $A$ needs to be full column rank (or $null(A)=0$).
-TODO: find out how to avoid this issue
+If $A^TA$ is invertible, $A$ needs to be full column rank (or $null(A)=0$).\\
+
+\noindent If $A^TA$ is not invertible, one possible solution would be setting constraints base on some prior knowledge and then solve the optimization problem using gradient descent.
+Or, we can simply try to get better and more robust data, since in real world situation, it is not very likely that all the empirical data is linear dependent. 
 
 \subsection*{(c)}
-Refer to the code in the back.\\
+Refer to the code exercise2.py in the back.\\
 The optimal weight $\theta^*$ is:\\
 $$\pmb{\theta}^* = \begin{bmatrix}
 -1.23396767e-2\\
@@ -90,7 +94,7 @@ $$\pmb{\theta}^* = \begin{bmatrix}
 \end{bmatrix}$$
 
 \subsection*{(d)}
-Refer to the code in the back again.\\
+Refer to the code exercise2.py in the back again.\\
 The weight vector computed using CVXPY is the same as
 the one computed in the previous step.\\
 $$\pmb{\theta}^* = \begin{bmatrix}
@@ -98,54 +102,62 @@ $$\pmb{\theta}^* = \begin{bmatrix}
 6.67486843e-3\\
 -1.07017505e+1
 \end{bmatrix}$$
+\pagebreak
 \section*{Exercise 3}
 
 \subsection*{(a)}
-\subsubsection*{(i)}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.5\linewidth]{exercise3_1}
-	\caption{Training data}
-\end{figure}
-\subsubsection*{(ii)}
+\subsubsection*{(i) plot training data}
+see figure 2(a) below.
 
+
+\subsubsection*{(ii) decision boundary equation}
 \begin{equation}
 \begin{split}
-\pmb{\omega}^{*T}\pmb{x}+\omega_0^*&=0\\
-\omega_1^*x_1+\omega_2^*x_2+\omega_0^*&=0\\
+\pmb{\omega}^{*T}\pmb{x}+\omega_0^*=0\\
+\omega_1^*x_1+\omega_2^*x_2+\omega_0^*=0\\
 x_2=-\frac{\omega_1^*x_1+\omega_0^*}{\omega_2^*}
 \end{split}
 \end{equation}
-\subsubsection*{(iii)}
+\subsubsection*{(iii) plot training data with decision boundary}
+see figure 2(b) below.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\linewidth]{exercise3_2}
-	\caption{Training data with decision boundary}
+	\subfigure[Training data scatter plot]{
+		\includegraphics[width=0.47\linewidth]{exercise3_1}
+	}
+	\subfigure[Training data with decision boundary]{
+		\includegraphics[width=0.47\linewidth]{exercise3_2}
+	}
+	\caption{Training data plots}
 \end{figure}
 \subsection*{(b)}
-Refer to the code in the back, the success rate is:
+Refer to the code exercise3.py in the back, the success rate is:
 $$success\ rate = 83.93\%$$
 \pagebreak
+
 \section*{Exercise 4}
 \subsection*{(a)}
-\subsubsection*{(i)}
 \begin{figure}[h]
 	\centering
-	\subfigure[1]{
+	\subfigure[$||\pmb{A\theta}_\lambda-\pmb{b}||^2_2$ vs $||\pmb{\theta}_\lambda||^2_2$]{
 		\includegraphics[width=0.47\linewidth]{exercise4_1}
 	}
-	\subfigure[2]{
+	\subfigure[$||\pmb{A\theta}_\lambda-\pmb{b}||^2_2$ vs $\lambda$]{
 		\includegraphics[width=0.47\linewidth]{exercise4_2}	
 	}
-	\subfigure[3]{
+	\subfigure[$||\pmb{\theta}_\lambda||^2_2$ vs $\lambda$]{
 		\includegraphics[width=0.47\linewidth]{exercise4_3}	
 	}	
-	\subfigure[4]{
+	\subfigure[Decision boundaries with different $\lambda$]{
 		\includegraphics[width=0.47\linewidth]{exercise4}
 	}
+	\caption{Plots for problem (8)}
 \end{figure}
-\subsubsection*{(ii)}
-As we impose the penalty term, as we can observe from the plots above, in the optimal solution, $||\pmb{A\theta}-\pmb{b}||^2_2$ goes up and $||\pmb{\theta}||^2_2$ goes down respectively. Also, it effects the decision boundaries by increasing the slope and decreasing the intersect while $\lambda$ increase.
+\noindent From figure 3(a) above, we can see that $||\pmb{A\theta}_\lambda-\pmb{b}||^2_2$ decreases as $||\pmb{\theta}_\lambda||^2_2$ increases. \\
+From figure 3(b) and 3(c), we can see that, as $\lambda$ increases, $||\pmb{A\theta}_\lambda-\pmb{b}||^2_2$ is increasing and $||\pmb{\theta}_\lambda||^2_2$ is decreasing.\\
+From figure 3(d), we can see that the decision boundaries is rotating counter-clockwise around a biased point as $\lambda$ increase.\\
+Suppose we only have the term $||\pmb{\theta}||^2_2$, minimizing it will directly lead to $\pmb{\theta}=\pmb{0}$. However, since the presence of $||\pmb{A\theta}-\pmb{b}||^2_2$, the two terms are fighting each other and try to find a balance in between. As $\lambda$ increase, the penalty become stronger and stronger.
+\pagebreak
 \subsection*{(b)}
 \subsubsection*{(i)}
 for equation (8), $\pmb{\theta}_\lambda=\underset{\pmb{\theta}}{argmin}||\pmb{A\theta}-\pmb{b}||^2_2+\lambda||\pmb{\theta}||^2_2$:\\
@@ -217,7 +229,7 @@ Complementary slackness is satisfied since 	$\alpha-||\pmb{\theta}_\alpha||^2_2=
 
 \noindent Thus, the two problems (8) and (9) are equivalent.
 \subsubsection*{(iii)}
-for equation (9), stationarity suggests that:
+for equation (10), stationarity suggests that:
 \begin{equation}
 \nabla_\theta||\pmb{\theta}||^2_2+\gamma\nabla_\theta(||\pmb{A\theta}-\pmb{b}||^2_2-\epsilon)=0
 \end{equation}
@@ -251,29 +263,44 @@ Complementary slackness is satisfied since 	$\epsilon-||\pmb{A\theta}_\epsilon-\
 \subsubsection*{(i)}
 \begin{figure}[h]
 	\centering
-	\subfigure[1]{
+	\subfigure[$||\pmb{A\theta}_\alpha-\pmb{b}||^2_2$ vs $||\pmb{\theta}_\alpha||^2_2$]{
 		\includegraphics[width=0.47\linewidth]{exercise4_4}
 	}
-	\subfigure[2]{
+	\subfigure[$||\pmb{A\theta}_\alpha-\pmb{b}||^2_2$ vs $\alpha$]{
 		\includegraphics[width=0.47\linewidth]{exercise4_5}	
 	}
-	\subfigure[3]{
+	\subfigure[$||\pmb{\theta}_\alpha||^2_2$ vs $\alpha$]{
 		\includegraphics[width=0.47\linewidth]{exercise4_6}	
 	}	
 \end{figure}
+\noindent By observation, when $\alpha = ||\theta_\lambda||^2_2$, the solution is same to (8). As $\alpha$ goes beyond $||\theta_\lambda||^2_2$, the solution remains unchanged, since it falls into the inequality instead of staying on the boundary. 
+\pagebreak
+
 \subsubsection*{(ii)}
 \begin{figure}[h]
 	\centering
-	\subfigure[1]{
+	\subfigure[$||\pmb{A\theta}_\epsilon-\pmb{b}||^2_2$ vs $||\pmb{\theta}_\epsilon||^2_2$]{
 		\includegraphics[width=0.47\linewidth]{exercise4_7}
 	}
-	\subfigure[2]{
+	\subfigure[$||\pmb{A\theta}_\epsilon-\pmb{b}||^2_2$ vs $\epsilon$]{
 		\includegraphics[width=0.47\linewidth]{exercise4_8}	
 	}
-	\subfigure[3]{
+	\subfigure[$||\pmb{\theta}_\epsilon||^2_2$ vs $\epsilon$]{
 		\includegraphics[width=0.47\linewidth]{exercise4_9}	
 	}	
 \end{figure}
+\noindent By observation, when $\epsilon = ||\pmb{A\theta}_\lambda-\pmb{b}||^2_2$, the solution is the same to (8). While the solution always stays on the boundary since if there is no boundary, the solution will simply be $\pmb{\theta}_\epsilon = 0$
 \subsection*{(d)}
+The three problems above are basically the different sides of the same question. Of course, one will be more intuitive than another in different context. For example in this question, (8) and (9) is obviously more intuitive than (10) since both of them are directly regularizing the problem using "prior knowledge" as some kind of offset/regulation. 
+\pagebreak
+\section*{Code}
+\subsection*{exercise1}
+\inputminted[breaklines]{python}{py/exercise1.py}
+\subsection*{exercise2}
+\inputminted[breaklines]{python}{py/exercise2.py}
+\subsection*{exercise3}
+\inputminted[breaklines]{python}{py/exercise3.py}
+\subsection*{exercise4}
+\inputminted[breaklines]{python}{py/exercise4.py}
 \end{document}
 
