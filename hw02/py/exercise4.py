@@ -76,7 +76,6 @@ if __name__ == "__main__":
         y = -theta[i][2]/theta[i][1] - theta[i][0]/theta[i][1]*x_tics 
         ax.plot(x_tics, y.T)
         legend_str.append("$\lambda = $" + str(lambda_list[i]))
-    ax.set_title("Decision boundaries")
     ax.legend(legend_str)
     ax.set_xlabel("BMI")
     ax.set_ylabel("Stature")
@@ -86,7 +85,6 @@ if __name__ == "__main__":
     # Plot ||Ax-b||^2 with respect to ||theta||^2
     fig, ax = newfig()
     ax.plot([np.sum(t**2) for t in theta], [np.sum(a**2) for a in axmb])
-    ax.set_title(r"$ ||A\theta-b||^{2}_{2} vs ||\theta||^{2}_{2} $")
     ax.set_xlabel(r"$ ||\theta||^{2}_{2} $")
     ax.set_ylabel(r"$ ||A\theta-b||^{2}_{2} $")
     final_adjust("../pix/exercise4_1.pdf")
@@ -94,7 +92,6 @@ if __name__ == "__main__":
     # Plot ||Ax-b||^2 with respect to lambda
     fig, ax = newfig()
     ax.plot(lambda_list, [np.sum(a**2) for a in axmb])
-    ax.set_title(r"$ ||A\theta-b||^{2}_{2} vs \lambda $")
     ax.set_xlabel(r"$ \lambda $")
     ax.set_ylabel(r"$ ||A\theta-b||^{2}_{2} $")
     final_adjust("../pix/exercise4_2.pdf")
@@ -102,7 +99,6 @@ if __name__ == "__main__":
     # Plot ||theta||^2 with respect to lambda
     fig, ax = newfig()
     ax.plot(lambda_list, [np.sum(t**2) for t in theta])
-    ax.set_title(r"$ ||\theta||^{2}_{2} vs \lambda $")
     ax.set_xlabel(r"$ \lambda $")
     ax.set_ylabel(r"$ ||\theta_{\lambda}||^{2}_{2} $")
     final_adjust("../pix/exercise4_3.pdf")
@@ -134,7 +130,6 @@ if __name__ == "__main__":
     # Plot ||Ax-b||^2 with respect to ||theta||^2
     fig, ax = newfig()
     ax.plot([np.sum(t**2) for t in theta], [np.sum(a**2) for a in axmb])
-    ax.set_title(r"$ ||A\theta-b||^{2}_{2} vs ||\theta||^{2}_{2} $")
     ax.set_xlabel(r"$ ||\theta||^{2}_{2} $")
     ax.set_ylabel(r"$ ||A\theta-b||^{2}_{2} $")
     final_adjust("../pix/exercise4_4.pdf")
@@ -142,7 +137,6 @@ if __name__ == "__main__":
     # Plot ||Ax-b||^2 with respect to alpha
     fig, ax = newfig()
     ax.plot(alpha_list, [np.sum(a**2) for a in axmb])
-    ax.set_title(r"$ ||A\theta-b||^{2}_{2} vs \alpha $")
     ax.set_xlabel(r"$ \alpha $")
     ax.set_ylabel(r"$ ||A\theta-b||^{2}_{2} $")
     final_adjust("../pix/exercise4_5.pdf")
@@ -150,7 +144,6 @@ if __name__ == "__main__":
     # Plot ||theta||^2 with respect to alpha
     fig, ax = newfig()
     ax.plot(alpha_list, [np.sum(t**2) for t in theta])
-    ax.set_title(r"$ ||\theta||^{2}_{2} vs \alpha $")
     ax.set_xlabel(r"$ \alpha $")
     ax.set_ylabel(r"$ ||\theta_{\alpha}||^{2}_{2} $")
     final_adjust("../pix/exercise4_6.pdf")
@@ -181,7 +174,6 @@ if __name__ == "__main__":
     # Plot ||Ax-b||^2 with respect to ||theta||^2
     fig, ax = newfig()
     ax.plot([np.sum(t**2) for t in theta], [np.sum(a**2) for a in axmb])
-    ax.set_title(r"$ ||A\theta-b||^{2}_{2} vs ||\theta||^{2}_{2} $")
     ax.set_xlabel(r"$ ||\theta||^{2}_{2} $")
     ax.set_ylabel(r"$ ||A\theta-b||^{2}_{2} $")
     final_adjust("../pix/exercise4_7.pdf")
@@ -189,7 +181,6 @@ if __name__ == "__main__":
     # Plot ||Ax-b||^2 with respect to alpha
     fig, ax = newfig()
     ax.plot(epsilon_list, [np.sum(a**2) for a in axmb])
-    ax.set_title(r"$ ||A\theta-b||^{2}_{2} vs \epsilon $")
     ax.set_xlabel(r"$ \epsilon $")
     ax.set_ylabel(r"$ ||A\theta-b||^{2}_{2} $")
     final_adjust("../pix/exercise4_8.pdf")
@@ -197,7 +188,6 @@ if __name__ == "__main__":
     # Plot ||theta||^2 with respect to epsilon
     fig, ax = newfig()
     ax.plot(epsilon_list, [np.sum(t**2) for t in theta])
-    ax.set_title(r"$ ||\theta||^{2}_{2} vs \epsilon $")
     ax.set_xlabel(r"$ \epsilon $")
     ax.set_ylabel(r"$ ||\theta_{\epsilon}||^{2}_{2} $")
     final_adjust("../pix/exercise4_9.pdf")
