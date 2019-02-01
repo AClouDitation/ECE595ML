@@ -7,6 +7,7 @@ import csv
 def newfig():
     fig = plt.figure(figsize=(9,6), dpi=300)
     ax = fig.add_subplot(111)
+    ax.grid()
     return fig, ax
 
 def final_adjust(fn):

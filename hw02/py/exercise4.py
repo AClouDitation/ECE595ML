@@ -7,6 +7,7 @@ import csv
 def newfig():
     fig = plt.figure(figsize=(9,6), dpi=300)
     ax = fig.add_subplot(111)
+    ax.grid()
     return fig, ax
 
 def final_adjust(fn):
@@ -75,9 +76,10 @@ if __name__ == "__main__":
         y = -theta[i][2]/theta[i][1] - theta[i][0]/theta[i][1]*x_tics 
         ax.plot(x_tics, y.T)
         legend_str.append("$\lambda = $" + str(lambda_list[i]))
-    plt.legend(legend_str)
-    plt.xlabel("BMI")
-    plt.ylabel("Stature")
+    ax.set_title("Decision boundaries")
+    ax.legend(legend_str)
+    ax.set_xlabel("BMI")
+    ax.set_ylabel("Stature")
 
     final_adjust("../pix/exercise4.pdf")
     

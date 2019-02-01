@@ -45,8 +45,7 @@ if __name__ == "__main__":
     N = len(A[0])
     x = cp.Variable(N)
     objective = cp.Minimize(cp.sum_squares(A*x-b))
-    constraints = [-20 <= x, x <= 20] # for now
-    prob = cp.Problem(objective, constraints)
+    prob = cp.Problem(objective)
 
     # solve it
     result = prob.solve()
