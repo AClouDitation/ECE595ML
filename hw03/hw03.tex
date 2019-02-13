@@ -1,0 +1,80 @@
+\documentclass[11pt]{article}
+
+% ------
+% LAYOUT
+% ------
+\textwidth 165mm %
+\textheight 230mm %
+\oddsidemargin 0mm %
+\evensidemargin 0mm %
+\topmargin -15mm %
+\parindent= 10mm
+
+\usepackage[dvips]{graphicx}
+\usepackage{multirow,multicol}
+\usepackage[table]{xcolor}
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
+\usepackage{subfigure}
+\usepackage{minted}
+
+\graphicspath{{./pix/}} % put all your figures here.
+
+\begin{document}
+\begin{center}
+\Large{\textbf{ECE 595: Homework 3}}
+
+Yi Qiao, Class ID 187
+
+(Spring 2019)
+\end{center}
+
+\section*{Exercise 1}
+\subsection*{(a)}
+\subsubsection*{(i)}
+\noindent \textbf{To Prove:}$$\pmb{x}^T\pmb{Ax}=tr\left[\pmb{Axx}^T\right]$$
+
+\begin{equation}
+\begin{split}
+\pmb{x}^T\pmb{Ax} &=\begin{bmatrix}
+x_0 & x_1 & ... & x_{n-1}
+\end{bmatrix}\begin{bmatrix}
+a_{0,0} & a_{0,1} & ... & a_{0,n-1}\\
+\vdots  &	\vdots & 	&	\vdots \\
+a_{n-1,0}&	a_{n-1,1} & ... & a_{n-1, n-1}\\
+\end{bmatrix}\begin{bmatrix}
+x_0\\
+x_1\\
+\vdots\\
+x_{n-1}\\
+\end{bmatrix}\\
+&=\sum_{j=0}^{n-1}\sum_{i=0}^{n-1}x_ia_{i,j}x_j\\
+&=\sum_{i=0}^{n-1}\left(\sum_{j=0}^{n-1}a_{i,j}x_j\right)x_i\\
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+tr\left[\pmb{Axx}^T\right]&=tr\left[\begin{bmatrix}
+-\ a_0\ -\pmb{x} \\
+-\ a_1\ -\pmb{x} \\
+\vdots \\
+-\ a_{n-1}\ -\pmb{x}
+\end{bmatrix}\pmb{x}^T\right]\\
+&=tr\left[\begin{bmatrix}
+-\ a_0\ -\pmb{x}x_{0} & -\ a_0\ -\pmb{x}x_1 & ... & -\ a_0\ -\pmb{x}x_{n-1} \\
+-\ a_1\ -\pmb{x}x_{0} & -\ a_1\ -\pmb{x}x_1 & ... & -\ a_1\ -\pmb{x}x_{n-1}\\
+\vdots & \vdots & ... & \vdots \\
+-\ a_{n-1}\ -\pmb{x}x_{0} & -\ a_{n-1}\ -\pmb{x}x_{0} & ... & -\ a_{n-1}\ -\pmb{x}x_{0}
+\end{bmatrix}\right]\\
+&=\sum_{i=0}^{n-1}-\ a_i\ -\pmb{x}x_i\\
+&=\sum_{i=0}^{n-1}\left(\sum_{j=0}^{n-1}a_{i,j}x_j\right)x_i
+\end{split}
+\end{equation}\\
+Thus, the above two are equivalent.
+
+\subsubsection*{(ii)}
+\end{document}
