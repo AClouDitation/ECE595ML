@@ -75,6 +75,102 @@ tr\left[\pmb{Axx}^T\right]&=tr\left[\begin{bmatrix}
 \end{split}
 \end{equation}\\
 Thus, the above two are equivalent.
-
+\pagebreak
 \subsubsection*{(ii)}
+
+since the likelihood function is, $$p(\pmb{x}|\pmb{\Sigma})=\frac{1}{(2\pi)^{d/2}|\pmb{\Sigma}|^{1/2}}exp\left\{-\frac{1}{2}(\pmb{x}-\pmb{\mu})^T\pmb{\Sigma}^{-1}(\pmb{x}-\pmb{\mu})\right\}$$
+
+\begin{equation}
+\begin{split}
+p(\pmb{x}_1,...,\pmb{x}_N|\pmb{\Sigma})&=\prod_{i=1}^{N}\frac{1}{(2\pi)^{d/2}|\pmb{\Sigma}|^{1/2}}exp\left\{-\frac{1}{2}(\pmb{x}_i-\pmb{\mu})^T\pmb{\Sigma}^{-1}(\pmb{x}_i-\pmb{\mu})\right\}\\
+&=\frac{1}{(2\pi)^{Nd/2}}|\pmb{\Sigma}^{-1}|^{N/2}exp\left\{-\frac{1}{2}\sum_{i=1}^{N}(\pmb{x}_i-\pmb{\mu})^T\pmb{\Sigma}^{-1}(\pmb{x}_i-\pmb{\mu})\right\}\\
+\end{split}
+\end{equation}\\
+
+Using the property we found above, we get,
+
+\begin{equation}
+\begin{split}
+p(\pmb{x}_1,...,\pmb{x}_N|\pmb{\Sigma})&=\frac{1}{(2\pi)^{Nd/2}}|\pmb{\Sigma}^{-1}|^{N/2}exp\left\{-\frac{1}{2}\sum_{i=1}^{N}tr\left[\pmb{\Sigma}^{-1}(\pmb{x}_i-\pmb{\mu})(\pmb{x}_i-\pmb{\mu})^T\right]\right\}\\
+&=\frac{1}{(2\pi)^{Nd/2}}|\pmb{\Sigma}^{-1}|^{N/2}exp\left\{-\frac{1}{2}tr\left[\sum_{i=1}^{N}\pmb{\Sigma}^{-1}(\pmb{x}_i-\pmb{\mu})(\pmb{x}_i-\pmb{\mu})^T\right]\right\}\\
+&=\frac{1}{(2\pi)^{Nd/2}}|\pmb{\Sigma}^{-1}|^{N/2}exp\left\{-\frac{1}{2}tr\left[\pmb{\Sigma}^{-1}\sum_{i=1}^{N}(\pmb{x}_i-\pmb{\mu})(\pmb{x}_i-\pmb{\mu})^T\right]\right\}
+\end{split}
+\end{equation}
+
+\subsubsection*{(iii)}
+since 
+$$\hat{\pmb{\Sigma}}_{MLE} = \frac{1}{N}\sum_{n=1}^{N}(\pmb{x}_n-\hat{\pmb{\mu}})(\pmb{x}_n-\hat{\pmb{\mu}})^T$$
+we can rewrite the equation above as\\
+\begin{equation}
+\begin{split}
+p(\pmb{x}_1,...,\pmb{x}_N|\pmb{\Sigma})&=\frac{1}{(2\pi)^{Nd/2}}|\pmb{A}\hat{\pmb{\Sigma}}_{MLE}^{-1}|^{N/2}exp\left\{-\frac{1}{2}tr\left[\pmb{\Sigma}^{-1}N\hat{\pmb{\Sigma}}_{MLE}\right]\right\}\\
+&=\frac{1}{(2\pi)^{Nd/2}|\hat{\pmb{\Sigma}}_{MLE}|^{N/2}}|\pmb{A}|^{N/2}exp\left\{-\frac{N}{2}tr\left[A\right]\right\}\\
+\end{split}
+\end{equation}
+since $\pmb{A}$ is diagonalizable, $|\pmb{A}| = \prod_{i=1}^{d}\lambda_i$, plug it in, we get
+
+\begin{equation}
+\begin{split}
+p(\pmb{x}_1,...,\pmb{x}_N|\pmb{\Sigma})&=\frac{1}{(2\pi)^{Nd/2}|\hat{\pmb{\Sigma}}_{MLE}|^{N/2}}(\prod_{i=1}^{d}\lambda_i)^{N/2}exp\left\{-\frac{N}{2}\sum_{i=1}^{d}\lambda_i\right\}\\
+\end{split}
+\end{equation}
+
+\pagebreak
+\subsubsection*{(iv)}
+To maximize the likelihood function $$\underset{\lambda_1...\lambda_d}{argmax}\ p(x_1,...,x_N|\pmb{\Sigma})$$
+we have,
+\begin{equation}
+\begin{split}
+\pmb{\lambda}&=\underset{\lambda_1...\lambda_d}{argmax}\  \frac{1}{(2\pi)^{Nd/2}|\hat{\pmb{\Sigma}}_{MLE}|^{N/2}}(\prod_{i=1}^{d}\lambda_i)^{N/2}exp\left\{-\frac{N}{2}\sum_{i=1}^{d}\lambda_i\right\}\\
+&=\underset{\lambda_1...\lambda_d}{argmax}\ (\prod_{i=1}^{d}\lambda_i)^{N/2}exp\left\{-\frac{N}{2}\sum_{i=1}^{d}\lambda_i\right\}\\
+&=\underset{\lambda_1...\lambda_d}{argmin}\ -log(\prod_{i=1}^{d}\lambda_i)+\sum_{i=1}^{d}\lambda_i\\
+&=\underset{\lambda_1...\lambda_d}{argmin}\ -\sum_{i=1}^{d}log(\lambda_i)+\sum_{i=1}^{d}\lambda_i\\
+&=\underset{\lambda_1...\lambda_d}{argmin}\ \sum_{i=1}^{d}\lambda_i-log(\lambda_i)\\
+\end{split}
+\end{equation}
+
+Take derivative, setting to zero:
+$$\nabla\pmb{\lambda}= \begin{bmatrix}
+1-\frac{1}{\lambda_1}\\
+1-\frac{1}{\lambda_2}\\
+\vdots\\
+1-\frac{1}{\lambda_d}\\
+\end{bmatrix} = \pmb{0}$$
+
+Obviously $\lambda_i=1$ for all $i$.
+\subsection*{(b)}
+By maximizing the likelihood function:
+$$\hat{\pmb{\Sigma}} = \underset{\pmb{\Sigma}}{argmax}\ p(\pmb{x}_1,...,\pmb{x}_N|\pmb{\Sigma})$$
+\begin{equation}
+\begin{split}
+\hat{\pmb{\Sigma}}&=\underset{\pmb{\Sigma}}{argmax}\ \frac{1}{(2\pi)^{Nd/2}|\pmb{\Sigma}|^{N/2}}exp\left\{-\frac{1}{2}\sum_{i=1}^{N}(\pmb{x}_i-\pmb{\mu})^T\pmb{\Sigma}^{-1}(\pmb{x}_i-\pmb{\mu})\right\}\\
+&=\underset{\pmb{\Sigma}}{argmax}\  \frac{|\pmb{\Sigma}^{-1}|^{N/2}}{(2\pi)^{Nd/2}}exp\left\{-\frac{1}{2}tr\left[\pmb{\Sigma}^{-1}\sum_{i=1}^{N}(\pmb{x}_i-\pmb{\mu})(\pmb{x}_i-\pmb{\mu})^T\right]\right\}\\
+&=\underset{\pmb{\Sigma}}{argmin}\ -\frac{N}{2}log(|\pmb{\Sigma}^{-1}|)+\frac{Nd}{2}log(2\pi)+\frac{1}{2}tr\left[\pmb{\Sigma}^{-1}\sum_{i=0}^{N}(\pmb{x}_i-\pmb{\mu})(\pmb{x}_i-\pmb{\mu})^T\right]\\
+&=\underset{\pmb{\Sigma}}{argmin}\ -Nlog(|\pmb{\Sigma}^{-1}|)+tr\left[\pmb{\Sigma}^{-1}\sum_{i=0}^{N}(\pmb{x}_i-\pmb{\mu})(\pmb{x}_i-\pmb{\mu})^T\right]
+\end{split}
+\end{equation}
+\pagebreak
+
+\noindent Set $\pmb{P} = \pmb{\Sigma}^{-1}$\\
+\begin{equation}
+\begin{split}
+\hat{\pmb{P}} = \underset{\pmb{P}}{argmin}\ -Nlog(|\pmb{P}|)+tr\left[\pmb{P}\sum_{i=0}^{N}(\pmb{x}_i-\pmb{\mu})(\pmb{x}_i-\pmb{\mu})^T\right]
+\end{split}
+\end{equation}
+Take derivative, setting to zero:
+\begin{equation}
+\begin{split}
+-\frac{N}{|\pmb{P}|}|\pmb{P}|\pmb{P}^{-1}&+\sum_{i=0}^{N}(\pmb{x}_i-\pmb{\mu})(\pmb{x}_i-\pmb{\mu})^T = 0\\
+N\pmb{P}^{-1}&=\sum_{i=0}^{N}(\pmb{x}_i-\pmb{\mu})(\pmb{x}_i-\pmb{\mu})^T\\
+\pmb{P}^{-1}&=\frac{1}{N}\sum_{i=0}^{N}(\pmb{x}_i-\pmb{\mu})(\pmb{x}_i-\pmb{\mu})^T\\
+\end{split}
+\end{equation}
+thus,
+
+$$\hat{\pmb{\Sigma}}_{MLE}=\frac{1}{N}\sum_{i=0}^{N}(\pmb{x}_i-\pmb{\mu})(\pmb{x}_i-\pmb{\mu})^T$$
+
+\section*{Exercise 2}
+
+\pagebreak
+\section*{Exercise 3}
 \end{document}
