@@ -173,4 +173,87 @@ $$\hat{\pmb{\Sigma}}_{MLE}=\frac{1}{N}\sum_{i=0}^{N}(\pmb{x}_i-\pmb{\mu})(\pmb{x
 
 \pagebreak
 \section*{Exercise 3}
+\subsection*{(a)}
+For a Gaussian classifier with same covariance matrix across the board, the decision boundary is,
+$$g(\pmb{x}) = \pmb{\beta}^T(\pmb{x}-\beta_0)=0$$
+with,
+$$\pmb{\beta} = \pmb{\Sigma}^{-1}(\pmb{\mu}_i-\pmb{\mu}_j)$$
+$$\beta_0=\frac{\pmb{\mu}_i+\pmb{\mu}_j}{2}-\frac{log\frac{\pi_i}{\pi_j}}{(\pmb{\mu}_i-\pmb{\mu}_j)^T\pmb{\Sigma}^{-1}(\pmb{\mu}_i-\pmb{\mu}_j)}(\pmb{\mu}_i-\pmb{\mu}_j)$$
+
+\subsection*{(b)}
+\subsubsection*{(i)}
+\noindent \textbf{To Prove:}
+$$\pmb{A}^T\pmb{A}=\begin{bmatrix}
+(N-2)\hat{\pmb{\Sigma}}+N_1\hat{\pmb{\mu}}_1\hat{\pmb{\mu}}_1^T+N_2\hat{\pmb{\mu}}_2\hat{\pmb{\mu}}_2^T & N_1\hat{\pmb{\mu}_1}+N_2\hat{\pmb{\mu}_2}\\
+N_1\hat{\pmb{\mu}_1}^T+N_2\hat{\pmb{\mu}_2}^T & N
+\end{bmatrix}$$
+
+\begin{equation}
+\begin{split}
+\pmb{A}^T\pmb{A}&=\begin{bmatrix}
+|&&|&|&&|\\
+\pmb{x}_1&...&\pmb{x}_{N1}&\pmb{y}_1&...&\pmb{y}_{N2}\\
+|&&|&|&&|\\
+1&...&1&1&...&1\\
+\end{bmatrix}\begin{bmatrix}
+-\pmb{x}^T_1-& 1\\
+\vdots&\vdots\\
+-\pmb{x}^T_{N1}-& 1\\
+-\pmb{y}^T_1-& 1\\
+\vdots&\vdots\\
+-\pmb{y}^T_{N2}-& 1\\
+\end{bmatrix}\\
+&=\begin{bmatrix}
+\begin{bmatrix}
+|&&|&|&&|\\
+\pmb{x}_1&...&\pmb{x}_{N1}&\pmb{y}_1&...&\pmb{y}_{N2}\\
+|&&|&|&&|\\
+\end{bmatrix}\begin{bmatrix}
+-\pmb{x}^T_1-\\
+\vdots\\
+-\pmb{x}^T_{N1}-\\
+-\pmb{y}^T_1-\\
+\vdots\\
+-\pmb{y}^T_{N2}-\\
+\end{bmatrix}
+&\begin{bmatrix}
+|&&|&|&&|\\
+\pmb{x}_1&...&\pmb{x}_{N1}&\pmb{y}_1&...&\pmb{y}_{N2}\\
+|&&|&|&&|\\
+\end{bmatrix}\begin{bmatrix}
+1\\
+\vdots\\
+1\\
+1\\
+\vdots\\
+1\\
+\end{bmatrix}\\
+\begin{bmatrix}
+1&...&1&1&...&1
+\end{bmatrix}\begin{bmatrix}
+-\pmb{x}^T_1-\\
+\vdots\\
+-\pmb{x}^T_{N1}-\\
+-\pmb{y}^T_1-\\
+\vdots\\
+-\pmb{y}^T_{N2}-\\
+\end{bmatrix}&
+\begin{bmatrix}
+1&...&1&1&...&1
+\end{bmatrix}\begin{bmatrix}
+1\\
+\vdots\\
+1\\
+1\\
+\vdots\\
+1\\
+\end{bmatrix}\\
+\end{bmatrix}\\
+&=\begin{bmatrix}
+???&\sum_{i=1}^{N1}\pmb{x}_i + \sum_{i=1}^{N2}\pmb{y}_i\\
+\sum_{i=1}^{N1}\pmb{x}_i^T + \sum_{i=1}^{N2}\pmb{y}_i^T&N_1+N_2\\
+\end{bmatrix}
+\end{split}
+\end{equation}
+
 \end{document}
