@@ -192,33 +192,33 @@ N_1\hat{\pmb{\mu}_1}^T+N_2\hat{\pmb{\mu}_2}^T & N
 \begin{split}
 \pmb{A}^T\pmb{A}&=\begin{bmatrix}
 |&&|&|&&|\\
-\pmb{x}_1&...&\pmb{x}_{N1}&\pmb{y}_1&...&\pmb{y}_{N2}\\
+\pmb{x}^{(1)}_1&...&\pmb{x}^{(1)}_{N1}&\pmb{x}^{(2)}_1&...&\pmb{x}^{(2)}_{N2}\\
 |&&|&|&&|\\
 1&...&1&1&...&1\\
 \end{bmatrix}\begin{bmatrix}
--\pmb{x}^T_1-& 1\\
+-\pmb{x}^{(1)T}_1-& 1\\
 \vdots&\vdots\\
--\pmb{x}^T_{N1}-& 1\\
--\pmb{y}^T_1-& 1\\
+-\pmb{x}^{(1)T}_{N1}-& 1\\
+-\pmb{x}^{(2)T}_1-& 1\\
 \vdots&\vdots\\
--\pmb{y}^T_{N2}-& 1\\
+-\pmb{x}^{(2)T}_{N2}-& 1\\
 \end{bmatrix}\\
 &=\begin{bmatrix}
 \begin{bmatrix}
 |&&|&|&&|\\
-\pmb{x}_1&...&\pmb{x}_{N1}&\pmb{y}_1&...&\pmb{y}_{N2}\\
+\pmb{x}^{(1)}_1&...&\pmb{x}^{(1)}_{N1}&\pmb{x}^{(2)}_1&...&\pmb{x}^{(2)}_{N2}\\
 |&&|&|&&|\\
 \end{bmatrix}\begin{bmatrix}
--\pmb{x}^T_1-\\
+-\pmb{x}^{(1)T}_1-\\
 \vdots\\
--\pmb{x}^T_{N1}-\\
--\pmb{y}^T_1-\\
+-\pmb{x}^{(1)T}_{N1}-\\
+-\pmb{y}^{(2)T}_1-\\
 \vdots\\
--\pmb{y}^T_{N2}-\\
+-\pmb{y}^{(2)T}_{N2}-\\
 \end{bmatrix}
 &\begin{bmatrix}
 |&&|&|&&|\\
-\pmb{x}_1&...&\pmb{x}_{N1}&\pmb{y}_1&...&\pmb{y}_{N2}\\
+\pmb{x}^{(1)}_1&...&\pmb{x}^{(1)}_{N1}&\pmb{x}^{(2)}_1&...&\pmb{x}^{(2)}_{N2}\\
 |&&|&|&&|\\
 \end{bmatrix}\begin{bmatrix}
 1\\
@@ -231,12 +231,12 @@ N_1\hat{\pmb{\mu}_1}^T+N_2\hat{\pmb{\mu}_2}^T & N
 \begin{bmatrix}
 1&...&1&1&...&1
 \end{bmatrix}\begin{bmatrix}
--\pmb{x}^T_1-\\
+-\pmb{x}^{(1)T}_1-\\
 \vdots\\
--\pmb{x}^T_{N1}-\\
--\pmb{y}^T_1-\\
+-\pmb{x}^{(1)T}_{N1}-\\
+-\pmb{x}^{(2)T}_1-\\
 \vdots\\
--\pmb{y}^T_{N2}-\\
+-\pmb{x}^{(2)T}_{N2}-\\
 \end{bmatrix}&
 \begin{bmatrix}
 1&...&1&1&...&1
@@ -250,10 +250,65 @@ N_1\hat{\pmb{\mu}_1}^T+N_2\hat{\pmb{\mu}_2}^T & N
 \end{bmatrix}\\
 \end{bmatrix}\\
 &=\begin{bmatrix}
-???&\sum_{i=1}^{N1}\pmb{x}_i + \sum_{i=1}^{N2}\pmb{y}_i\\
-\sum_{i=1}^{N1}\pmb{x}_i^T + \sum_{i=1}^{N2}\pmb{y}_i^T&N_1+N_2\\
+\sum_{i=1}^{N1}\pmb{x}^{(1)}_i\pmb{x}^{(1)T}_i+\sum_{i=1}^{N2}\pmb{x}^{(2)}_i\pmb{x}^{(2)T}_i&\sum_{i=1}^{N1}\pmb{x}^{(1)}_i + \sum_{i=1}^{N2}\pmb{x}^{(2)}_i\\
+\sum_{i=1}^{N1}\pmb{x}^{(1)T}_i + \sum_{i=1}^{N2}\pmb{x}^{(2)T}_i&N_1+N_2\\
+\end{bmatrix}\\
+&=\begin{bmatrix}
+(N-2)\hat{\pmb{\Sigma}}+\sum_{j=1}^{2}\sum_{i=1}^{N_j}\hat{\pmb{\mu}}_j\pmb{x}^{(j)T}_i+\pmb{x}^{(j)}\hat{\pmb{\mu}}^T_j-\hat{\pmb{\mu}}_j\hat{\pmb{\mu}}^T_j&N_1\pmb{\mu}_1+N_2\pmb{\mu}_2\\
+N_1\hat{\pmb{\mu}}^T_1+N_2\hat{\pmb{\mu}}^T_2&N\\
 \end{bmatrix}
 \end{split}
 \end{equation}
 
+The top left term,
+$$(N-2)\hat{\pmb{\Sigma}}+\sum_{j=1}^{2}\sum_{i=1}^{N_j}\hat{\pmb{\mu}}_j\pmb{x}^{(j)T}_i+\pmb{x}^{(j)}\hat{\pmb{\mu}}^T_j-\hat{\pmb{\mu}}_j\hat{\pmb{\mu}}^T_j$$
+can be simplified as follow,
+\begin{equation}
+\begin{split}
+(N-2)\hat{\pmb{\Sigma}}+&\sum_{j=1}^{2}\sum_{i=1}^{N_j}\hat{\pmb{\mu}}_j\pmb{x}^{(j)T}_i+\pmb{x}^{(j)}_i\hat{\pmb{\mu}}^T_j-\hat{\pmb{\mu}}_j\hat{\pmb{\mu}}^T_j\\
+&=(N-2)\hat{\pmb{\Sigma}}+\sum_{j=1}^{2}\sum_{i=1}^{N_j}\left(\frac{1}{N_j}\sum_{k=1}^{N_j}\pmb{x}^{(j)}_k\right)\pmb{x}^{(j)T}_i+\pmb{x}^{(j)}_i\left(\frac{1}{N_j}\sum_{k=1}^{N_j}\pmb{x}^{(j)T}_k\right)-\hat{\pmb{\mu}}_j\hat{\pmb{\mu}}^T_j\\
+&=(N-2)\hat{\pmb{\Sigma}}+\sum_{j=1}^{2}\left(\frac{1}{N_j}\sum_{i=1}^{N_j}\sum_{k=1}^{N_j}\pmb{x}^{(j)}_k\pmb{x}^{(j)T}_i\right)+\left(\frac{1}{N_j}\sum_{i=1}^{N_j}\sum_{k=1}^{N_j}\pmb{x}^{(j)}_i\pmb{x}^{(j)T}_k\right)-N_j\hat{\pmb{\mu}}_j\hat{\pmb{\mu}}^T_j\\
+&=(N-2)\hat{\pmb{\Sigma}}+\sum_{j=1}^{2}N_j\hat{\pmb{\mu}}_j\hat{\pmb{\mu}}^T_j+N_j\hat{\pmb{\mu}}_j\hat{\pmb{\mu}}^T_j-N_j\hat{\pmb{\mu}}_j\hat{\pmb{\mu}}^T_j\\
+&=(N-2)\hat{\pmb{\Sigma}}+N_1\hat{\pmb{\mu}}_1\hat{\pmb{\mu}}^T_1+N_2\hat{\pmb{\mu}}_2\hat{\pmb{\mu}}^T_2
+\end{split}
+\end{equation}
+Substitute back, we get,
+$$\pmb{A}^T\pmb{A}=\begin{bmatrix}
+(N-2)\hat{\pmb{\Sigma}}+N_1\hat{\pmb{\mu}}_1\hat{\pmb{\mu}}_1^T+N_2\hat{\pmb{\mu}}_2\hat{\pmb{\mu}}_2^T & N_1\hat{\pmb{\mu}_1}+N_2\hat{\pmb{\mu}_2}\\
+N_1\hat{\pmb{\mu}_1}^T+N_2\hat{\pmb{\mu}_2}^T & N
+\end{bmatrix}$$
+The equation is proved.
+
+\subsubsection*{(ii)}
+\noindent \textbf{To Prove:}
+$$\pmb{A}^T\pmb{b} = \begin{bmatrix}
+c_1N_1\hat{\pmb{\mu}}_1+c_2N_2\hat{\pmb{\mu}}_2\\
+N_1c_1+N_2c_2
+\end{bmatrix}$$
+
+\begin{equation}
+\begin{split}
+\pmb{A}^T\pmb{b}&=\begin{bmatrix}
+|&&|&|&&|\\
+\pmb{x}^{(1)}_1&...&\pmb{x}^{(1)}_{N1}&\pmb{x}^{(2)}_1&...&\pmb{x}^{(2)}_{N2}\\
+|&&|&|&&|\\
+1&...&1&1&...&1\\
+\end{bmatrix}\begin{bmatrix}
+c_1\\
+\vdots\\
+c_1\\
+c_2\\
+\vdots\\
+c_2
+\end{bmatrix}\\
+&=\begin{bmatrix}
+c_1\sum_{i=1}^{N_1}x^{(1)}_i+c_2\sum_{i=1}^{N_2}x^{(2)}_i\\
+N_1c_1+N_2c_2
+\end{bmatrix}\\
+&=\begin{bmatrix}
+c_1N_1\hat{\pmb{\mu}}_1+c_2N_2\hat{\pmb{\mu}}_2\\
+N_1c_1+N_2c_2
+\end{bmatrix}
+\end{split}
+\end{equation}
 \end{document}
