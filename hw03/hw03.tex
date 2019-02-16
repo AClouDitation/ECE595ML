@@ -311,4 +311,85 @@ N_1c_1+N_2c_2
 \end{bmatrix}
 \end{split}
 \end{equation}
+
+\pagebreak
+\subsubsection*{(iii)}
+Plug in the result from (i) and (ii), we get,
+$$\begin{bmatrix}
+(N-2)\hat{\pmb{\Sigma}}+N_1\hat{\pmb{\mu}}_1\hat{\pmb{\mu}}_1^T+N_2\hat{\pmb{\mu}}_2\hat{\pmb{\mu}}_2^T & N_1\hat{\pmb{\mu}_1}+N_2\hat{\pmb{\mu}_2}\\
+N_1\hat{\pmb{\mu}_1}^T+N_2\hat{\pmb{\mu}_2}^T & N
+\end{bmatrix}
+\begin{bmatrix}
+\pmb{\omega}\\
+\omega_0
+\end{bmatrix}
+=\begin{bmatrix}
+c_1N_1\hat{\pmb{\mu}}_1+c_2N_2\hat{\pmb{\mu}}_2\\
+N_1c_1+N_2c_2\end{bmatrix}$$
+
+From the second row, 
+\begin{equation}
+\begin{split}
+\left(N_1\hat{\pmb{\mu}_1}^T+N_2\hat{\pmb{\mu}_2}^T\right)\pmb{\omega} + N\omega_0 = N_1c_1+N_2c_2\\
+\omega_0 = \frac{N_1c_1+N_2c_2-\left(N_1\hat{\pmb{\mu}_1}^T+N_2\hat{\pmb{\mu}_2}^T\right)\pmb{\omega}}{N}
+\end{split}
+\end{equation}
+
+Plug $\omega_0$ back in, we get the desired equation.
+
+\begin{equation}
+\begin{split}
+\left[(N-2)\hat{\pmb{\Sigma}}+N_1\hat{\pmb{\mu}}_1\hat{\pmb{\mu}}_1^T+N_2\hat{\pmb{\mu}}_2\hat{\pmb{\mu}}_2^T\right]\pmb{\omega}&+\left(N_1\hat{\pmb{\mu}_1}+N_2\hat{\pmb{\mu}_2}\right)\left(\frac{N_1c_1+N_2c_2}{N}-\frac{\left(N_1\hat{\pmb{\mu}_1}^T+N_2\hat{\pmb{\mu}_2}^T\right)\pmb{\omega}}{N}\right)\\
+=c_1N_1\hat{\pmb{\mu}}_1+c_2N_2\hat{\pmb{\mu}}_2
+\end{split}
+\end{equation}
+
+\subsubsection*{(iv)}
+The outer product terms,
+
+$$-\frac{N_1^2}{N}\hat{\pmb{\mu}}_1\hat{\pmb{\mu}}_1^T+N_1\hat{\pmb{\mu}}_1\hat{\pmb{\mu}}_1^T
+-\frac{N_2^2}{N}\hat{\pmb{\mu}}_2\hat{\pmb{\mu}}_2^T+N_2\hat{\pmb{\mu}}_2\hat{\pmb{\mu}}_2^T
+-\frac{N_1N_2}{N}\hat{\pmb{\mu}}_1\hat{\pmb{\mu}}_2^T
+-\frac{N_1N_2}{N}\hat{\pmb{\mu}}_2\hat{\pmb{\mu}}_1^T$$
+
+\begin{equation}
+\begin{split}
+&=\frac{NN_1-N_1^2}{N}\hat{\pmb{\mu}}_1\hat{\pmb{\mu}}_1^T
++\frac{NN_2-N_2^2}{N}\hat{\pmb{\mu}}_2\hat{\pmb{\mu}}_2^T
+-\frac{N_1N_2}{N}\hat{\pmb{\mu}}_1\hat{\pmb{\mu}}_2^T
+-\frac{N_1N_2}{N}\hat{\pmb{\mu}}_2\hat{\pmb{\mu}}_1^T\\
+&=\frac{N_1N_2}{N}\hat{\pmb{\mu}}_1\hat{\pmb{\mu}}_1^T
++\frac{N_1N_2}{N}\hat{\pmb{\mu}}_2\hat{\pmb{\mu}}_2^T
+-\frac{N_1N_2}{N}\hat{\pmb{\mu}}_1\hat{\pmb{\mu}}_2^T
+-\frac{N_1N_2}{N}\hat{\pmb{\mu}}_2\hat{\pmb{\mu}}_1^T\\
+&=\frac{N_1N_2}{N}\hat{\pmb{\mu}}_1\left(\hat{\pmb{\mu}}_1^T-\hat{\pmb{\mu}}_2^T\right)
++\frac{N_1N_2}{N}\hat{\pmb{\mu}}_2\left(\hat{\pmb{\mu}}_2^T-\hat{\pmb{\mu}}_1^T\right)\\
+&=\frac{N_1N_2}{N}\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)^T\\
+\end{split}
+\end{equation}
+
+Plug the term back to the original equation, we get,
+\begin{equation}
+\begin{split}
+&\left[(N-2)\hat{\pmb{\Sigma}} +\frac{N_1N_2}{N}\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)^T\right]\pmb{\omega}+\left(N_1\hat{\pmb{\mu}_1}+N_2\hat{\pmb{\mu}_2}\right)\left(\frac{N_1c_1+N_2c_2}{N}\right)\\
+&=c_1N_1\hat{\pmb{\mu}}_1+c_2N_2\hat{\pmb{\mu}}_2
+\end{split}
+\end{equation}
+\subsubsection*{(v)}
+Rearrange the terms for (17),
+$$\left[(N-2)\hat{\pmb{\Sigma}} +\frac{N_1N_2}{N}\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)^T\right]\pmb{\omega}=c_1N_1\hat{\pmb{\mu}}_1+c_2N_2\hat{\pmb{\mu}}_2-\left(N_1\hat{\pmb{\mu}_1}+N_2\hat{\pmb{\mu}_2}\right)\left(\frac{N_1c_1+N_2c_2}{N}\right)$$
+and simplify the right hand side,
+\begin{equation}
+\begin{split}
+&=c_1N_1\hat{\pmb{\mu}}_1+c_2N_2\hat{\pmb{\mu}}_2-\left(N_1\hat{\pmb{\mu}_1}+N_2\hat{\pmb{\mu}_2}\right)\left(\frac{N_1c_1+N_2c_2}{N}\right)\\
+&=N_1\hat{\pmb{\mu}}_1\left(c_1-\left(\frac{N_1c_1+N_2c_2}{N}\right)\right)+
+N_2\hat{\pmb{\mu}}_2\left(c_2-\left(\frac{N_1c_1+N_2c_2}{N}\right)\right)\\
+&=N_1\hat{\pmb{\mu}}_1\left(\frac{N_2c_1-N_2c_2}{N}\right)+
+N_2\hat{\pmb{\mu}}_2\left(\frac{N_1c_2-N_1c_1}{N}\right)\\
+&=\left(c_1-c_2\right)\frac{N_1N_2}{N}\hat{\pmb{\mu}}_1-
+\left(c_1-c_2\right)\frac{N_1N_2}{N}\hat{\pmb{\mu}}_2\\
+&=\frac{N_1N_2}{N}\left(c_1-c_2\right)\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)\\
+&=\left(\frac{c_2N_1N_2-c_1N_1N_2}{N}\right)\left(\hat{\pmb{\mu}}_2-\hat{\pmb{\mu}}_1\right)\\
+\end{split}
+\end{equation}
 \end{document}
