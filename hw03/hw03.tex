@@ -170,6 +170,41 @@ thus,
 $$\hat{\pmb{\Sigma}}_{MLE}=\frac{1}{N}\sum_{i=0}^{N}(\pmb{x}_i-\pmb{\mu})(\pmb{x}_i-\pmb{\mu})^T$$
 
 \section*{Exercise 2}
+\subsection*{(a)}
+\noindent Refer to code in the back
+\subsection*{(b)}
+\subsubsection*{(i),(ii) \& (iii)}
+\begin{figure}[h]
+	\centering
+	\subfigure[overlapping pathces]{
+		\includegraphics[width=0.47\linewidth]{overlapping_output}
+	}
+	\subfigure[non-overlapping pathces]{
+		\includegraphics[width=0.47\linewidth]{non_overlapping_output}
+	}
+	\caption{MAP classifier}
+\end{figure}
+
+\subsubsection*{(iv)}
+	$$MAE_{overlapping} = 0.00945$$
+	$$MAE_{non-overlapping} = 0.00985$$
+	
+\subsubsection*{(v)}
+\begin{figure}[h]
+	\centering
+	\subfigure[original]{
+		\includegraphics[width=0.47\linewidth]{../data/test}
+	}
+	\subfigure[classified]{
+		\includegraphics[width=0.47\linewidth]{non_overlapping_test}
+	}
+	\caption{MAP classifier}
+\end{figure}
+
+\noindent Obviously, this classifier is not working at all when using with other pictures.\\
+Why?\\
+The training data is too small. (Probably the training data comes from the testing picture, thus performing well on it)\\
+The prior is not "good" by simply using the ratio of data points. Its a estimation that does not make sense generically.
 
 \pagebreak
 \section*{Exercise 3}
