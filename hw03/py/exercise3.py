@@ -22,7 +22,7 @@ if __name__ == "__main__":
     # generate data
     mu_1 = np.array([0,0])
     mu_2 = np.array([20,20])
-    cov = np.array([[10,0], [0,20]])
+    cov = np.array([[20,-5], [-5,10]])
 
     X_1 = np.random.multivariate_normal(mu_1, cov, 1000)
     X_2 = np.random.multivariate_normal(mu_2, cov, 1000)
@@ -42,7 +42,7 @@ if __name__ == "__main__":
 
     x = np.arange(-10, 30)
     y = x * slope + intercept
-    ax.plot(x, y)
+    ax.plot(x, y, label = "Gaussian decision boundary")
 
     # solve least square
     A = np.concatenate((X_1,X_2))
@@ -64,6 +64,8 @@ if __name__ == "__main__":
 
     x = np.arange(-10, 30)
     y = x * slope + intercept
-    ax.plot(x, y)
-    plt.show()
+    ax.plot(x, y, label="LLS decision boundary")
+
+    ax.legend()
+    final_adjust("../pix/exercise3_e.pdf")
 

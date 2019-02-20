@@ -480,4 +480,20 @@ suppose we do not have any prior, $\pi_i = \pi_j = 1$, the log term in $\beta_0$
 Thus,
 $$(\exists c)\ \pmb{\omega}=c\pmb{\beta},\ \omega_0=c\beta_0$$
 
+\subsection*{(e)}
+\noindent The plot is shown below, the LLS and Gaussian Decision Boundary pretty much overlap each other. Referring to code in the back.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\linewidth]{exercise3_e}
+	\caption{Gaussian Decision Boundary vs. LLS Decision Boundary}
+\end{figure}
+
+\subsection*{(f)}
+\noindent The linear least square equation, is finding out the hyper plane minimizing the error.	In the 2D case shown above with $N_1 = N_2 = \frac{N}{2}$ and $c_1 = 1, c_2=-1$, the boundary is simply a line lies between two Gaussian with some proper slope.
+
+\section*{Code}
+\subsection*{Exercise 2}
+\inputminted[breaklines]{python}{./py/exercise2.py}
+\subsection*{Exercise 3}
+\inputminted[breaklines]{python}{./py/exercise3.py}
 \end{document}
