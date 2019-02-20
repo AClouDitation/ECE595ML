@@ -210,10 +210,10 @@ The prior is not "good" by simply using the ratio of data points. Its a estimati
 \section*{Exercise 3}
 \subsection*{(a)}
 For a Gaussian classifier with same covariance matrix across the board, the decision boundary is,
-$$g(\pmb{x}) = \pmb{\beta}^T(\pmb{x}-\beta_0)=0$$
+$$g(\pmb{x}) = \pmb{\beta}^T\pmb{x}+\beta_0=0$$
 with,
 $$\pmb{\beta} = \pmb{\Sigma}^{-1}(\pmb{\mu}_i-\pmb{\mu}_j)$$
-$$\beta_0=\frac{\pmb{\mu}_i+\pmb{\mu}_j}{2}-\frac{log\frac{\pi_i}{\pi_j}}{(\pmb{\mu}_i-\pmb{\mu}_j)^T\pmb{\Sigma}^{-1}(\pmb{\mu}_i-\pmb{\mu}_j)}(\pmb{\mu}_i-\pmb{\mu}_j)$$
+$$\beta_0=-\frac{1}{2}\left(\pmb{\mu}_i^T\pmb{\Sigma}^{-1}\pmb{\mu}_i-\pmb{\mu}_j^T\pmb{\Sigma}^{-1}\pmb{\mu}_j\right)+\log\frac{\pi_i}{\pi_j}$$
 
 \subsection*{(b)}
 \subsubsection*{(i)}
@@ -449,15 +449,35 @@ Thus,
 &=c\pmb{\beta}
 \end{split}
 \end{equation}
+
 \subsection*{(d)}
+Referring to (14)
+$$\omega_0 = \frac{N_1c_1+N_2c_2-\left(N_1\hat{\pmb{\mu}_1}^T+N_2\hat{\pmb{\mu}_2}^T\right)\pmb{\omega}}{N}$$
 When $c_1=+1$, $c_2=-1$, and $N_1=N_2$,
 \begin{equation}
 \begin{split}
-\left[(2N_1-2)\hat{\pmb{\Sigma}} +\frac{N_1^2}{2N_1}\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)^T\right]\pmb{\omega}=\left(\frac{-N_1^2-N_1^2}{2N_1}\right)\left(\hat{\pmb{\mu}}_2-\hat{\pmb{\mu}}_1\right)\\
-\left[(2N_1-2)\hat{\pmb{\Sigma}} +\frac{N_1}{2}\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)^T\right]\pmb{\omega}=-N_1\left(\hat{\pmb{\mu}}_2-\hat{\pmb{\mu}}_1\right)\\
+\omega_0&=\frac{\frac{N}{2}-\frac{N}{2}-\left(\frac{N}{2}\hat{\pmb{\mu}_1}^T+\frac{N}{2}\hat{\pmb{\mu}_2}^T\right)\pmb{\omega}}{N}\\
+&=-\frac{\left(\hat{\pmb{\mu}_1}^T+\hat{\pmb{\mu}_2}^T\right)\pmb{\omega}}{2}\\
+\end{split}
+\end{equation}
+where $\pmb{\omega} = c\pmb{\beta}$, thus
+\begin{equation}
+\begin{split}
+\omega_0&=-\frac{c}{2}\left(\hat{\pmb{\mu}_1}+\hat{\pmb{\mu}_2}\right)^T\pmb{\beta}\\
+&=-\frac{c}{2}\left(\hat{\pmb{\mu}_1}+\hat{\pmb{\mu}_2}\right)^T\pmb{\Sigma}^{-1}\left(\hat{\pmb{\mu}_1}-\hat{\pmb{\mu}_2}\right)\\
+&=-\frac{c}{2}\left(\hat{\pmb{\mu}_1}^T\pmb{\Sigma}^{-1}\hat{\pmb{\mu}_1}-\hat{\pmb{\mu}_1}^T\pmb{\Sigma}^{-1}\hat{\pmb{\mu}_2}+\hat{\pmb{\mu}_2}^T\pmb{\Sigma}^{-1}\hat{\pmb{\mu}_1}-\hat{\pmb{\mu}_2}^T\pmb{\Sigma}^{-1}\hat{\pmb{\mu}_2}\right)\\
+&=-\frac{c}{2}\left(\hat{\pmb{\mu}_1}^T\pmb{\Sigma}^{-1}\hat{\pmb{\mu}_1}-\hat{\pmb{\mu}_2}^T\pmb{\Sigma}^{-1}\hat{\pmb{\mu}_2}\right)
 \end{split}
 \end{equation}
 
-
+suppose we do not have any prior, $\pi_i = \pi_j = 1$, the log term in $\beta_0$ goes away.
+\begin{equation}
+\begin{split}
+\beta_0&=-\frac{1}{2}\left(\pmb{\mu}_i^T\pmb{\Sigma}^{-1}\pmb{\mu}_i-\pmb{\mu}_j^T\pmb{\Sigma}^{-1}\pmb{\mu}_j\right)+\log\frac{\pi_i}{\pi_j}\\
+&=-\frac{1}{2}\left(\pmb{\mu}_i^T\pmb{\Sigma}^{-1}\pmb{\mu}_i-\pmb{\mu}_j^T\pmb{\Sigma}^{-1}\pmb{\mu}_j\right)\\
+\end{split}
+\end{equation}
+Thus,
+$$(\exists c)\ \pmb{\omega}=c\pmb{\beta},\ \omega_0=c\beta_0$$
 
 \end{document}
