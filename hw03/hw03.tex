@@ -431,6 +431,24 @@ thus,
 $$\left[(N-2)\hat{\pmb{\Sigma}} +\frac{N_1N_2}{N}\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)^T\right]\pmb{\omega}=\left(\frac{c_2N_1N_2-c_1N_1N_2}{N}\right)\left(\hat{\pmb{\mu}}_2-\hat{\pmb{\mu}}_1\right)$$
 \subsection*{(c)}
 
+Obviously, $\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)^T$ has $rank = 1$, with the Lemma shown by Kenneth S. Miller in \textit{On the Inverse of the Sum of Matrices}, which saying:
+\textbf{Lemma.} If $\pmb{A}$ and $\pmb{A}+\pmb{B}$ are invertible, and $\pmb{B}$ has rank $1$, then let $g=trace(\pmb{BA})^{-1}$.Then $g\ne-1$ and
+$$(\pmb{A}+\pmb{B})^{-1}=\pmb{A}-\frac{1}{1+g}\pmb{A}^{-1}\pmb{B}\pmb{A}^{-1}$$
+thus,
+\begin{equation}
+\begin{split}
+\left[(N-2)\hat{\pmb{\Sigma}} +\frac{N_1N_2}{N}\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)^T\right]^{-1}&=\alpha\hat{\pmb{\Sigma}}^{-1}-\beta\hat{\pmb{\Sigma}}^{-1}\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)^T\hat{\pmb{\Sigma}}^{-1}\\
+&=\gamma\hat{\pmb{\Sigma}}^{-1}
+\end{split}
+\end{equation}
+where $\alpha$, $\beta$, $\gamma$ are scalar constants.\\
+Thus, 
+\begin{equation}
+\begin{split}
+\pmb{\omega}&=c\hat{\pmb{\Sigma}}^{-1}\left(\hat{\pmb{\mu}}_1-\hat{\pmb{\mu}}_2\right)\\
+&=c\pmb{\beta}
+\end{split}
+\end{equation}
 \subsection*{(d)}
 When $c_1=+1$, $c_2=-1$, and $N_1=N_2$,
 \begin{equation}
