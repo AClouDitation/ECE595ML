@@ -26,8 +26,8 @@ def task_a():
     cov_cat = np.cov(train_cat)
     cov_grass = np.cov(train_grass)
 
-    pi_cat = len(train_cat) / (len(train_cat) + len(train_grass))
-    pi_grass = len(train_grass) / (len(train_cat) + len(train_grass))
+    pi_cat = len(train_cat.T) / (len(train_cat.T) + len(train_grass.T))
+    pi_grass = len(train_grass.T) / (len(train_cat.T) + len(train_grass.T))
 
     return (mu_cat, cov_cat, pi_cat), (mu_grass, cov_grass, pi_grass)
 
