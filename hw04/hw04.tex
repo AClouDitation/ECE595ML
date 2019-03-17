@@ -1,0 +1,171 @@
+\documentclass[11pt]{article}
+
+% ------
+% LAYOUT
+% ------
+\textwidth 165mm %
+\textheight 230mm %
+\oddsidemargin 0mm %
+\evensidemargin 0mm %
+\topmargin -15mm %
+\parindent= 10mm
+
+\usepackage[dvips]{graphicx}
+\usepackage{multirow,multicol}
+\usepackage[table]{xcolor}
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
+\usepackage{subfigure}
+\usepackage{minted}
+
+\graphicspath{{./pix/}} % put all your figures here.
+
+\begin{document}
+\begin{center}
+\Large{\textbf{ECE 595: Homework 4}}
+
+Yi Qiao, Class ID 187
+
+(Spring 2019)
+\end{center}
+
+\section*{Exercise 1: Theory}
+\subsection*{(a) Logistic regression}
+\subsubsection*{(i)}
+$$\underset{\pmb{\theta}}{argmin} \sum_{j=1}^{N}-\left\{y_j\log h_{\pmb{\theta}}(\pmb{x}_j)+\left(1-y_j\right) \log (1-h_{\pmb{\theta}}(\pmb{x}_j)) \right\}$$
+
+\begin{equation}
+\begin{split}
+&=\underset{\pmb{\theta}}{argmin} \sum_{j=1}^{N}-\left\{\log (1-h_{\pmb{\theta}}(\pmb{x}_j))+y_j \log \frac{h_{\pmb{\theta}}(\pmb{x}_j)}{1-h_{\pmb{\theta}}(\pmb{x}_j)} \right\}\\
+&=\underset{\pmb{\theta}}{argmin} \sum_{j=1}^{N}-\left\{\log (1-h_{\pmb{\theta}}(\pmb{x}_j))+y_j \log \frac{\frac{1}{1+e^{-\pmb{\theta}^T\pmb{x}_j}}}{\frac{e^{-\pmb{\theta}^T\pmb{x}_j}}{1+e^{-\pmb{\theta}^T\pmb{x}_j}}} \right\}\\
+&=\underset{\pmb{\theta}}{argmin} \sum_{j=1}^{N}-\left\{\log(1-h_{\pmb{\theta}}(\pmb{x}_j))+y_j\pmb{\theta}^T\pmb{x}_j \right\}
+\end{split}
+\end{equation}
+Take the derivative..
+\begin{equation}
+\begin{split}
+\nabla_{\pmb{\theta}}\sum_{j=1}^{N}-\left\{\log(1-h_{\pmb{\theta}}(\pmb{x}_j))+y_j\pmb{\theta}^T\pmb{x}_j \right\}&=0\\
+\sum_{j=1}^{N}-\left\{\nabla_{\pmb{\theta}}\log(1-h_{\pmb{\theta}}(\pmb{x}_j))+\nabla_{\pmb{\theta}}y_j\pmb{\theta}^T\pmb{x}_j \right\}&=0\\
+\sum_{j=1}^{N}\left\{\pmb{x}_jh_{\pmb{\theta}}(\pmb{x}_j)-y_j\pmb{x}_j \right\}&=0\\
+\sum_{j=1}^{N}\left\{\left(h_{\pmb{\theta}}(\pmb{x}_j)-y_j\right)\pmb{x}_j \right\}&=0\\
+h_{\pmb{\theta}}(\pmb{x}_j)&=y_j
+\end{split}
+\end{equation}
+Which implies, when linearly separable...\\
+When $y_j = 1$,
+$$\pmb{\theta}^T\pmb{x}_j = \infty$$
+When $y_j = 0$,
+$$\pmb{\theta}^T\pmb{x}_j = -\infty$$
+Since $x_j$ is always bounded, obviously, $\pmb{\theta}$ tends to $\infty$. 
+\pagebreak
+
+\noindent Since $\pmb{\theta}$ goes to $\infty$ for $\nabla_{\pmb{\theta}}$ goes to $0$, for any finite $\pmb{\theta}$, the derivative 
+$$ \sum_{j=1}^{N}\left\{\left(h_{\pmb{\theta}}(\pmb{x}_j)-y_j\right)\pmb{x}_j \right\}$$
+will never goes to $0$. Thus the gradient decent,
+$$\pmb{\theta}^{(k+1)}=\pmb{\theta}^{(k)}-\alpha_k\left(\sum_{j=1}^{N}\left(h_{\pmb{\theta}^{(k)}}(\pmb{x}_j)-y_j\right)\pmb{x}_j\right)$$
+will never stop for any finite $k$.
+
+\subsubsection*{(ii)}
+If linearly separable, the discriminant function will go as steep as possible. Thus, $\pmb{w},\ w_0$ will go as far as possible.\\
+We can also add some regularization to the original optimization problem, like
+$$\underset{\pmb{\theta}}{argmin} \sum_{j=1}^{N}-\left\{y_j\log h_{\pmb{\theta}}(\pmb{x}_j)+\left(1-y_j\right) \log (1-h_{\pmb{\theta}}(\pmb{x}_j)) \right\}+\lambda||\pmb{\theta}||^2$$
+
+\subsubsection*{(iii)}
+No. Since no one else use $\log$ in the loss function.
+
+\subsection*{(b) Perceptron}
+
+\subsubsection*{(i)}
+
+$$\pmb{w}^{(k+1)}=\pmb{w}^{(k)}+y_j\pmb{x}_j,\ some\ j\in \mathcal{M}_k$$
+
+\begin{equation}
+\begin{split}
+y_j(\pmb{w}^{(k+1)})^T\pmb{x}_j &= y_j(\pmb{w}^{(k)}+y_j\pmb{x}_j)^T\pmb{x}_j\\
+&= y_j(\pmb{w}^{(k)})^T\pmb{x}_j+y_j^2\pmb{x}_j^T\pmb{x}_j\\
+&= y_j(\pmb{w}^{(k)})^T\pmb{x}_j+y_j^2||\pmb{x}_j||^2_2
+\end{split}
+\end{equation}
+
+The second term $y_j^2||\pmb{x}_j||^2_2 \ge0$, thus,
+$$y_j(\pmb{w}^{(k+1)})^T\pmb{x}_j>y_j(\pmb{w}^{(k)})^T\pmb{x}_j$$
+
+Thus making the loss function smaller.
+\pagebreak
+\subsubsection*{(ii)} 
+\noindent \textbf{Step 1.} Show that $(\pmb{w}^{(k)})^T\pmb{w}^*\ge k\rho$\\
+Assuming $\pmb{w}^{(0)} = 0$, obviously, $(\pmb{w}^{(0)})^T\pmb{w}^* = 0 \ge 0\rho$\\
+Assuming $(\pmb{w}^{(k-1)})^T\pmb{w}^*\ge (k-1)\rho$,
+\begin{equation}
+\begin{split}
+(\pmb{w}^{(k)})^T\pmb{w}^* &= (\pmb{w}^{(k-1)} + y_j\pmb{x}_j)^T\pmb{w}^*,\ some\ j\in  \mathcal{M}_k\\
+&=(\pmb{w}^{(k-1)})^T\pmb{w}^*+y_j\pmb{x}_j^T\pmb{w}^*\\
+&\ge (\pmb{w}^{(k-1)})^T\pmb{w}^*+\min_j y_j\pmb{x}_j^T\pmb{w}^*\\
+&\ge (\pmb{w}^{(k-1)})^T\pmb{w}^*+\rho\\
+&\ge k\rho
+\end{split}
+\end{equation}
+
+\noindent By induction, $(\pmb{w}^{(k)})^T\pmb{w}^*\ge k\rho$ is proved.\\
+\noindent \textbf{Step 2.} Show that $||\pmb{w}^{(k)}||^2_2 \le ||\pmb{w}^{(k-1)}||^2_2+||\pmb{x}_j||^2_2$
+
+\begin{equation}
+\begin{split}
+||\pmb{w}^{(k)}||^2_2 &= ||\pmb{w}^{(k-1)} + y_j\pmb{x}_j||^2_2,\ some\ j\in\mathcal{M}_{k-1}\\
+&=||\pmb{w}^{(k-1)}||^2_2+y_j^2||\pmb{x}_j||^2_2+2y_j(\pmb{w}^{(k-1)})^Tx_j1,\ some\ j\in\mathcal{M}_{k-1}
+\end{split}
+\end{equation}
+Since $j \in \mathcal{M}_{k-1}$, $y_j(\pmb{w}^{(k-1)})^T\pmb{x}_j < 0$, thus,
+$$||\pmb{w}^{(k)}||^2_2 \le ||\pmb{w}^{(k-1)}||^2_2+||\pmb{x}_j||^2_2$$
+is proved.\\
+Also, 
+\begin{equation}
+\begin{split}
+||\pmb{w}^{(k)}||^2_2 &\le ||\pmb{w}^{(k-1)}||^2_2+\max_j||\pmb{x}_j||^2_2\\
+&=||\pmb{w}^{(k-1)}||^2_2+R^2
+\end{split}
+\end{equation}
+By induction, we get,
+$$||\pmb{w}^{(k)}||^2_2 \le kR^2$$
+
+\noindent \textbf{Step 3.}\\
+Using 1. and 2., by inspection,
+\begin{equation}
+\begin{split}
+\frac{(\pmb{w}^{(k)})^T\pmb{w}^*}{||\pmb{w}^{(k)}||_2}&\ge \frac{k\rho}{\sqrt{kR^2}}\\
+&= \sqrt{k}\frac{\rho}{R}
+\end{split}
+\end{equation}
+Which implies,
+\begin{equation}
+\begin{split}
+\sqrt{k}&\le \frac{R(\pmb{w}^{(k)})^T\pmb{w}^*}{\rho||\pmb{w}^{(k)}||_2}\\
+k&\le \frac{R^2(\pmb{w}^{(k)})^T(\pmb{w}^{(k)})\pmb{w}^{*T}\pmb{w}^*}{\rho^2||\pmb{w}^{(k)}||^2_2}\\
+&\le \frac{R^2||\pmb{w}^*||^2_2}{\rho^2}
+\end{split}
+\end{equation}
+
+\pagebreak
+\subsection*{(c) SVM}
+\subsubsection*{(i)}
+$$\underset{\pmb{\theta},\pmb{\xi}}{argmin}\ \frac{1}{2}||\pmb{w}||^2_2+C||\pmb{\xi}||^2_2$$
+$$subject\ to\ y_jg_{\pmb{\theta}}(\pmb{x}_j)\ge 1-\xi_j,\ \xi_j\ge 0\ \forall j$$
+
+\noindent By taking the derivative, we get,
+\begin{equation}
+\begin{split}
+&\nabla_{\pmb{\xi}}\frac{1}{2}||\pmb{w}||^2_2+C||\pmb{\xi}||^2_2=2C\pmb{\xi}\\
+&\nabla_{\pmb{\theta}}\frac{1}{2}||\pmb{w}||^2_2+C||\pmb{\xi}||^2_2=\pmb{w}
+\end{split} 
+\end{equation}
+
+\noindent When $2C\pmb{\xi}=0$, obviously $\xi_j \ge 0$ is satisfied.\\
+When $\pmb{w}=0$, $0\ge 1-\xi_j$, which implies $\xi_j\ge 1$.\\
+No matter bounded by which one, $\xi_j \ge 0$ is satisfied, thus such condition has no effect on the solution.
+\subsubsection*{(ii)}
+
+\end{document}
