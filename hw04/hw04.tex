@@ -167,5 +167,37 @@ $$subject\ to\ y_jg_{\pmb{\theta}}(\pmb{x}_j)\ge 1-\xi_j,\ \xi_j\ge 0\ \forall j
 When $\pmb{w}=0$, $0\ge 1-\xi_j$, which implies $\xi_j\ge 1$.\\
 No matter bounded by which one, $\xi_j \ge 0$ is satisfied, thus such condition has no effect on the solution.
 \subsubsection*{(ii)}
+\begin{equation}
+\begin{split}
+&\underset{\pmb{\theta},\pmb{\xi}}{argmin}\ \frac{1}{2}||\pmb{w}||^2_2 + \frac{1}{2}C||\pmb{\xi}||^2_2\\
+&subject\ to\ y_jg_{\pmb{\theta}}(\pmb{x}_j)\ge 1-\xi_j,j=1,..,N
+\end{split}
+\end{equation}
+Writing out the Lagrangian, 
+\begin{equation}
+\begin{split}
+\mathcal{L}(\pmb{w}, \pmb{\xi}, \pmb{\mu}) &= \frac{1}{2}||\pmb{w}||^2_2 + \frac{1}{2}C||\pmb{\xi}||^2_2 + \sum_{j=1}^{N}\mu_j(1-\xi_j-y_jg_{\pmb{\theta}}(\pmb{x}_j))\\
+&=\frac{1}{2}\pmb{w}^T\pmb{w} + \frac{1}{2}C\pmb{\xi}^T\pmb{\xi} + \sum_{j=1}^{N}\mu_j(1-y_jw_0) + \sum_{j=1}^{N}-\mu_j\xi_j + \sum_{j=1}^{N}-\mu_jy_j\pmb{w}^T\pmb{x}_j\\
+&=(\frac{1}{2}\pmb{w}-\sum_{j=1}^{N}\mu_jy_j\pmb{x}_j)^T\pmb{w} + (\frac{1}{2}C\pmb{\xi}-\pmb{\mu})^T\pmb{\xi} + \sum_{j=1}^{N}\mu_j(1-y_jw_0)\\
+\nabla_{\pmb{w}}\mathcal{L}(\pmb{w}, \pmb{\xi}, \pmb{\mu}) &= \pmb{w}-\sum_{j=1}^{N}\mu_jy_j\pmb{x}_j = 0\\
+\nabla_{\pmb{\xi}}\mathcal{L}(\pmb{w}, \pmb{\xi}, \pmb{\mu}) &= C\pmb{\xi}-\pmb{\mu} = 0\\
+\nabla_{\mu_j}\mathcal{L}(\pmb{w}, \pmb{\xi}, \pmb{\mu}) &= -y_j\pmb{x}_j^T\pmb{w} - \xi_j + 1-y_jw_0 = 0
+\end{split}
+\end{equation}
+Thus,
+\begin{equation}
+\begin{split}
+&\pmb{w}^*=\sum_{j=1}^{N}\mu_jy_j\pmb{x}_j\\
+&C\xi_j^*= \mu_j\ \forall j\\
+&\sum_{j=1}^{N}\mu_jy_j = ???\\
+\end{split}
+\end{equation}
 
+\subsubsection*{(iii)}
+\begin{equation}
+\begin{split}
+&\underset{\pmb{\theta}}{argmin}\ \frac{1}{2}||\pmb{w}||^2_2 \\
+&subject\ to\ y_jg_{\pmb{\theta}}(x_j)\ge \gamma,j=1,...,N
+\end{split}
+\end{equation}
 \end{document}
