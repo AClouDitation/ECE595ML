@@ -207,13 +207,73 @@ Complementarity Conditions says,
 \end{split}
 \end{equation} 
 Which means,
-$$\nabla_{\pmb{\mu}}\mathcal{L}(\pmb{\theta}, \pmb{\xi}, \pmb{\mu})=\pmb{0} \Rightarrow \underset{\pmb{\mu}\ge\pmb{0}}{argmax}\left\{- \sum_{j=1}^{N}\mu_j(\xi_j-1+y_jg_{\pmb{\theta}}(\pmb{x}_j))\right\}$$
+\begin{equation}
+\nabla_{\pmb{\mu}}\mathcal{L}(\pmb{\theta}, \pmb{\xi}, \pmb{\mu})=\pmb{0} \Rightarrow \underset{\pmb{\mu}\ge\pmb{0}}{argmax}\left\{- \sum_{j=1}^{N}\mu_j(\xi_j-1+y_jg_{\pmb{\theta}}(\pmb{x}_j))\right\}
+\end{equation}
+Then, the primal problem becomes,
+\begin{equation}
+\begin{split}
+\underset{\pmb{\theta},\pmb{\xi}}{argmin}\ \mathcal{L}(\pmb{\theta}, \pmb{\xi}, \pmb{\mu}^*) &= \underset{\pmb{\theta},\pmb{\xi}}{argmin}\left\{ \frac{1}{2}||\pmb{w}||^2_2 + \frac{1}{2}C||\pmb{\xi}||^2_2 + \underset{\pmb{\mu}\ge\pmb{0}}{argmax}\left\{- \sum_{j=1}^{N}\mu_j(\xi_j-1+y_jg_{\pmb{\theta}}(\pmb{x}_j))\right\}\right\}\\
+&=\min_{\pmb{\theta},\pmb{\xi}}\max_{\pmb{\mu}\ge\pmb{0}}\mathcal{L}(\pmb{\theta}, \pmb{\xi}, \pmb{\mu})
+\end{split}
+\end{equation}
+The dual problem is,
+\begin{equation}
+\begin{split}
+\max_{\pmb{\mu}\ge\pmb{0}}\min_{\pmb{\theta},\pmb{\xi}}\mathcal{L}(\pmb{\theta}, \pmb{\xi}, \pmb{\mu})&= \max_{\pmb{\mu}\ge\pmb{0}}\left\{\min_{\pmb{\theta},\pmb{\xi}}\frac{1}{2}||\pmb{w}||^2_2 + \frac{1}{2}C||\pmb{\xi}||^2_2 - \sum_{j=1}^{N}\mu_j(\xi_j-1+y_jg_{\pmb{\theta}}(\pmb{x}_j))\right\}
+\end{split}
+\end{equation}
+
+Plug in solution we got in (ii),
+
+\begin{equation}
+\begin{split}
+&=\max_{\pmb{\mu}\ge\pmb{0}}\left\{\frac{1}{2}||\sum_{j=1}^{N}\mu_jy_j\pmb{x}_j||^2_2 + \frac{1}{2}C||\frac{\pmb{\mu}}{C}||^2_2 - \sum_{j=1}^{N}\mu_j(\frac{\mu_j}{C}-1+y_j(\sum_{j=1}^{N}\mu_jy_j\pmb{x}_j^T\pmb{x}_j+w_0))\right\}\\
+&=\max_{\pmb{\mu}\ge\pmb{0}}\left\{\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\mu_i\mu_jy_iy_j\pmb{x}_i^T\pmb{x}_j + \frac{1}{2C}\pmb{\mu}^T\pmb{\mu} - \sum_{j=1}^{N}\frac{\mu^2_j}{C}+\sum_{j=1}^{N}\mu_j-\sum_{j=1}^{N}\mu_jy_j(\sum_{j=1}^{N}\mu_jy_j\pmb{x}_j^T\pmb{x}_j+w_0))\right\}\\
+&=\max_{\pmb{\mu}\ge\pmb{0}}\left\{\sum_{j=1}^{N}\mu_j+\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}\mu_i\mu_jy_iy_j\pmb{x}_i^T\pmb{x}_j-\frac{1}{2}\sum_{j=1}^{N}\frac{\mu^2_j}{C}\right\}\ subject\ to\ \sum_{j=1}^{N}\mu_jy_j = 0\\
+\end{split}
+\end{equation}
+\pagebreak
 \subsection*{(d)}
 \subsubsection*{(i)}
 \begin{equation}
 \begin{split}
 &\underset{\pmb{\theta}}{argmin}\ \frac{1}{2}||\pmb{w}||^2_2 \\
-&subject\ to\ y_jg_{\pmb{\theta}}(x_j)\ge \gamma,j=1,...,N
+&subject\ to\ y_jg_{\pmb{\theta}}(\pmb{x}_j)\ge \gamma,j=1,...,N
 \end{split}
 \end{equation}
+
+Scaling the subjective function,
+$$y_j(\frac{\pmb{w}^T}{\gamma}\pmb{x}_j+\frac{w_0}{\gamma}) \ge 1$$
+
+Substituting $\frac{\pmb{w}^T}{\gamma}\rightarrow \pmb{w}^T$, $\frac{w_0}{\gamma}\rightarrow w_0$, The problem becomes
+
+\begin{equation}
+\begin{split}
+&\underset{\gamma\pmb{\theta}}{argmin}\ \frac{\gamma^2}{2}||\pmb{w}||^2_2 \\
+&subject\ to\ y_jg_{\pmb{\theta}}(\pmb{x}_j)\ge 1,j=1,...,N
+\end{split}
+\end{equation}
+
+which is the same as,
+
+\begin{equation}
+\begin{split}
+&\underset{\gamma\pmb{\theta}}{argmin}\ \frac{1}{2}||\pmb{w}||^2_2 \\
+&subject\ to\ y_jg_{\pmb{\theta}}(\pmb{x}_j)\ge 1,j=1,...,N
+\end{split}
+\end{equation}
+
+By inspection, the solution will be 
+$$\pmb{\theta}^* = \frac{1}{\gamma}\pmb{\theta}^*_{original}$$
+
+Since the decision boundary is,
+$$\pmb{w}^T\pmb{x} + w_0=0$$
+
+multiply $\pmb{\theta}$ by some scalar $\frac{1}{\gamma}$, the new decision boundary becomes,
+$$\frac{1}{\gamma}\pmb{w}^T\pmb{x} + \frac{1}{\gamma} w_0 = 0$$
+
+which is the same as the original decision boundary.
+
+\subsubsection*{(ii)}
 \end{document}
