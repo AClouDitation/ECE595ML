@@ -176,24 +176,40 @@ No matter bounded by which one, $\xi_j \ge 0$ is satisfied, thus such condition 
 Writing out the Lagrangian, 
 \begin{equation}
 \begin{split}
-\mathcal{L}(\pmb{w}, \pmb{\xi}, \pmb{\mu}) &= \frac{1}{2}||\pmb{w}||^2_2 + \frac{1}{2}C||\pmb{\xi}||^2_2 + \sum_{j=1}^{N}\mu_j(1-\xi_j-y_jg_{\pmb{\theta}}(\pmb{x}_j))\\
+\mathcal{L}(\pmb{\theta}, \pmb{\xi}, \pmb{\mu}) &= \frac{1}{2}||\pmb{w}||^2_2 + \frac{1}{2}C||\pmb{\xi}||^2_2 - \sum_{j=1}^{N}\mu_j(\xi_j-1+y_jg_{\pmb{\theta}}(\pmb{x}_j))\\
 &=\frac{1}{2}\pmb{w}^T\pmb{w} + \frac{1}{2}C\pmb{\xi}^T\pmb{\xi} + \sum_{j=1}^{N}\mu_j(1-y_jw_0) + \sum_{j=1}^{N}-\mu_j\xi_j + \sum_{j=1}^{N}-\mu_jy_j\pmb{w}^T\pmb{x}_j\\
 &=(\frac{1}{2}\pmb{w}-\sum_{j=1}^{N}\mu_jy_j\pmb{x}_j)^T\pmb{w} + (\frac{1}{2}C\pmb{\xi}-\pmb{\mu})^T\pmb{\xi} + \sum_{j=1}^{N}\mu_j(1-y_jw_0)\\
-\nabla_{\pmb{w}}\mathcal{L}(\pmb{w}, \pmb{\xi}, \pmb{\mu}) &= \pmb{w}-\sum_{j=1}^{N}\mu_jy_j\pmb{x}_j = 0\\
-\nabla_{\pmb{\xi}}\mathcal{L}(\pmb{w}, \pmb{\xi}, \pmb{\mu}) &= C\pmb{\xi}-\pmb{\mu} = 0\\
-\nabla_{\mu_j}\mathcal{L}(\pmb{w}, \pmb{\xi}, \pmb{\mu}) &= -y_j\pmb{x}_j^T\pmb{w} - \xi_j + 1-y_jw_0 = 0
+\nabla_{\pmb{\theta}}\mathcal{L}(\pmb{w}, \pmb{\xi}, \pmb{\mu}) &= \pmb{w}-\sum_{j=1}^{N}\mu_jy_j\pmb{x}_j = 0\\
+\nabla_{w_0}\mathcal{L}(\pmb{\theta}, \pmb{\xi}, \pmb{\mu}) &=\sum_{j=1}^{N}-\mu_j y_j=0\\
+\nabla_{\pmb{\xi}}\mathcal{L}(\pmb{\theta}, \pmb{\xi}, \pmb{\mu}) &= C\pmb{\xi}-\pmb{\mu} = 0\\
 \end{split}
 \end{equation}
 Thus,
 \begin{equation}
 \begin{split}
 &\pmb{w}^*=\sum_{j=1}^{N}\mu_jy_j\pmb{x}_j\\
+&\sum_{j=1}^{N}\mu_jy_j = 0\\
 &C\xi_j^*= \mu_j\ \forall j\\
-&\sum_{j=1}^{N}\mu_jy_j = ???\\
 \end{split}
 \end{equation}
 
 \subsubsection*{(iii)}
+\begin{equation}
+\begin{split}
+\mathcal{L}(\pmb{\theta}, \pmb{\xi}, \pmb{\mu}) &= \frac{1}{2}||\pmb{w}||^2_2 + \frac{1}{2}C||\pmb{\xi}||^2_2 - \sum_{j=1}^{N}\mu_j(\xi_j-1+y_jg_{\pmb{\theta}}(\pmb{x}_j))\\
+\end{split}
+\end{equation}
+Complementarity Conditions says,
+\begin{equation}
+\begin{split}
+\mu_j > 0\ and\ \xi_j-1+y_jg_{\pmb{\theta}}(\pmb{x}_j) = 0\\
+\mu_j = 0\ and\ \xi_j-1+y_jg_{\pmb{\theta}}(\pmb{x}_j) > 0\\
+\end{split}
+\end{equation} 
+Which means,
+$$\nabla_{\pmb{\mu}}\mathcal{L}(\pmb{\theta}, \pmb{\xi}, \pmb{\mu})=\pmb{0} \Rightarrow \underset{\pmb{\mu}\ge\pmb{0}}{argmax}\left\{- \sum_{j=1}^{N}\mu_j(\xi_j-1+y_jg_{\pmb{\theta}}(\pmb{x}_j))\right\}$$
+\subsection*{(d)}
+\subsubsection*{(i)}
 \begin{equation}
 \begin{split}
 &\underset{\pmb{\theta}}{argmin}\ \frac{1}{2}||\pmb{w}||^2_2 \\
