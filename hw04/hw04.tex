@@ -234,7 +234,7 @@ Plug in solution we got in (ii),
 \end{split}
 \end{equation}
 \pagebreak
-\subsection*{(d)}
+\subsection*{(d) SVM}
 \subsubsection*{(i)}
 \begin{equation}
 \begin{split}
@@ -274,6 +274,54 @@ multiply $\pmb{\theta}$ by some scalar $\frac{1}{\gamma}$, the new decision boun
 $$\frac{1}{\gamma}\pmb{w}^T\pmb{x} + \frac{1}{\gamma} w_0 = 0$$
 
 which is the same as the original decision boundary.
-
+\pagebreak
 \subsubsection*{(ii)}
+Suppose we have two data points, $\{\pmb{x}_0, -1\}$ and $\{\pmb{x}_1, 1\}$,
+the Hard-Margin SVM problem is:
+\begin{equation}
+\begin{split}
+&\underset{\pmb{\theta}}{argmin}\ \frac{1}{2}||\pmb{w}||^2_2\\
+&subject\ to\ -(\pmb{w}^T\pmb{x}_0+w_0) \ge 1,\ \pmb{w}^T\pmb{x}_1+w_0 \ge 1
+\end{split}
+\end{equation}
+Writing out the Lagrangian,
+
+\begin{equation}
+\begin{split}
+\mathcal{L}(\pmb{w},w_0,\pmb{\mu}) &= \frac{1}{2}||\pmb{w}||^2_2 - \mu_0(-(\pmb{w}^T\pmb{x}_0+w_0)-1) - \mu_1(\pmb{w}^T\pmb{x}_1+w_0-1)\\
+\nabla_{\pmb{w}}\mathcal{L}(\pmb{w},w_0,\pmb{\mu}) &= \pmb{w} + \mu_0\pmb{x}_0 - \mu_1\pmb{x}_1 = 0\\
+\nabla_{w_0}\mathcal{L}(\pmb{w},w_0,\pmb{\mu}) &= \mu_0 - \mu_1 = 0
+\end{split}
+\end{equation}
+The primal problem is,
+
+\begin{equation}
+\begin{split}
+\underset{\pmb{w},w_0}{argmin}\ \mathcal{L}(\pmb{w},w_0,\pmb{\mu}^*) &= \min_{\pmb{w}, w_0} \left\{\frac{1}{2}||\pmb{w}||^2_2 + \max_{\pmb{\mu}\ge\pmb{0}}\left\{- \mu_0(-(\pmb{w}^T\pmb{x}_0+w_0)-1) - \mu_1(\pmb{w}^T\pmb{x}_1+w_0-1)\right\}\right\}\\
+\end{split}
+\end{equation} 
+The dual problem is,
+\begin{equation}
+\begin{split}
+&\max_{\pmb{\mu}\ge\pmb{0}}\min_{\pmb{w}, w_0} \left\{\frac{1}{2}||\pmb{w}||^2_2 +\left\{- \mu_0(-(\pmb{w}^T\pmb{x}_0+w_0)-1) - \mu_1(\pmb{w}^T\pmb{x}_1+w_0-1)\right\}\right\}\\
+&=\max_{\pmb{\mu}\ge\pmb{0}}\min_{\pmb{w}, w_0} \left\{\frac{1}{2}||\mu_1\pmb{x}_1-\mu_0\pmb{x}_0||^2_2+\mu_0(\pmb{w}^T\pmb{x}_0+w_0)+\mu_0 - \mu_1(\pmb{w}^T\pmb{x}_1+w_0)+\mu_1\right\}\\
+&=\max_{\pmb{\mu}\ge\pmb{0}} \left\{\frac{1}{2}\mu_0^2(\pmb{x}_1-\pmb{x}_0)^T(\pmb{x}_1-\pmb{x}_0)-\mu_0^2(\pmb{x}_1-\pmb{x}_0)^T(\pmb{x}_1-\pmb{x}_0)+2\mu_0 \right\}\\
+&=\max_{\pmb{\mu}\ge\pmb{0}} \left\{-\frac{1}{2}\mu_0^2(\pmb{x}_1-\pmb{x}_0)^T(\pmb{x}_1-\pmb{x}_0)+2\mu_0 \right\}\\
+\end{split}
+\end{equation}
+Taking derivative,
+\begin{equation}
+\begin{split}
+&\frac{\partial }{\partial \mu_0}\left\{-\frac{1}{2}\mu_0^2(\pmb{x}_1-\pmb{x}_0)^T(\pmb{x}_1-\pmb{x}_0)+2\mu_0 \right\}\\
+&=-\mu_0(\pmb{x}_1-\pmb{x}_0)^T(\pmb{x}_1-\pmb{x}_0)+2 = 0 
+\end{split}
+\end{equation}
+which implies,
+\begin{equation}
+\begin{split}
+&\mu_0^* = \mu_1^* = \frac{2}{(\pmb{x}_1-\pmb{x}_0)^T(\pmb{x}_1-\pmb{x}_0)}\\
+&\pmb{w}^* = \mu_0(\pmb{x}_1-\pmb{x}_0) = \frac{2}{(\pmb{x}_1-\pmb{x}_0)^T(\pmb{x}_1-\pmb{x}_0)} (\pmb{x}_1-\pmb{x}_0)\\
+&w_0^* = -\frac{(\pmb{x}_0 + \pmb{x}_1)^T\pmb{w}^*}{2} = -\frac{(\pmb{x}_0 + \pmb{x}_1)^T(\pmb{x}_1-\pmb{x}_0)}{(\pmb{x}_1-\pmb{x}_0)^T(\pmb{x}_1-\pmb{x}_0)}
+\end{split}
+\end{equation}
 \end{document}
