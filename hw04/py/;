@@ -1,0 +1,54 @@
+#! /usr/bin/env python3
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+def newfig():
+    fig = plt.figure(figsize=(9,6), dpi=300)
+    ax = fig.add_subplot(111)
+    ax.grid()
+    return fig, ax
+
+
+def final_adjust(fn):
+    plt.tight_layout()
+    plt.savefig(fn, bbox='tight')
+
+
+def import_data():
+
+    samples = np.matrix(np.loadtxt('../data/hw04_sample_vectors.csv', delimiter=','))
+    labels = np.matrix(np.loadtxt('../data/hw04_labels.csv', delimiter=','))
+
+    # fig, ax = newfig()
+    # ax.plot(samples[:,0], samples[:,1], '.')
+    # plt.show()
+
+    return samples, labels
+
+
+
+def logistic(X, labels, learning_rate=0.1, max_num_iterations=1000):
+    
+    def hypfunc(theta, X):
+        return 1 / (1 + np.exp(-np.cross(theta.T, X)))
+    
+
+    def cost_function_derivative(X, labels, theta):
+        print(X[:,0], theta)
+        return sum([(hypfunc(theta, X[:,i]) - labels[i])*X[:,i] for i in range(len(X))])
+
+
+    theta = np.array([0,0])
+    for m in range(max_num_iterations):
+        theta -= learning_rate*cost_function_derivative(X, labels, theta)
+
+    return theta
+
+
+if __name__ == "__main__":
+
+    X, labels = import_data()
+    theta = logistic(X, labels)
+    print(theta)
