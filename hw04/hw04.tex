@@ -324,4 +324,63 @@ which implies,
 &w_0^* = -\frac{(\pmb{x}_0 + \pmb{x}_1)^T\pmb{w}^*}{2} = -\frac{(\pmb{x}_0 + \pmb{x}_1)^T(\pmb{x}_1-\pmb{x}_0)}{(\pmb{x}_1-\pmb{x}_0)^T(\pmb{x}_1-\pmb{x}_0)}
 \end{split}
 \end{equation}
+\pagebreak
+\section*{Exercise 2: Implementations}
+
+\subsection*{Import data}
+refer to code.
+
+\subsection*{(a) Logistic Regression}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{logistic}
+	\caption{Gradient Decent of Logistic Regression}
+\end{figure}
+
+Increasing the maximum number of iterates will let the decision boundary converge to the desired boundary, after the loss is 0, the boundary will not change anymore.
+
+Increasing the learning rate will change the step size, a learning rate that is too large may leads to oscillation and one that is too small may leads to slow convergence.
+
+\subsection*{(b) Perceptron} 
+\begin{figure}[h]
+	\centering
+	\subfigure[(i)Perceptron Online Mode]{
+		\includegraphics[width=0.47\linewidth]{perceptron_online}
+	}
+	\subfigure[(ii)Perceptron Batch Mode]{
+		\includegraphics[width=0.47\linewidth]{perceptron_batch}
+	}
+	\caption{Decision of Perceptron algorithm}
+\end{figure}
+
+Batch mode converge faster in term of rounds. However, the cost each round is a lot higher than the online mode.
+\pagebreak
+\subsection*{(c) SVM}
+\begin{figure}[h]
+	\centering
+	\subfigure[(i)Hard SVM]{
+		\includegraphics[width=0.47\linewidth]{hardsvm}
+	}
+	\subfigure[(ii)Soft SVM]{
+		\includegraphics[width=0.47\linewidth]{softsvm}
+	}
+	\caption{Decision boundary of SVM}
+\end{figure}
+In this case, the final decision boundary for the soft case is no better than the hard case, since the data is linearly separable.
+
+\subsection*{(d) Comments}
+
+In this case, since the data are linearly separable, the performance of each classifier is pretty much the same. 
+
+In terms of margin, perceptron is not as robust as the other two, in terms of providing a "good" decision boundary and from the graph we can see it has the smallest margin, also it is not a deterministic approach. The other both performs well, while SVM will obviously have larger margin.
+
+However, larger margin does not necessarily means better performance, since over-fitting might be a problem here.   
+
+In all those classifiers, Soft SVM takes the longest to run.
+\pagebreak
+\section*{Code}
+
+\inputminted[breaklines]{python}{./py/exercise2.py}
+
+
 \end{document}
