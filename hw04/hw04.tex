@@ -179,7 +179,7 @@ Writing out the Lagrangian,
 \mathcal{L}(\pmb{\theta}, \pmb{\xi}, \pmb{\mu}) &= \frac{1}{2}||\pmb{w}||^2_2 + \frac{1}{2}C||\pmb{\xi}||^2_2 - \sum_{j=1}^{N}\mu_j(\xi_j-1+y_jg_{\pmb{\theta}}(\pmb{x}_j))\\
 &=\frac{1}{2}\pmb{w}^T\pmb{w} + \frac{1}{2}C\pmb{\xi}^T\pmb{\xi} + \sum_{j=1}^{N}\mu_j(1-y_jw_0) + \sum_{j=1}^{N}-\mu_j\xi_j + \sum_{j=1}^{N}-\mu_jy_j\pmb{w}^T\pmb{x}_j\\
 &=(\frac{1}{2}\pmb{w}-\sum_{j=1}^{N}\mu_jy_j\pmb{x}_j)^T\pmb{w} + (\frac{1}{2}C\pmb{\xi}-\pmb{\mu})^T\pmb{\xi} + \sum_{j=1}^{N}\mu_j(1-y_jw_0)\\
-\nabla_{\pmb{\theta}}\mathcal{L}(\pmb{w}, \pmb{\xi}, \pmb{\mu}) &= \pmb{w}-\sum_{j=1}^{N}\mu_jy_j\pmb{x}_j = 0\\
+\nabla_{\pmb{w}}\mathcal{L}(\pmb{w}, \pmb{\xi}, \pmb{\mu}) &= \pmb{w}-\sum_{j=1}^{N}\mu_jy_j\pmb{x}_j = 0\\
 \nabla_{w_0}\mathcal{L}(\pmb{\theta}, \pmb{\xi}, \pmb{\mu}) &=\sum_{j=1}^{N}-\mu_j y_j=0\\
 \nabla_{\pmb{\xi}}\mathcal{L}(\pmb{\theta}, \pmb{\xi}, \pmb{\mu}) &= C\pmb{\xi}-\pmb{\mu} = 0\\
 \end{split}
