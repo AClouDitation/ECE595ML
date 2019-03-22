@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 
 import numpy as np
+import cvxpy as cp
 import matplotlib.pyplot as plt
 
 
@@ -62,7 +63,7 @@ def logistic(X, labels, learning_rate=0.1, max_num_iterations=200):
     final_adjust('../pix/logistic.pdf')
 
 
-def perceptron(X, labels, learning_rate=0.1, max_num_iterations=200, batchMode = False):
+def perceptron(X, labels, learning_rate=0.0001, max_num_iterations=25, batchMode = False):
 
     theta = np.array([0, 0.0001, 0], dtype=np.float64)
 
@@ -97,9 +98,59 @@ def perceptron(X, labels, learning_rate=0.1, max_num_iterations=200, batchMode =
     final_adjust(fn)
 
 
+def hardsvm(X, labels):
+    fig, ax = newfig()
+    lenl1 = int(sum(labels))
+    lenl0 = len(labels) - lenl1
+
+    ax.plot(X[:lenl0,0], X[:lenl0,1], '.')
+    ax.plot(X[lenl1:,0], X[lenl1:,1], '.')
+    
+    labels = labels.copy() * 2 - 1
+    w = cp.Variable(2)
+    w0 = cp.Variable(1)
+    objective = cp.Minimize(cp.sum_squares(w))
+    constraints = [labels[i] * (w * X[i].T + w0) >= 1 for i in range(len(X))]
+    problem = cp.Problem(objective, constraints)
+    problem.solve()
+
+    print(w.value)
+    print(w0.value)
+
+
+    ax.axis([-1.3,1.3,-0.7,0.5])
+    drawline(ax, np.concatenate([w.value, w0.value]))
+    final_adjust('../pix/hardsvm.pdf')
+
+
+def softsvm(X, labels, C=1):
+    fig, ax = newfig()
+    lenl1 = int(sum(labels))
+    lenl0 = len(labels) - lenl1
+
+    ax.plot(X[:lenl0,0], X[:lenl0,1], '.')
+    ax.plot(X[lenl1:,0], X[lenl1:,1], '.')
+    labels = labels.copy() * 2 - 1
+
+    w = cp.Variable(2)
+    w0 = cp.Variable(1)
+    xi = cp.Variable(len(X))
+
+    objective = cp.Minimize(cp.sum_squares(w)/2 + C*cp.norm(xi,1))
+    constraints = [labels[i] * (w * X[i].T + w0) >= 1-xi[i] for i in range(len(X))]
+    problem = cp.Problem(objective, constraints)
+    problem.solve()
+
+
+    ax.axis([-1.3,1.3,-0.7,0.5])
+    drawline(ax, np.concatenate([w.value, w0.value]))
+    final_adjust('../pix/softsvm.pdf')
+
 if __name__ == "__main__":
 
     X, labels = import_data()
     #logistic(X, labels)
     perceptron(X, labels)
     perceptron(X, labels, batchMode=True)
+    #hardsvm(X,labels)
+    #softsvm(X,labels)
