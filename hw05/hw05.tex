@@ -1,0 +1,161 @@
+\documentclass[11pt]{article}
+
+% ------
+% LAYOUT
+% ------
+\textwidth 165mm %
+\textheight 230mm %
+\oddsidemargin 0mm %
+\evensidemargin 0mm %
+\topmargin -15mm %
+\parindent= 10mm
+
+\usepackage[dvips]{graphicx}
+\usepackage{multirow,multicol}
+\usepackage[table]{xcolor}
+
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
+\usepackage{subfigure}
+\usepackage{minted}
+
+\graphicspath{{./pix/}} % put all your figures here.
+
+\begin{document}
+\begin{center}
+\Large{\textbf{ECE 595: Homework 5}}
+
+Yi Qiao, Class ID 187
+
+(Spring 2019)
+\end{center}
+
+\section*{Exercise 1: Adversarial Attacks on Gaussian Classifier}
+\subsection*{(a) minimum-norm attacks}
+\subsubsection*{(i) minimum $l_2$ and $l_\infty$ attack}
+Since we only have 2 classes, the question becomes
+\begin{equation}
+\begin{split}
+&\underset{\pmb{x}}{minimize}\ ||\pmb{x} - \pmb{x}_0||\\
+&subject\ to\ \pmb{w}^T\pmb{x} + w_0 = 0
+\end{split}
+\end{equation}
+\noindent\textbf{using $l_2$ norm}\\
+the problem is the same as\\
+\begin{equation}
+\begin{split}
+&\underset{\pmb{x}}{minimize}\ \frac{1}{2}||\pmb{x} - \pmb{x}_0||^2_2\\
+&subject\ to\ \pmb{w}^T\pmb{x} + w_0 = 0
+\end{split}
+\end{equation}
+The lagrangian is
+\begin{equation}
+\begin{split}
+\mathcal{L}(\pmb{x},\lambda) &= \frac{1}{2}||\pmb{x}-\pmb{x}_0||^2_2 + \lambda(\pmb{w}^T\pmb{x} + w_0)\\
+\end{split}
+\end{equation}
+Taking the derivative
+\begin{equation}
+\begin{split}
+&\nabla_{\pmb{x}}\mathcal{L}(\pmb{x},\lambda) = \pmb{x} - \pmb{x}_0 + \lambda\pmb{w}=0\\
+&\frac{\partial}{\partial\lambda}\mathcal{L}(\pmb{x},\lambda)=\pmb{w}^T\pmb{x} + w_0=0
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\lambda\pmb{w}&=\pmb{x}_0 - \pmb{x}\\
+\lambda\pmb{w}^T\pmb{w} &= \pmb{w}^T\pmb{x}_0-\pmb{w}^T\pmb{x}\\
+\lambda &= \left(\pmb{w}^T\pmb{w}\right)^{-1}(\pmb{w}^T\pmb{x}_0+w_0)
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\pmb{x} &= \pmb{x}_0-\lambda\pmb{w}\\
+&=\pmb{x}_0-\frac{\pmb{w}(\pmb{w}^T\pmb{x}_0+w_0)}{||\pmb{w}||_2^2}
+\end{split}
+\end{equation}
+\noindent\textbf{using $l_\infty$ norm}\\
+\begin{equation}
+\begin{split}
+&\underset{\pmb{x}}{minimize}\ ||\pmb{x} - \pmb{x}_0||_{\infty}\\
+&subject\ to\ \pmb{w}^T\pmb{x} + w_0 = 0
+\end{split}
+\end{equation}
+Let $\pmb{r} = \pmb{x} - \pmb{x}_0$, $b_0 = -(\pmb{w}^T\pmb{x}_0+w_0)$, the problem becomes:
+\begin{equation}
+\begin{split}
+&\underset{\pmb{x}}{argmin}||\pmb{x}-\pmb{x}_0||_\infty\\
+&subject\ to\ \pmb{w}^T\pmb{r}=b_0
+\end{split}
+\end{equation}
+The lagrangian is
+\begin{equation}
+\begin{split}
+\mathcal{L}(\pmb{r},\lambda)=||\pmb{r}||_{\infty}+\lambda(b_0-\pmb{w}^T\pmb{r})
+\end{split}
+\end{equation}
+Taking derivative,
+\begin{equation}
+\frac{\partial}{\partial\lambda}\mathcal{L}(\pmb{r},\lambda)=b_0-\pmb{w}^T\pmb{r}=0
+\end{equation}
+By Holder's Inequality:
+\begin{equation}
+\begin{split}
+|b_0|=|\pmb{w}^T\pmb{r}| &\le||\pmb{w}||_1||\pmb{r}||_\infty\\
+||\pmb{r}||_\infty&\ge\frac{|b_0|}{||\pmb{w}||_1}
+\end{split}
+\end{equation}
+Consider $\pmb{r}=\eta \cdot sign(\pmb{w})$, for some constant $\eta$ tbd.
+We can show that
+\begin{equation}
+\begin{split}
+||\pmb{r}||_\infty = \underset{i}{argmax}\ |\eta\cdot sign(w_i)|=|\eta|
+\end{split}
+\end{equation}
+let $\eta=\frac{b_0}{||\pmb{w}||_1}\cdot sign(\pmb{w})$, then we have,
+\begin{equation}
+||\pmb{r}||_\infty = |\eta| = \frac{b_0}{||\pmb{w}||_1}
+\end{equation}
+Lower bound is achieved, thus the solution is,
+\begin{equation}
+\pmb{r}=\frac{|b_0|}{||\pmb{w}_1||}\cdot sign(\pmb{w})
+\end{equation}
+\subsubsection*{(ii) DeepFool attack}
+\begin{equation}
+\begin{split}
+&\underset{\pmb{x}}{argmin}\ ||\pmb{x}-\pmb{x}_0||^2_2\\
+&subject\ to\ g(\pmb{x})=0
+\end{split}
+\end{equation}
+First order approximation
+\begin{equation}
+g(\pmb{x})\approx g(\pmb{x}^{(k)})+\nabla_{\pmb{x}}g(\pmb{x}^{(k)})^T(\pmb{x}-\pmb{x}^{(k)})
+\end{equation}
+Then the problem can be approximate by
+\begin{equation}
+\begin{split}
+&\underset{\pmb{x}}{argmin}\ ||\pmb{x}-\pmb{x}_0||^2_2\\
+&subject\ to\ g(\pmb{x}^{(k)})+\nabla_{\pmb{x}}g(\pmb{x}^{(k)})^T(\pmb{x}-\pmb{x}^{(k)})=0
+\end{split}
+\end{equation}
+Let $\pmb{w}^{(k)}=\nabla_{\pmb{x}}g(\pmb{x}^{(k)})$ and $w_0^{(k)}=g(\pmb{x}^{(k)})-\nabla_{\pmb{x}}g(\pmb{x}^{(k)})^T\pmb{x}^{(k)}$\\
+Then the problem is equivalent to 
+\begin{equation}
+\begin{split}
+&\underset{\pmb{x}}{argmin}\ ||\pmb{x}-\pmb{x}_0||^2_2\\
+&subject\ to\ (\pmb{w}^{(k)})^T\pmb{x}+w_0^{(k)}=0
+\end{split}
+\end{equation}
+This is the same problem as minimum $l_2$ norm attack, Thus the solution will be,
+\begin{equation}
+\pmb{x}^{(k+1)}=\pmb{x}^{(k)}-\frac{((\pmb{w}^{(k)})^Tx^{(k)} + w_0^{(k)})\pmb{w}^{(k)}}{||\pmb{w}^{(k)}||^2_2}
+\end{equation}
+substitute $\pmb{w}$ and $w_0$ back, we get
+\begin{equation}
+\pmb{x}^{(k+1)}=\pmb{x}^{(k)}-\left(\frac{g(\pmb{x}^{(k)})}{||\nabla_{\pmb{x}}g(\pmb{x}^{(k)})||^2}\right)\nabla_{\pmb{x}}g(\pmb{x}^{(k)})
+\end{equation}
+\subsubsection*{(iii) An example DeepFool never converge}
+\end{document}
