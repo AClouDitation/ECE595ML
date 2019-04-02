@@ -168,4 +168,68 @@ The problem is,
 &subject\ to\ ||\pmb{x}-\pmb{x}_0||_\infty<\eta
 \end{split}
 \end{equation}
+let $\pmb{x}=\pmb{x}_0+\pmb{r}$, $b_0=(\pmb{w}^T\pmb{x}_0+w_0)$, the problem becomes,
+\begin{equation}
+\begin{split}
+&\underset{\pmb{r}}{argmin}\ \pmb{w}^T\pmb{r}+b_0\\
+&subject\ to\ ||\pmb{r}||_\infty<\eta
+\end{split}
+\end{equation}
+by Holder's inequality,
+\begin{equation}
+\begin{split}
+\pmb{w}^T\pmb{r} \ge -||\pmb{r}||_\infty||\pmb{w}||_1\ge-\eta||\pmb{w}||_1
+\end{split}
+\end{equation}
+as shown in the lecture note, the solution 
+\begin{equation}
+\pmb{r} = -\eta\cdot sign(\pmb{w})
+\end{equation}
+\subsubsection*{(ii) FGSM attack}
+\begin{equation}
+\begin{split}
+&\underset{\pmb{x}}{argmax}\ J(\pmb{x},\pmb{w})\\
+&subject\ to\ ||\pmb{x}-\pmb{x}_0||_\infty\le\eta
+\end{split}
+\end{equation}
+Approximately, $J(\pmb{x},\pmb{w}) = J(\pmb{x}_0+\pmb{r},\pmb{w})\approx J(\pmb{x}_0, \pmb{w})+\nabla_{\pmb{x}}J(\pmb{x}_0,\pmb{w})^T\pmb{r}$\\
+Then, the problem becomes
+\begin{equation}
+\begin{split}
+&\underset{\pmb{x}}{argmin}\ -J(\pmb{x}_0, \pmb{w})-\nabla_{\pmb{x}}J(\pmb{x}_0,\pmb{w})^T\pmb{r}\\
+&subject\ to\ ||\pmb{r}||_\infty\le\eta
+\end{split}in
+\end{equation}
+of which the solution is given by
+\begin{equation}
+\begin{split}
+\pmb{x} = \pmb{x}_0+\eta\cdot(\nabla_{\pmb{x}}J(\pmb{x}_0,\pmb{w}))
+\end{split}
+\end{equation}
+In the problem setup, we get $J(\pmb{x})= -g(\pmb{x})$, thus the solution is 
+\begin{equation}
+\begin{split}
+\pmb{x} &= \pmb{x}_0-\eta\cdot(\nabla_{\pmb{x}}g(\pmb{x}_0))\\
+&= \pmb{x}_0-\eta\cdot((\pmb{W}_j-\pmb{W}_t)\pmb{x}_0+(\pmb{w}_j-\pmb{w}_t))\\
+&= (\eta(\pmb{W}_t-\pmb{W}_j)+1)\pmb{x}_0+\eta(\pmb{w}_t-\pmb{w}_j)
+\end{split}
+\end{equation}
+\subsubsection*{(iii) I-FGSM attack}
+
+\begin{equation}
+\begin{split}
+J(\pmb{x},\pmb{w})&=J(\pmb{x}_0+\pmb{r},\pmb{w})\\
+&\approx J(\pmb{x}_0,\pmb{w})+\nabla_{\pmb{x}}J(\pmb{x}_0,\pmb{w})^T\pmb{r}\\
+&= J(\pmb{x}_0,\pmb{w})+\nabla_{\pmb{x}}J(\pmb{x}_0,\pmb{w})^T(\pmb{x}-\pmb{x}_0)\\
+&= J(\pmb{x}_0,\pmb{w})+\nabla_{\pmb{x}}J(\pmb{x}_0,\pmb{w})^T\pmb{x}-\nabla_{\pmb{x}}J(\pmb{x}_0,\pmb{w})^T\pmb{x}_0\\
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+\pmb{x}^{(k+1)}&=\underset{0\le \pmb{x}\le 1}{argmax}\ J(\pmb{x}^{(k)},\pmb{w})\ subject\ to\ ||\pmb{x}-\pmb{x}_0||\le\eta\\
+&=\underset{0\le \pmb{x}\le 1}{argmax}\ \nabla_{\pmb{x}}J(\pmb{x}^{(k)},\pmb{w})^T\pmb{x}\ subject\ to\ ||\pmb{x}-\pmb{x}_0||\le\eta\\
+&=\mathcal{P}\left\{\pmb{x}^{(k)}+\eta\cdot sign\left(\nabla_{\pmb{x}}J(\pmb{x}^{(k)},\pmb{w})\right)\right\}
+\end{split}
+\end{equation}
 \end{document}
