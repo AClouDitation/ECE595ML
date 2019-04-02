@@ -150,7 +150,7 @@ if __name__ == "__main__":
 
     X, labels = import_data()
     #logistic(X, labels)
-    perceptron(X, labels)
-    perceptron(X, labels, batchMode=True)
+    #perceptron(X, labels)
+    #perceptron(X, labels, batchMode=True)
     #hardsvm(X,labels)
-    #softsvm(X,labels)
+    softsvm(X,labels)
