@@ -232,4 +232,46 @@ J(\pmb{x},\pmb{w})&=J(\pmb{x}_0+\pmb{r},\pmb{w})\\
 &=\mathcal{P}\left\{\pmb{x}^{(k)}+\eta\cdot sign\left(\nabla_{\pmb{x}}J(\pmb{x}^{(k)},\pmb{w})\right)\right\}
 \end{split}
 \end{equation}
+
+\subsection*{(c) Regularization based attack}
+\subsubsection*{(i) linear case}
+\begin{equation}
+\underset{\pmb{x}}{argmin}\ \frac{1}{2}||\pmb{x}-\pmb{x}_0||^2_2+\lambda(\pmb{w}^T\pmb{x}+w_0)
+\end{equation}
+Taking derivative
+\begin{equation}
+\begin{split}
+&\nabla_{\pmb{x}}\ \frac{1}{2}||\pmb{x}-\pmb{x}_0||^2_2+\lambda(\pmb{w}^T\pmb{x}+w_0)\\
+&=\pmb{x}-\pmb{x}_0+\lambda\pmb{w} = 0
+\end{split}
+\end{equation}
+Solve for $\pmb{x}$,
+\begin{equation}
+\pmb{x} = \pmb{x}_0-\lambda\pmb{w}
+\end{equation}
+\subsubsection*{(ii)}
+\begin{equation}
+\begin{split}
+&\underset{\pmb{x}}{argmin}\ \varphi(\pmb{x}), where\\
+&\varphi(\pmb{x})=||\pmb{x}-\pmb{x}_0||^2_2+\lambda\zeta(g_j(\pmb{x})-g_t(\pmb{x})),\\
+&\zeta(y)=max(y,0),\ and\ j\ne t
+\end{split}
+\end{equation}
+Taking the derivative,
+\begin{equation}
+\nabla \varphi(\pmb{x}) = 2(\pmb{x}-\pmb{x}_0)+\lambda\mathbb{I}\{g_j(\pmb{x})-g_t(\pmb{x}) > 0\}\cdot(\nabla_{\pmb{x}}g_j(\pmb{x})-\nabla_{\pmb{x}}g_t(\pmb{x}))\\
+\end{equation}
+Using my favorite gradient descent, we can tell,
+\begin{equation}
+\pmb{x}^{(k+1)}=\pmb{x}^{(k)}-\alpha\nabla_{\pmb{x}}\varphi(\pmb{x}^{(k)})
+\end{equation}
+substituting in $g(\pmb{x})=\frac{1}{2}\pmb{x}^T(\pmb{W}_j-\pmb{W}_t)\pmb{x}+(\pmb{w}_j-\pmb{w}_t)^T\pmb{x}+(w_{j,0}-w_{t,0})$,
+we get 
+\begin{equation}
+\begin{split}
+\nabla_{\pmb{x}}g(\pmb{x})&=(\pmb{W}_j-\pmb{W}_t)\pmb{x}+(\pmb{w}_j-\pmb{w}_t)\\
+\pmb{x}^{(k+1)}&=\pmb{x}^{(k)}-2\alpha(\pmb{x}-\pmb{x}_0)-2\alpha\lambda\mathbb{I}\{g(\pmb{x}) > 0\}\cdot(\nabla_{\pmb{x}}g(\pmb{x}))\\
+&=\pmb{x}^{(k)}-2\alpha(\pmb{x}-\pmb{x}_0)-2\alpha\lambda\mathbb{I}\{g(\pmb{x}) > 0\}\cdot((\pmb{W}_j-\pmb{W}_t)\pmb{x}+(\pmb{w}_j-\pmb{w}_t))
+\end{split}
+\end{equation}
 \end{document}
