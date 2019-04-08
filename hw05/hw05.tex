@@ -367,4 +367,18 @@ For all three cases, all patches are classified as grass after applying perturba
 \end{figure}
 
 From the above plots, we can obviously see that increase $\lambda$ will speed up the attack. 
+\pagebreak
+\section*{Exercise 3: CW Attack on Gaussian Classifier - Overlapping Patches}
+\begin{equation}
+\begin{split}
+\pmb{X}^*&=\underset{\pmb{X}}{argmin}\sum_{i=1}^{L}\{||\pmb{P}_i(\pmb{X}-\pmb{X}_0)||^2_2+\lambda max(g_j(\pmb{P}_i\pmb{X})-g_t(\pmb{P}_i\pmb{X}),0)\}\\
+&=\underset{\pmb{X}}{argmin}||\pmb{X}-\pmb{X}_0||^2_2+\lambda\sum_{i=1}^{L}max(g_j(\pmb{P}_i\pmb{X})-g_t(\pmb{P}_i\pmb{X}),0)
+\end{split}
+\end{equation}
+\subsection*{(a)} the gradient of the above function is,
+\begin{equation}
+\begin{split}
+\nabla_{\pmb{X}}=2(\pmb{X}-\pmb{X}_0)+\lambda\mathbb{I}\{g_j(\pmb{P}_i\pmb{X})-g_t(\pmb{P}_i\pmb{X})>0\}\times(\nabla_{\pmb{X}}(g_j(\pmb{P}_i\pmb{X})-g_t(\pmb{P}_i\pmb{X})))
+\end{split}
+\end{equation} 
 \end{document}
