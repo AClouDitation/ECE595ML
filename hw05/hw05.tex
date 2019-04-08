@@ -270,8 +270,101 @@ we get
 \begin{equation}
 \begin{split}
 \nabla_{\pmb{x}}g(\pmb{x})&=(\pmb{W}_j-\pmb{W}_t)\pmb{x}+(\pmb{w}_j-\pmb{w}_t)\\
-\pmb{x}^{(k+1)}&=\pmb{x}^{(k)}-2\alpha(\pmb{x}-\pmb{x}_0)-2\alpha\lambda\mathbb{I}\{g(\pmb{x}) > 0\}\cdot(\nabla_{\pmb{x}}g(\pmb{x}))\\
-&=\pmb{x}^{(k)}-2\alpha(\pmb{x}-\pmb{x}_0)-2\alpha\lambda\mathbb{I}\{g(\pmb{x}) > 0\}\cdot((\pmb{W}_j-\pmb{W}_t)\pmb{x}+(\pmb{w}_j-\pmb{w}_t))
+\pmb{x}^{(k+1)}&=\pmb{x}^{(k)}-2\alpha(\pmb{x}^{(k)}-\pmb{x}_0)-\alpha\lambda\mathbb{I}\{g(\pmb{x}) > 0\}\cdot(\nabla_{\pmb{x}}g(\pmb{x}))\\
+&=\pmb{x}^{(k)}-2\alpha(\pmb{x}^{(k)}-\pmb{x}_0)-\alpha\lambda\mathbb{I}\{g(\pmb{x}) > 0\}\cdot((\pmb{W}_j-\pmb{W}_t)\pmb{x}+(\pmb{w}_j-\pmb{w}_t))
 \end{split}
 \end{equation}
+\section*{Exercise 2: CW-Attack on Gaussian Classifier - Non-overlapping Patches} 
+\subsection*{(a)\&(b)}
+refer to code in the back
+\subsection*{(c)}
+\subsubsection*{(i) \& (ii) The final perturbed images \& their perturbation respectively}
+\begin{figure}[h]
+	\centering
+	\subfigure[$\lambda=1$]{
+		\includegraphics[width=0.3\linewidth]{CW_Nonoverlap_1}
+	}
+	\subfigure[$\lambda=5$]{
+		\includegraphics[width=0.3\linewidth]{CW_Nonoverlap_5}
+	}
+	\subfigure[$\lambda=10$]{
+		\includegraphics[width=0.3\linewidth]{CW_Nonoverlap_10}
+	}
+	\subfigure[$\lambda=1$]{
+		\includegraphics[width=0.3\linewidth]{CW_Nonoverlap_1_perturbation}
+	}
+	\subfigure[$\lambda=5$]{
+		\includegraphics[width=0.3\linewidth]{CW_Nonoverlap_5_perturbation}
+	}
+	\subfigure[$\lambda=10$]{
+		\includegraphics[width=0.3\linewidth]{CW_Nonoverlap_10_perturbation}
+	}
+	\caption{perturbed images and their perturbations with $\lambda = 1, 5, 10$}
+\end{figure}
+\subsubsection*{(iii) Frobenius norm of the perturbation}
+$\lambda=1$, Frobenius norm: 8.253352243144604\\
+$\lambda=5$, Frobenius norm: 8.928742803780679\\
+$\lambda=10$, 	Frobenius norm: 9.697938770929634\\
+\pagebreak
+\subsubsection*{(iv) The classifier’s output}
+\begin{figure}[h]
+	\centering
+	\subfigure[$\lambda=1$]{
+		\includegraphics[width=0.3\linewidth]{CW_Nonoverlap_1_classified_pertub}
+	}
+	\subfigure[$\lambda=5$]{
+		\includegraphics[width=0.3\linewidth]{CW_Nonoverlap_5_classified_pertub}
+	}
+	\subfigure[$\lambda=10$]{
+		\includegraphics[width=0.3\linewidth]{CW_Nonoverlap_10_classified_pertub}
+	}
+	\caption{classified perturbed image with $\lambda = 1, 5, 10$}
+\end{figure}
+For all three cases, all patches are classified as grass after applying perturbation.
+\pagebreak
+\subsubsection*{(v) Plots during gradient descent}
+\begin{figure}[h]
+	\centering
+	\subfigure[after 0 rounds]{
+		\includegraphics[width=0.3\linewidth]{CW_Nonoverlap_1_r0}
+	}
+	\subfigure[after 50 rounds]{
+		\includegraphics[width=0.3\linewidth]{CW_Nonoverlap_1_r50}
+	}
+	\subfigure[after 100 rounds]{
+		\includegraphics[width=0.3\linewidth]{CW_Nonoverlap_1_r100}
+	}
+	\caption{classified perturbed image during gradient descent with $\lambda = 1$}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\subfigure[after 0 rounds]{
+		\includegraphics[width=0.3\linewidth]{CW_Nonoverlap_5_r0}
+	}
+	\subfigure[after 10 rounds]{
+		\includegraphics[width=0.3\linewidth]{CW_Nonoverlap_5_r10}
+	}
+	\subfigure[after 20 rounds]{
+		\includegraphics[width=0.3\linewidth]{CW_Nonoverlap_5_r20}
+	}
+	\caption{classified perturbed image during gradient descent with $\lambda = 5$}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\subfigure[after 0 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Nonoverlap_10_r0}
+	}
+	\subfigure[after 5 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Nonoverlap_10_r5}
+	}
+	\subfigure[after 10 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Nonoverlap_10_r10}
+	}
+	\subfigure[after 15 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Nonoverlap_10_r15}
+	}
+	\caption{classified perturbed image during gradient descent with $\lambda = 10$}
+\end{figure}
+
+From the above plots, we can obviously see that increase $\lambda$ will speed up the attack. 
 \end{document}
