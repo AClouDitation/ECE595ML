@@ -275,9 +275,9 @@ we get
 \end{split}
 \end{equation}
 \section*{Exercise 2: CW-Attack on Gaussian Classifier - Non-overlapping Patches} 
-\subsection*{(a)\&(b)}
+\subsection*{(a)\&(b) Implementation}
 refer to code in the back
-\subsection*{(c)}
+\subsection*{(c) Results}
 \subsubsection*{(i) \& (ii) The final perturbed images \& their perturbation respectively}
 \begin{figure}[h]
 	\centering
@@ -302,9 +302,15 @@ refer to code in the back
 	\caption{perturbed images and their perturbations with $\lambda = 1, 5, 10$}
 \end{figure}
 \subsubsection*{(iii) Frobenius norm of the perturbation}
-$\lambda=1$, Frobenius norm: 8.253352243144604\\
-$\lambda=5$, Frobenius norm: 8.928742803780679\\
-$\lambda=10$, 	Frobenius norm: 9.697938770929634\\
+\begin{table}[h]
+	\centering
+	\begin{tabular}{c|c|c|c}
+		$\lambda$ & 1 & 5 & 10 \\
+		\hline
+		Frobenius norm & 8.253352243144604 & 8.928742803780679 & 9.697938770929634\\
+	\end{tabular}
+	\caption{Frobenius norm vs. $\lambda$ for CW-Attack on Gaussian classifier with non-overlapping patches}
+\end{table}
 \pagebreak
 \subsubsection*{(iv) The classifier’s output}
 \begin{figure}[h]
@@ -321,7 +327,7 @@ $\lambda=10$, 	Frobenius norm: 9.697938770929634\\
 	\caption{classified perturbed image with $\lambda = 1, 5, 10$}
 \end{figure}
 For all three cases, all patches are classified as grass after applying perturbation.
-\pagebreak
+
 \subsubsection*{(v) Plots during gradient descent}
 \begin{figure}[h]
 	\centering
@@ -349,6 +355,7 @@ For all three cases, all patches are classified as grass after applying perturba
 	}
 	\caption{classified perturbed image during gradient descent with $\lambda = 5$}
 \end{figure}
+\pagebreak
 \begin{figure}[h]
 	\centering
 	\subfigure[after 0 rounds]{
@@ -366,7 +373,8 @@ For all three cases, all patches are classified as grass after applying perturba
 	\caption{classified perturbed image during gradient descent with $\lambda = 10$}
 \end{figure}
 
-From the above plots, we can obviously see that increase $\lambda$ will speed up the attack. 
+\subsection*{Comments}
+From the above plots, we can obviously see that increase $\lambda$ will speed up the attack. However, as $\lambda$ goes up, the quality of the attack goes down since the Frobenius norm also goes up while achieving the same result.
 \pagebreak
 \section*{Exercise 3: CW Attack on Gaussian Classifier - Overlapping Patches}
 \begin{equation}
@@ -375,10 +383,124 @@ From the above plots, we can obviously see that increase $\lambda$ will speed up
 &=\underset{\pmb{X}}{argmin}||\pmb{X}-\pmb{X}_0||^2_2+\lambda\sum_{i=1}^{L}max(g_j(\pmb{P}_i\pmb{X})-g_t(\pmb{P}_i\pmb{X}),0)
 \end{split}
 \end{equation}
-\subsection*{(a)} the gradient of the above function is,
+\subsection*{(a) Theory} the gradient of the above function is,
 \begin{equation}
 \begin{split}
 \nabla_{\pmb{X}}=2(\pmb{X}-\pmb{X}_0)+\lambda\mathbb{I}\{g_j(\pmb{P}_i\pmb{X})-g_t(\pmb{P}_i\pmb{X})>0\}\times(\nabla_{\pmb{X}}(g_j(\pmb{P}_i\pmb{X})-g_t(\pmb{P}_i\pmb{X})))
 \end{split}
 \end{equation} 
+\subsection*{(b) Implementation}
+Refer to code in the back.
+\subsection*{(c) Results}
+\subsubsection*{(i) \& (ii) The final perturbed images \& their perturbation respectively}
+\begin{figure}[h]
+	\centering
+	\subfigure[$\lambda=0.5$]{
+		\includegraphics[width=0.3\linewidth]{CW_Overlap_5}
+	}
+	\subfigure[$\lambda=1.0$]{
+		\includegraphics[width=0.3\linewidth]{CW_Overlap_10}
+	}
+	\subfigure[$\lambda=5.0$]{
+		\includegraphics[width=0.3\linewidth]{CW_Overlap_50}
+	}
+	\subfigure[$\lambda=0.5$]{
+		\includegraphics[width=0.3\linewidth]{CW_Overlap_5_perturbation}
+	}
+	\subfigure[$\lambda=1.0$]{
+		\includegraphics[width=0.3\linewidth]{CW_Overlap_10_perturbation}
+	}
+	\subfigure[$\lambda=5.0$]{
+		\includegraphics[width=0.3\linewidth]{CW_Overlap_50_perturbation}
+	}
+	\caption{perturbed images and their perturbations with $\lambda = 0.5, 1.0, 5.0$}
+\end{figure}
+\pagebreak
+\subsubsection*{(iii) Frobenius norm of the perturbation}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{c|c|c|c}
+		
+		$\lambda$ & \#grass patches & \#cat patches & Frobenius norm\\ 
+		\hline\hline
+		0.5 & 180561 & 3 & 14.059260687697552 \\  
+		1.0 & 180561 & 3 & 16.158563208747122 \\
+		5.0 & 180564 & 0 & 33.617113348842395
+	\end{tabular}
+	\caption{testing results for CW-Attack on Gaussian classifier with overlapping patches}
+\end{table}
+\subsubsection*{(iv) The classifier’s output}
+\begin{figure}[h]
+	\centering
+	\subfigure[$\lambda=0.5$]{
+		\includegraphics[width=0.3\linewidth]{CW_Overlap_5_classified_perturb}
+	}
+	\subfigure[$\lambda=1.0$]{
+		\includegraphics[width=0.3\linewidth]{CW_Overlap_10_classified_perturb}
+	}
+	\subfigure[$\lambda=5.0$]{
+		\includegraphics[width=0.3\linewidth]{CW_Overlap_50_classified_perturb}
+	}
+	\caption{classified perturbed image with $\lambda = 0.5, 1.0, 5.0$}
+\end{figure}
+The precise result is in the table above, however, from observation, almost all pixels are classified as grass.
+\subsubsection*{(v) Plots during gradient descent}
+\begin{figure}[h]
+	\centering
+	\subfigure[after 0 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Overlap_5_r0}
+	}
+	\subfigure[after 5 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Overlap_5_r5}
+	}
+	\subfigure[after 10 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Overlap_5_r10}
+	}
+	\subfigure[after 15 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Overlap_5_r15}
+	}
+	\subfigure[after 20 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Overlap_5_r20}
+	}
+	\subfigure[after 25 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Overlap_5_r25}
+	}
+	\subfigure[after 30 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Overlap_5_r30}
+	}
+	\caption{classified perturbed image during gradient descent with $\lambda = 0.5$}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\subfigure[after 0 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Overlap_10_r0}
+	}
+	\subfigure[after 5 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Overlap_10_r5}
+	}
+	\subfigure[after 10 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Overlap_10_r10}
+	}
+	\subfigure[after 15 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Overlap_10_r15}
+	}
+	\caption{classified perturbed image during gradient descent with $\lambda = 1.0$}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\subfigure[after 0 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Overlap_50_r0}
+	}
+	\subfigure[after 2 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Overlap_50_r2}
+	}
+	\subfigure[after 4 rounds]{
+		\includegraphics[width=0.21\linewidth]{CW_Overlap_50_r4}
+	}
+	\caption{classified perturbed image during gradient descent with $\lambda = 5$}
+\end{figure}
+\pagebreak
+
+\subsection*{Comments}
+In general, comparing to the non-overlapping case, the Frobenius norm is significantly larger. However, since the overlapping is a much harder problem, the result is acceptable. As $lambda$ goes up, the strength of the attack is approximately the same, less rounds are needed to attack the classifier while sacrificing some quality of the attack.
 \end{document}
