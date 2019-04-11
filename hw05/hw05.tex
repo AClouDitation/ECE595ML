@@ -158,7 +158,12 @@ substitute $\pmb{w}$ and $w_0$ back, we get
 \pmb{x}^{(k+1)}=\pmb{x}^{(k)}-\left(\frac{g(\pmb{x}^{(k)})}{||\nabla_{\pmb{x}}g(\pmb{x}^{(k)})||^2}\right)\nabla_{\pmb{x}}g(\pmb{x}^{(k)})
 \end{equation}
 \subsubsection*{(iii) An example DeepFool never converge}
-something
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{exercise1_a2}
+	\caption{1D example classifier}
+\end{figure}
+Above is a example discriminate function $g(x)$. there are two classes, separated by the vertical line at $g(x)=0$. If $x_0$ at the position shown above, the Deep Fool attack will result in $x_{attack}$ in the end, and thus never converge to $g(x)=0$.
 \subsection*{(b) maximum-allowable attack}
 \subsubsection*{(i) $l_\infty$ attack in the linear case}
 The problem is,
@@ -503,4 +508,11 @@ The precise result is in the table above, however, from observation, almost all 
 
 \subsection*{Comments}
 In general, comparing to the non-overlapping case, the Frobenius norm is significantly larger. However, since the overlapping is a much harder problem, the result is acceptable. As $lambda$ goes up, the strength of the attack is approximately the same, less rounds are needed to attack the classifier while sacrificing some quality of the attack.
+
+\section*{Code}
+
+\subsection*{Exercise 2: CW-Attack on Gaussian Classifier - Non-overlapping Patches}
+\inputminted[breaklines]{python}{./py/exercise2.py}
+\subsection*{Exercise 3: CW-Attack on Gaussian Classifier - Overlapping Patches}
+\inputminted[breaklines]{python}{./py/exercise3.py}
 \end{document}

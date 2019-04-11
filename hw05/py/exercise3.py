@@ -117,8 +117,8 @@ def CWAttack(cat_info, grass_info, img, rounds = 300, alpha = 0.0001, lm = 0.5):
 
 if __name__ == "__main__":
     cat_info, grass_info = get_info()
-    #CWAttack(cat_info, grass_info, readImg('../data/cat_grass.jpg'), lm = 0.5)
-    #CWAttack(cat_info, grass_info, readImg('../data/cat_grass.jpg'), lm = 1.0)
+    CWAttack(cat_info, grass_info, readImg('../data/cat_grass.jpg'), lm = 0.5)
+    CWAttack(cat_info, grass_info, readImg('../data/cat_grass.jpg'), lm = 1.0)
     CWAttack(cat_info, grass_info, readImg('../data/cat_grass.jpg'), lm = 5)
 
 
