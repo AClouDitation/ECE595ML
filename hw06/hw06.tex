@@ -38,9 +38,20 @@ Yi Qiao, Class ID 187
 Since they are all fair coins,
 $$\mathbb{P}(c_1=head)=\mathbb{P}(c_{rand}=head)=\mathbb{P}(c_{min}=head)=0.5$$
 \subsection*{(b) python experiment}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{exercise1_b}
+\end{figure}
 \subsection*{(c) plots}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{exercise1_c}
+\end{figure}
 \subsection*{(d)}
-
+By observation, we can see that the first two obviously obey the Hoeffding's bound while the third one does not.
+\subsection*{(e)}
+something something...
+\pagebreak
 \section*{Exercise 2: VC Dimension}
 \subsection*{(a) Compute the VC dimension}
 \subsubsection*{(i)}
@@ -78,5 +89,9 @@ By inspection, hypothesis function is a hyper ball. Thus, the VC dimension of th
 \end{equation}
 Even though the above hypothesis set has only one parameter, it is periodic, thus by tuning the period/frequency, you can match any number of data points you want by finding their GCD.
 This hypothesis set has simply too large VC dimension, which is far beyond the model complexity. Thus, this will perform far worse than perceptron due to over-fitting.
+
+\pagebreak
+\section*{Exercise 3: Bias-Variance Trade-off}
 \end{document}
+
 
