@@ -54,7 +54,7 @@ something something...
 \pagebreak
 \section*{Exercise 2: VC Dimension}
 \subsection*{(a) Compute the VC dimension}
-\subsubsection*{(i)}
+\subsubsection*{(i)}	
 \begin{equation}
 \begin{split}
 \mathcal{H}=&\{h:\mathbb{R}\rightarrow\{-1,+1\}|h(x)=+1,\forall x\in[a,\infty), a\in\mathbb{R}\} \cup \\
@@ -92,6 +92,55 @@ This hypothesis set has simply too large VC dimension, which is far beyond the m
 
 \pagebreak
 \section*{Exercise 3: Bias-Variance Trade-off}
+\subsection*{(a)}
+\begin{equation}
+\begin{split}
+\pmb{\theta}_\mathcal{D}=&\underset{\pmb{\theta}_h}{argmin}\ E_{aug}(h)\\
+=&\underset{\pmb{\theta}_h}{argmin}\ E_{in}(h)+\frac{\lambda}{N}\pmb{\theta}^T_h\pmb{\theta}_h\\
+=&\underset{\pmb{\theta}_h}{argmin}\ \frac{1}{N}\sum_{n=1}^{N}(\pmb{\theta}_h^T\pmb{x}_n-y_n)^2	+\frac{\lambda}{N}\pmb{\theta}^T_h\pmb{\theta}_h\\
+=&\underset{\pmb{\theta}_h}{argmin}\ 
+\left\lVert\begin{bmatrix}
+\pmb{x}_1^T & 1\\
+\pmb{x}_2^T & 1\\
+\vdots & \vdots\\
+\pmb{x}_N^T & 1\\
+\end{bmatrix}
+\pmb{\theta}_h - \pmb{y}\right\rVert^2_2
++\lambda\pmb{\theta}^T_h\pmb{\theta}_h\\
+\end{split}
+\end{equation}
+substitute $\begin{bmatrix}
+\pmb{x}_1^T & 1\\
+\pmb{x}_2^T & 1\\
+\vdots & \vdots\\
+\pmb{x}_n^T & 1\\
+\end{bmatrix}$
+with $\pmb{A}$, we get
+\begin{equation}
+\begin{split}
+\pmb{\theta}_\mathcal{D}=&\underset{\pmb{\theta}_h}{argmin}\ \left\lVert\pmb{A}\pmb{\theta}_h - \pmb{y}\right\rVert^2_2
++\lambda\pmb{\theta}^T_h\pmb{\theta}_h\\
+\end{split}
+\end{equation}
+Taking the derivative, we can see
+\begin{equation}
+\begin{split}
+\nabla_{\pmb{\theta}_h} &= 2\pmb{A}^T(\pmb{A\theta}_h-\pmb{y})+2\lambda\pmb{\theta}_h = 0\\
+&(\pmb{A}^T\pmb{A}+\lambda\pmb{I})\pmb{\theta}_h = \pmb{A}^T\pmb{y}\\
+&\pmb{\theta}_{\mathcal{D}}=\pmb{\theta}_h^* = (\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T(\pmb{A}\pmb{\theta}_f+\pmb{\epsilon})
+\end{split}
+\end{equation}
+\subsection*{(b)}
+Continue from the last problem, expand what we already got,
+\begin{equation}
+\begin{split}
+\pmb{\theta}_{\mathcal{D}}=& (\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T(\pmb{A}\pmb{\theta}_f+\pmb{\epsilon})\\
+=&(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{A}\pmb{\theta}_f + (\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{\epsilon}\\
+=&(\pmb{I}-\lambda\pmb{I}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1})\pmb{\theta}_f + (\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{\epsilon}\\
+=&\pmb{\theta}_f-\lambda(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f + (\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{\epsilon}\\
+\end{split}
+\end{equation}
+\subsection*{(c)}
 \end{document}
 
 
