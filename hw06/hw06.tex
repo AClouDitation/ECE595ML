@@ -141,6 +141,60 @@ Continue from the last problem, expand what we already got,
 \end{split}
 \end{equation}
 \subsection*{(c)}
+\subsubsection*{(i)}
+\begin{equation}
+\begin{split}
+\bar{g}(\pmb{x}) &= \mathbb{E}_{\mathcal{D}}\left[h^{(\mathcal{D})}(\pmb{x})\right]=\mathbb{E}\left[\pmb{\theta}_{\mathcal{D}}^T\pmb{x}\right]\\
+&=\mathbb{E}\left[\left(\pmb{\theta}_f-\lambda(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f + (\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{\epsilon}\right)^T\pmb{x}\right]\\
+&=\pmb{\theta}_f^T\pmb{x}-\lambda\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f+\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\mathbb{E}\left[\pmb{\epsilon}\right]\\
+&=\pmb{\theta}_f^T\pmb{x}-\lambda\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f
+\end{split}
+\end{equation}
+\subsubsection*{(ii)}
+\begin{equation}
+\begin{split}
+(\bar{g}(\pmb{x})-f(\pmb{x}))^2 =& ( \pmb{\theta}_f^T\pmb{x}-\lambda\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f - \pmb{\theta}_f^T\pmb{x})^2\\
+=&\lambda^2(\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f)^T(\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f)\\
+=&\lambda^2(\pmb{\theta}_f^T((\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1})^T\pmb{x}\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f)\\
+=&\lambda^2 trace(\pmb{x}\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f\pmb{\theta}_f^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1})
+\end{split}
+\end{equation}
+\subsubsection*{(iii)}
+Plug in $\pmb{A}^T\pmb{A}\approx N\pmb{I}$, we got 
+\begin{equation}
+\begin{split}
+bias &= \mathbb{E}_{\mathcal{X}}[(\bar{g}(\pmb{x})-f(\pmb{x}))^2] \approx \lambda^2 trace(\mathbb{E}_{\mathcal{X}}[\pmb{x}\pmb{x}^T]((N+\lambda)\pmb{I})^{-1}\pmb{\theta}_f\pmb{\theta}_f^T((N+\lambda)\pmb{I})^{-1})]\\
+&=\frac{\lambda^2}{(N+\lambda)^2}trace(\
+\pmb{\theta}_f\pmb{\theta}_f^T)\\
+&=\frac{\lambda^2}{(N+\lambda)^2}\
+\pmb{\theta}_f^T\pmb{\theta}_f\\
+&=\frac{\lambda^2}{(N+\lambda)^2}||\pmb{\theta}_f||^2_2
+\end{split}
+\end{equation}
+\subsubsection*{(iv)}
+\begin{equation}
+\begin{split}
+\mathbb{E}_{\mathcal{D}}[(h^{(\mathcal{D})}(\pmb{x})-\bar{g}(\pmb{x}))^2] &= \mathbb{E}_{\mathcal{D}}[(\pmb{\theta}_{\mathcal{D}}^T\pmb{x} - \pmb{\theta}_f^T\pmb{x}+\lambda\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f)^2]\\
+&=\mathbb{E}_{\mathcal{D}}[((\pmb{\theta}_f-\lambda(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f + (\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{\epsilon})^T\pmb{x} - \pmb{\theta}_f^T\pmb{x}+\lambda\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f)^2]\\
+&=\mathbb{E}_{\mathcal{D}}[(\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{\epsilon})^2]\\
+&=\mathbb{E}_{\pmb{A}}[(\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T)^2]\mathbb{E}_{\mathcal{\pmb{\epsilon}}}[\pmb{\epsilon}^2]\\
+&=\sigma^2\mathbb{E}_{\pmb{A}}[(\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T)^T(\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T)]\\
+&=\sigma^2\mathbb{E}_{\pmb{A}}[trace(\pmb{A}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{x}\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T)]\\
+&=\sigma^2\mathbb{E}_{\pmb{A}}[trace(\pmb{x}\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{A}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1})]
+\end{split}
+\end{equation}
+
+\subsubsection*{(v)}
+\begin{equation}
+\begin{split}
+var &= \mathbb{E}_{\mathcal{X}} [\mathbb{E}_{\mathcal{D}}[(h^{(\mathcal{D})}(\pmb{x})-\bar{g}(\pmb{x}))^2]]\\
+&=\sigma^2\mathbb{E}_{\pmb{A}}[trace(\mathbb{E}_{\mathcal{X}}[\pmb{x}\pmb{x}^T](\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{A}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1})]\\
+&=\sigma^2\mathbb{E}_{\pmb{A}}[trace(\pmb{I}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{A}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1})]\\
+&=\sigma^2\mathbb{E}_{\pmb{A}}[trace((\pmb{A}^T\pmb{A})^{-1}\pmb{A}^T\pmb{A}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{A}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1})]\\
+&=\frac{\sigma^2}{N}\mathbb{E}_{\pmb{A}}[trace(\pmb{A}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{A}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1})\pmb{A}^T]\\
+&=\frac{\sigma^2}{N}\mathbb{E}_{\pmb{A}}[trace(H^2(\lambda))]
+\end{split}
+\end{equation}
 \end{document}
 
 
