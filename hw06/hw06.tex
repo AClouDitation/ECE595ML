@@ -144,19 +144,19 @@ Continue from the last problem, expand what we already got,
 \subsubsection*{(i)}
 \begin{equation}
 \begin{split}
-\bar{g}(\pmb{x}) &= \mathbb{E}_{\mathcal{D}}\left[h^{(\mathcal{D})}(\pmb{x})\right]=\mathbb{E}\left[\pmb{\theta}_{\mathcal{D}}^T\pmb{x}\right]\\
-&=\mathbb{E}\left[\left(\pmb{\theta}_f-\lambda(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f + (\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{\epsilon}\right)^T\pmb{x}\right]\\
-&=\pmb{\theta}_f^T\pmb{x}-\lambda\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f+\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\mathbb{E}\left[\pmb{\epsilon}\right]\\
-&=\pmb{\theta}_f^T\pmb{x}-\lambda\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f
+\bar{g}(\pmb{x}) &= \mathbb{E}_{\mathcal{D}}\left[h^{(\mathcal{D})}(\pmb{x})\right]=\mathbb{E}_{\mathcal{D}}\left[\pmb{\theta}_{\mathcal{D}}^T\pmb{x}\right]\\
+&=\mathbb{E}_{\mathcal{D}}\left[\left(\pmb{\theta}_f-\lambda(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f + (\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{\epsilon}\right)^T\pmb{x}\right]\\
+&=\pmb{\theta}_f^T\pmb{x}-\lambda\pmb{x}^T\mathbb{E}_{\pmb{A}}[(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}]\pmb{\theta}_f+\pmb{x}^T\mathbb{E}_{\pmb{A}}[(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T]\mathbb{E}\left[\pmb{\epsilon}\right]\\
+&=\pmb{\theta}_f^T\pmb{x}-\lambda\pmb{x}^T\mathbb{E}_{\pmb{A}}[(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}]\pmb{\theta}_f
 \end{split}
 \end{equation}
 \subsubsection*{(ii)}
 \begin{equation}
 \begin{split}
-(\bar{g}(\pmb{x})-f(\pmb{x}))^2 =& ( \pmb{\theta}_f^T\pmb{x}-\lambda\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f - \pmb{\theta}_f^T\pmb{x})^2\\
-=&\lambda^2(\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f)^T(\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f)\\
-=&\lambda^2(\pmb{\theta}_f^T((\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1})^T\pmb{x}\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f)\\
-=&\lambda^2 trace(\pmb{x}\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f\pmb{\theta}_f^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1})
+(\bar{g}(\pmb{x})-f(\pmb{x}))^2 =& ( \pmb{\theta}_f^T\pmb{x}-\lambda\pmb{x}^T\mathbb{E}_{\pmb{A}}[(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}]\pmb{\theta}_f - \pmb{\theta}_f^T\pmb{x})^2\\
+=&\lambda^2(\pmb{x}^T\mathbb{E}_{\pmb{A}}[(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}]\pmb{\theta}_f)^T(\pmb{x}^T\mathbb{E}_{\pmb{A}}[(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}]\pmb{\theta}_f)\\
+=&\lambda^2(\pmb{\theta}_f^T\mathbb{E}_{\pmb{A}}[(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}]^T\pmb{x}\pmb{x}^T\mathbb{E}_{\pmb{A}}[(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}]\pmb{\theta}_f)\\
+=&\lambda^2 trace(\pmb{x}\pmb{x}^T(\mathbb{E}_{\pmb{A}}[(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}]\pmb{\theta}_f\pmb{\theta}_f^T\mathbb{E}_{\pmb{A}}[(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}])
 \end{split}
 \end{equation}
 \subsubsection*{(iii)}
