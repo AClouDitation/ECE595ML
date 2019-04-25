@@ -63,7 +63,7 @@ something something...
 &\{h:\mathbb{R}\rightarrow\{-1,+1\}|h(x)=+1,\forall x\in(-\infty,a], a\in\mathbb{R}\}
 \end{split}
 \end{equation}
-By inspection, the VC dimension of the above hypothesis set is 2.
+By inspection, the VC dimension of the above hypothesis set is 2. Since the hypothesis set is composed by two step functions that are symmetric to each other, they can shatter 2 points in 4 ways while obviously with one of the functions can get 3 combinations, $\{[+1,+1],[+1,-1],[-1,-1]\}$ by changing $a$, the other one will cover $\{[-1,-1],[-1,+1],[+1,+1]\}$, thus the union will be $\{[+1,+1],[+1,-1],[-1,+1],[-1,-1]\}$. While it is linear in a 1D space, it cannot shatter more than 2 points.
 
 \subsubsection*{(ii)}
 \begin{equation}
@@ -72,7 +72,7 @@ By inspection, the VC dimension of the above hypothesis set is 2.
 &\{h:\mathbb{R}\rightarrow\{-1,+1\}|h(x)=-1,\forall x\in[a,b], a,b\in\mathbb{R}\}
 \end{split}
 \end{equation}
-By inspection, the VC dimension of the above hypothesis set is 3.
+By inspection, the VC dimension of the above hypothesis set is 3. Similarly to the one above, The first hypothesis will cover $\{[-1,-1,-1],[-1,-1,+1],[-1,+1,+1],[+1,+1,+1],[+1,+1,-1],[+1,-1,-1]\}$, the second one will cover $\{[+1,+1,+1],[+1,+1,-1],[+1,-1,-1],[-1,-1,-1],[-1,-1,+1],[-1,+1,+1]\}$, the Union will cover all eight of them $\{[-1,-1,-1], ... ,[+1,+1,+1]\}$. While it is quadratic, it cannot shatter more than 3 points. 
 
 \subsubsection*{(iii)}
 \begin{equation}
@@ -80,7 +80,6 @@ By inspection, the VC dimension of the above hypothesis set is 3.
 \mathcal{H}=&\left\{h:\mathbb{R}^d\rightarrow\{-1,+1\}|h(x)=+1,\forall x\ where \sqrt{\sum_{j=1}^{d} x_j^2}\le b, b\in\mathbb{R}\right\}
 \end{split}
 \end{equation}
-
 By inspection, hypothesis function is a hyper ball. Thus, the VC dimension of the above hypothesis set is 1.
 
 \subsection*{(b)}
@@ -193,7 +192,7 @@ var &= \mathbb{E}_{\mathcal{X}} [\mathbb{E}_{\mathcal{D}}[(h^{(\mathcal{D})}(\pm
 &=\sigma^2\mathbb{E}_{\pmb{A}}[trace(\mathbb{E}_{\mathcal{X}}[\pmb{x}\pmb{x}^T](\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{A}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1})]\\
 &=\sigma^2\mathbb{E}_{\pmb{A}}[trace(\pmb{I}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{A}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1})]\\
 &=\sigma^2\mathbb{E}_{\pmb{A}}[trace((\pmb{A}^T\pmb{A})^{-1}\pmb{A}^T\pmb{A}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{A}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1})]\\
-&=\frac{\sigma^2}{N}\mathbb{E}_{\pmb{A}}[trace(\pmb{A}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{A}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1})\pmb{A}^T]\\
+&\approx\frac{\sigma^2}{N}\mathbb{E}_{\pmb{A}}[trace(\pmb{A}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{A}(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1})\pmb{A}^T]\\
 &=\frac{\sigma^2}{N}\mathbb{E}_{\pmb{A}}[trace(H^2(\lambda))]
 \end{split}
 \end{equation}
