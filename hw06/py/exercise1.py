@@ -53,11 +53,11 @@ if __name__ == "__main__":
     epsilon = np.arange(0, 0.5, 0.05)
     hoeffding = 2 * np.exp(-2 * epsilon ** 2 * 10)
     # P(|v1-mu1|>e)
-    pv1     = [np.sum(np.abs(v_1s - 0.5) > epsilon[i]) / len(v_1s) for i in range(len(epsilon))]
+    pv1     = [np.sum(np.abs(v_1s - 0.499999) > epsilon[i]) / len(v_1s) for i in range(len(epsilon))]
     # P(|vrand-murand|>e)
-    pvrand  = [np.sum(np.abs(v_rands - 0.5) > epsilon[i]) / len(v_1s) for i in range(len(epsilon))]
+    pvrand  = [np.sum(np.abs(v_rands - 0.499999) > epsilon[i]) / len(v_1s) for i in range(len(epsilon))]
     # P(|vmin-mumin|>e)
-    pvmin   = [np.sum(np.abs(v_mins - 0.5) > epsilon[i]) / len(v_1s) for i in range(len(epsilon))]
+    pvmin   = [np.sum(np.abs(v_mins - 0.499999) > epsilon[i]) / len(v_1s) for i in range(len(epsilon))]
 
 
     fig, axs = newfig()
