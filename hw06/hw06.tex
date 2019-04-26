@@ -175,7 +175,7 @@ bias &= \mathbb{E}_{\mathcal{X}}[(\bar{g}(\pmb{x})-f(\pmb{x}))^2] \approx \lambd
 \subsubsection*{(iv)}
 \begin{equation}
 \begin{split}
-\mathbb{E}_{\mathcal{D}}[(h^{(\mathcal{D})}(\pmb{x})-\bar{g}(\pmb{x}))^2] &= \mathbb{E}_{\mathcal{D}}[(\pmb{\theta}_{\mathcal{D}}^T\pmb{x} - \pmb{\theta}_f^T\pmb{x}+\lambda\pmb{x}^T\mathbb{E}_{\pmb{A}}[(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}]\pmb{\theta}_f)^2]\\
+&\mathbb{E}_{\mathcal{D}}[(h^{(\mathcal{D})}(\pmb{x})-\bar{g}(\pmb{x}))^2] = \mathbb{E}_{\mathcal{D}}[(\pmb{\theta}_{\mathcal{D}}^T\pmb{x} - \pmb{\theta}_f^T\pmb{x}+\lambda\pmb{x}^T\mathbb{E}_{\pmb{A}}[(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}]\pmb{\theta}_f)^2]\\
 &=\mathbb{E}_{\mathcal{D}}[((\pmb{\theta}_f-\lambda(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{\theta}_f + (\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{\epsilon})^T\pmb{x} - \pmb{\theta}_f^T\pmb{x}+\lambda\pmb{x}^T\mathbb{E}_{\pmb{A}}[(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}]\pmb{\theta}_f)^2]\\
 &\approx\mathbb{E}_{\mathcal{D}}[(-\lambda\pmb{x}^T(N\pmb{I}+\lambda\pmb{I})^{-1}\pmb{\theta}_f + \pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{\epsilon} +\lambda\pmb{x}^T(N\pmb{I}+\lambda\pmb{I})^{-1}\pmb{\theta}_f)^2]\\
 &=\mathbb{E}_{\mathcal{D}}[(\pmb{x}^T(\pmb{A}^T\pmb{A}+\lambda\pmb{I})^{-1}\pmb{A}^T\pmb{\epsilon})^2]\\
