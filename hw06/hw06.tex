@@ -82,14 +82,23 @@ By inspection, the VC dimension of the above hypothesis set is 3. Similarly to t
 \end{equation}
 By inspection, hypothesis function is a hyper ball. Thus, the VC dimension of the above hypothesis set is 1.
 
+\pagebreak
 \subsection*{(b)}
 \begin{equation}
 \begin{split}
 \mathcal{H}=&\left\{h_\alpha:\mathbb{R}\rightarrow\mathbb{R}|h_\alpha(x)=(-1)^{\lfloor \alpha x\rfloor},\alpha\in\mathbb{R}\right\}
 \end{split}
 \end{equation}
-Even though the above hypothesis set has only one parameter, it is periodic, thus by tuning the period/frequency, you can match any number of data points you want by finding their GCD.
-This hypothesis set has simply too large VC dimension, which is far beyond the model complexity. Thus, this will perform far worse than perceptron due to over-fitting.
+Let $N$ training samples be $\{x_i\in\mathbb{R}|i=1,2,\dots,N\}$ and the corresponding class be $\{c_i\in\{-1,+1\}|i=1,\dots,N\}$.\\
+For the base case $N=1$, obviously, $\alpha = 0$ and $\alpha = 1$ can generate the two dichotomies. Since that, essentially, we take the floor of $\alpha x$, we do not care the decimal places. Or, if we choose $x_i = 10^i$, we do not care about what is left after the $(N-1)$th decimal place of $\alpha$, since it will be floored out eventually.\\
+Thus, if we have a hypothesis set $\mathcal{H}_{\alpha}(x)$ who can shatter $(N-1)$ samples, and $A$ be the set of all $\alpha$ used in $\mathcal{H}_{\alpha}(x)$, we can always find the new set,
+$$A'=\{\alpha'=\alpha + k10^{(1-N)}|\alpha\in A\, k\in\{0,1\} \}$$ 
+where when $k=0$, the $N$th sample is classified as $-1$, when $k=1$, the $N$th sample is classified as $+1$.
+Thus, 
+$$\mathcal{H}_{\alpha'}=\left\{h_{\alpha'}:\mathbb{R}\rightarrow\mathbb{R}|h_{\alpha'}(x)=(-1)^{\lfloor \alpha' x\rfloor},\alpha'\in A'\right\}$$
+can shatter $N$ points.\\
+By induction, we can see that $N$ is not bounded at all, $VC_{dimension}=\infty$.\\
+This is far worse than the perceptron due to infinite VC-dimension. The model is far to complicated thus have no ability to generalize at all.
 
 \pagebreak
 \section*{Exercise 3: Bias-Variance Trade-off}
